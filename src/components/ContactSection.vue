@@ -4,9 +4,8 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const socials = [
-  { name: 'GitHub', url: 'https://github.com/seuusuario' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/seuusuario' },
-  { name: 'Twitter', url: 'https://twitter.com/seuusuario' }
+  { name: 'GitHub', url: 'https://github.com/davidalmeidasj' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/david-almeida-sj/' }
 ]
 </script>
 
@@ -17,14 +16,20 @@ const socials = [
         {{ t('contact.title') }}
       </h2>
 
-      <form class="space-y-6">
+      <form
+        action="https://formspree.io/f/xdkdnboy"
+        method="POST"
+        class="space-y-6"
+      >
         <div>
           <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
             {{ t('contact.name') }}
           </label>
           <input
             type="text"
+            name="name"
             id="name"
+            required
             placeholder="John Doe"
             class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
           />
@@ -36,7 +41,9 @@ const socials = [
           </label>
           <input
             type="email"
+            name="email"
             id="email"
+            required
             placeholder="john@example.com"
             class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
           />
@@ -47,7 +54,9 @@ const socials = [
             {{ t('contact.message') }}
           </label>
           <textarea
+            name="message"
             id="message"
+            required
             rows="5"
             placeholder="Your message..."
             class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
@@ -57,7 +66,7 @@ const socials = [
         <div class="text-center">
           <button
             type="submit"
-            class="bg-primary text-white font-medium px-6 py-3 rounded-md hover:bg-pink-600 transition"
+            class="bg-primary text-white font-medium px-6 py-3 rounded-md hover:bg-primary-dark transition"
           >
             {{ t('contact.send') }}
           </button>
