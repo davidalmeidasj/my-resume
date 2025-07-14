@@ -13,5 +13,24 @@
   "about": {
     "title": "Sobre mí",
     "description": "Soy Ingeniero de Software con más de 9 años de experiencia en desarrollo front-end y back-end.\n\nTrabajo con tecnologías modernas como React, Vue, TypeScript, Node.js y PHP (Laravel). Me apasiona el código limpio, la accesibilidad y la experiencia de usuario responsiva.\n\nActualmente trabajo como Desarrollador Front-End en proyectos de gran escala utilizando React.js, Next.js y Vue.js, integrando APIs REST, GraphQL y WebSockets.\n\nMe encanta la arquitectura escalable, los patrones limpios y los equipos colaborativos."
+  },
+  "services": {
+    "title": "Lo que hago",
+    "frontend": {
+      "title": "Desarrollo Front-End",
+      "description": "Creación de interfaces modernas enfocadas en el rendimiento, la capacidad de respuesta y la experiencia del usuario usando Vue.js, React y Next.js."
+    },
+    "fullstack": {
+      "title": "Desarrollo Fullstack",
+      "description": "Experiencia completa con backend usando Node.js, Express y PHP (Laravel), incluidos bases de datos SQL y NoSQL."
+    },
+    "uiux": {
+      "title": "Diseño UI/UX",
+      "description": "Apoyo en diseño de interfaces, usabilidad y prototipado con Figma, centrado en accesibilidad y coherencia visual."
+    },
+    "api": {
+      "title": "Integración de APIs",
+      "description": "Trabajo con APIs REST, GraphQL y WebSockets para integraciones en tiempo real y comunicación entre servicios."
+    }
   }
 }
