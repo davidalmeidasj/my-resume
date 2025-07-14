@@ -4,22 +4,28 @@ const { t } = useI18n()
 
 const projects = [
   {
-    title: t('projects.trackmall.title'),
-    description: t('projects.trackmall.description'),
+    titleKey: 'projects.resume.title',
+    descriptionKey: 'projects.resume.description',
+    techs: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'i18n'],
+    github: 'https://github.com/davidalmeidasj/my-resume'
+  },
+  {
+    titleKey: 'projects.trackmall.title',
+    descriptionKey: 'projects.trackmall.description',
     techs: ['Vue.js', 'Tailwind', 'Node.js'],
-    github: 'https://github.com/seu-usuario/trackmall'
+    github: 'https://github.com/davidalmeidasj/trackmall'
   },
   {
-    title: t('projects.bookaboat.title'),
-    description: t('projects.bookaboat.description'),
+    titleKey: 'projects.bookaboat.title',
+    descriptionKey: 'projects.bookaboat.description',
     techs: ['React', 'TypeScript', 'GraphQL'],
-    github: 'https://github.com/seu-usuario/book-a-boat'
+    github: 'https://github.com/davidalmeidasj/book-a-boat'
   },
   {
-    title: t('projects.vxdoc.title'),
-    description: t('projects.vxdoc.description'),
+    titleKey: 'projects.vxdoc.title',
+    descriptionKey: 'projects.vxdoc.description',
     techs: ['Next.js', 'Styled-Components', 'REST API'],
-    github: 'https://github.com/seu-usuario/vxdoc'
+    github: 'https://github.com/davidalmeidasj/vxdoc'
   }
 ]
 </script>
@@ -39,10 +45,10 @@ const projects = [
         >
           <div>
             <h3 class="text-lg font-semibold text-dark mb-2">
-              {{ project.title }}
+              {{ t(project.titleKey) }}
             </h3>
             <p class="text-sm text-muted leading-relaxed mb-4">
-              {{ project.description }}
+              {{ t(project.descriptionKey) }}
             </p>
             <ul class="flex flex-wrap gap-2 mb-4">
               <li

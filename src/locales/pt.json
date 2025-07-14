@@ -47,6 +47,10 @@
     "vxdoc": {
       "title": "VXDoc",
       "description": "Sistema de gerenciamento de documentos com assinatura digital, etapas de protocolo e autenticação JWT."
+    },
+    "resume": {
+      "title": "Meu Portfólio",
+      "description": "Portfólio responsivo com Vue 3, Tailwind CSS, suporte a múltiplos idiomas e design mobile first."
     }
   },
   "skills": {
