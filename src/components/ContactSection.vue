@@ -1,81 +1,80 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const name = ref('')
-const email = ref('')
-const message = ref('')
-
-const handleSubmit = () => {
-  alert('📨 Form submission logic goes here.')
-  name.value = ''
-  email.value = ''
-  message.value = ''
-}
+const socials = [
+  { name: 'GitHub', url: 'https://github.com/seuusuario' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/seuusuario' },
+  { name: 'Twitter', url: 'https://twitter.com/seuusuario' }
+]
 </script>
 
 <template>
-  <section id="contact" class="py-20 px-6 bg-gray-50">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-8">
+  <section id="contact" class="bg-white px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
         {{ t('contact.title') }}
       </h2>
 
-      <form @submit.prevent="handleSubmit" class="grid gap-4">
-        <input
-          type="text"
-          v-model="name"
-          :placeholder="t('contact.name')"
-          required
-          class="p-3 rounded border border-gray-300 focus:outline-primary"
-        />
-        <input
-          type="email"
-          v-model="email"
-          :placeholder="t('contact.email')"
-          required
-          class="p-3 rounded border border-gray-300 focus:outline-primary"
-        />
-        <textarea
-          v-model="message"
-          :placeholder="t('contact.message')"
-          required
-          rows="5"
-          class="p-3 rounded border border-gray-300 focus:outline-primary"
-        ></textarea>
+      <form class="space-y-6">
+        <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
+            {{ t('contact.name') }}
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="John Doe"
+            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
+          />
+        </div>
 
-        <button
-          type="submit"
-          class="bg-primary text-white px-6 py-3 rounded hover:bg-primary-dark transition"
-        >
-          {{ t('contact.submit') }}
-        </button>
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-700">
+            {{ t('contact.email') }}
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="john@example.com"
+            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-700">
+            {{ t('contact.message') }}
+          </label>
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="Your message..."
+            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
+          ></textarea>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="bg-primary text-white font-medium px-6 py-3 rounded-md hover:bg-pink-600 transition"
+          >
+            {{ t('contact.send') }}
+          </button>
+        </div>
       </form>
 
-      <div class="flex justify-center gap-6 mt-10 text-gray-600">
+      <!-- Social Links -->
+      <div class="mt-10 flex justify-center gap-6">
         <a
-          href="https://github.com/seu-usuario"
+          v-for="(item, index) in socials"
+          :key="index"
+          :href="item.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-primary"
+          class="text-muted hover:text-primary transition"
         >
-          GitHub
-        </a>
-        <a
-          href="https://linkedin.com/in/seu-usuario"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-primary"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="mailto:davidasj21@gmail.com"
-          class="hover:text-primary"
-        >
-          Email
+          {{ item.name }}
         </a>
       </div>
     </div>
