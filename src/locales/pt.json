@@ -51,5 +51,12 @@
   },
   "skills": {
     "title": "Tecnologias"
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "name": "Seu nome",
+    "email": "Seu email",
+    "message": "Escreva sua mensagem",
+    "submit": "Enviar mensagem"
   }
 }
