@@ -58,5 +58,9 @@
     "email": "Tu correo electrónico",
     "message": "Escribe tu mensaje",
     "submit": "Enviar mensaje"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "backToTop": "Volver arriba"
   }
 }

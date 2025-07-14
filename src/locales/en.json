@@ -58,5 +58,9 @@
     "email": "Your email",
     "message": "Write your message",
     "submit": "Send message"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "backToTop": "Back to top"
   }
 }
