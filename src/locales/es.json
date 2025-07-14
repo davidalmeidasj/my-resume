@@ -8,7 +8,8 @@
   "hero": {
     "title": "Hola, soy David Almeida",
     "subtitle": "Desarrollador Front-End enfocado en experiencias modernas, responsivas y de alto rendimiento.",
-    "cta": "Contáctame"
+    "cta": "Contáctame",
+    "downloadResume": "Descargar CV"
   },
   "about": {
     "title": "Sobre mí",

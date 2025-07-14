@@ -8,7 +8,8 @@
   "hero": {
     "title": "Hi, I'm David Almeida",
     "subtitle": "Front-End Developer focused on modern, responsive, and performant experiences.",
-    "cta": "Contact me"
+    "cta": "Contact me",
+    "downloadResume": "Download Resume"
   },
   "about": {
     "title": "About Me",

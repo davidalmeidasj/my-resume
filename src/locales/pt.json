@@ -8,7 +8,8 @@
   "hero": {
     "title": "Olá, eu sou David Almeida",
     "subtitle": "Desenvolvedor Front-End focado em experiências modernas, responsivas e performáticas.",
-    "cta": "Fale comigo"
+    "cta": "Fale comigo",
+    "downloadResume": "Baixar Currículo"
   },
   "about": {
     "title": "Sobre mim",
