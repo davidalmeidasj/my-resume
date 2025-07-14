@@ -4,5 +4,14 @@
     "about": "About Me",
     "projects": "Projects",
     "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hi, I'm David Almeida",
+    "subtitle": "Front-End Developer focused on modern, responsive, and performant experiences.",
+    "cta": "Contact me"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I’m a Software Engineer with over 9 years of experience in both front-end and back-end development.\n\nI work with modern technologies such as React, Vue, TypeScript, Node.js, and PHP (Laravel). I’m passionate about clean code, accessibility, and responsive user experiences.\n\nCurrently working as a Front-End Developer on large-scale projects using React.js, Next.js, and Vue.js, integrating with REST APIs, GraphQL, and WebSockets.\n\nI love scalable architecture, clean patterns, and collaborative teams."
   }
 }
