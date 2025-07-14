@@ -13,11 +13,11 @@ const scrollToContact = () => {
 <template>
   <section
     id="home"
-    class="flex flex-col justify-center items-center text-center min-h-screen px-6 bg-background"
+    class="flex flex-col justify-center items-center text-center min-h-screen px-6 bg-light"
   >
     <div class="animate-fade-in max-w-2xl">
       <h1
-        class="text-4xl md:text-5xl font-bold text-dark mb-4 leading-tight tracking-tight"
+        class="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight tracking-tight"
       >
         {{ t('hero.title') }}
       </h1>
@@ -30,7 +30,7 @@ const scrollToContact = () => {
 
       <button
         @click="scrollToContact"
-        class="bg-primary text-white font-medium px-6 py-3 rounded-lg hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
+        class="bg-accent2 text-white font-semibold px-6 py-3 rounded-xl hover:bg-accent1 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2"
       >
         {{ t('hero.cta') }}
       </button>

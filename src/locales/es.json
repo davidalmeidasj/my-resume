@@ -57,7 +57,7 @@
     "name": "Tu nombre",
     "email": "Tu correo electrónico",
     "message": "Escribe tu mensaje",
-    "submit": "Enviar mensaje"
+    "send": "Enviar mensaje"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",

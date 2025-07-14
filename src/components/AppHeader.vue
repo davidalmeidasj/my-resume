@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import BrandLogo from '@/components/BrandLogo.vue'
 
 const { locale, t } = useI18n()
 const mobileMenuOpen = ref(false)
@@ -20,7 +21,7 @@ const scrollToSection = (id: string) => {
 <template>
   <header class="fixed top-0 w-full bg-white shadow-md z-50">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="text-xl font-bold text-primary">David</div>
+      <BrandLogo class="h-10 w-auto" />
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex gap-6 text-sm font-medium">
