@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
+
 const { t } = useI18n()
 
-const services = [
+const services = computed(() => [
   {
     title: t('services.frontend.title'),
     description: t('services.frontend.description')
@@ -19,8 +21,9 @@ const services = [
     title: t('services.api.title'),
     description: t('services.api.description')
   }
-]
+])
 </script>
+
 
 <template>
   <section id="services" class="bg-background px-6 py-20">
