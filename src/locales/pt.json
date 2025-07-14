@@ -32,5 +32,21 @@
       "title": "Integração com APIs",
       "description": "Trabalho com APIs REST, GraphQL e WebSockets para integrações em tempo real e comunicação entre serviços."
     }
+  },
+  "projects": {
+    "title": "Projetos",
+    "viewOnGitHub": "Ver no GitHub",
+    "trackmall": {
+      "title": "TrackMall",
+      "description": "Plataforma de gestão de espaços comerciais integrada com APIs e dashboards em tempo real."
+    },
+    "bookaboat": {
+      "title": "Book a Boat",
+      "description": "Aplicação de reserva de barcos com sistema de busca, filtros, mapa interativo e área administrativa."
+    },
+    "vxdoc": {
+      "title": "VXDoc",
+      "description": "Sistema de gerenciamento de documentos com assinatura digital, etapas de protocolo e autenticação JWT."
+    }
   }
 }
