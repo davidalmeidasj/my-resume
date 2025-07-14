@@ -1,15 +1,23 @@
 import type { Config } from 'tailwindcss'
 
-export default {
-  content: ['./index.html','./src/**/*.{vue,js,ts,jsx,tsx}'],
+const config: Config = {
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: '#e91e63',
-        dark: '#0d0d0d'
+        primary: '#E91E63',
+        'primary-dark': '#C2185B',
+        background: '#F9FAFB',
+        surface: '#FFFFFF',
+        muted: '#6B7280',
+        dark: '#1F2937'
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif']
       }
     }
   },
-  plugins: [],
-} satisfies Config
+  plugins: []
+}
 
+export default config
