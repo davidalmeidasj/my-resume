@@ -33,17 +33,17 @@ const downloadResume = () => {
         {{ t('hero.subtitle') }}
       </p>
 
-      <div class="flex flex-col gap-4 items-center">
+      <div class="flex flex-col gap-4 items-center sm:flex-row sm:justify-center">
         <button
           @click="scrollToContact"
-          class="bg-accent2 text-white font-semibold px-6 py-3 rounded-xl hover:bg-accent1 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto"
+          class="bg-accent2 text-white font-semibold px-6 py-3 rounded-xl hover:bg-accent1 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
         >
           {{ t('hero.cta') }}
         </button>
 
         <button
           @click="downloadResume"
-          class="bg-white text-accent2 font-semibold px-6 py-3 rounded-xl border border-accent2 hover:bg-accent2 hover:text-white transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto"
+          class="bg-white text-accent2 font-semibold px-6 py-3 rounded-xl border border-accent2 hover:bg-accent2 hover:text-white transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
         >
           {{ t('hero.downloadResume') }}
         </button>
