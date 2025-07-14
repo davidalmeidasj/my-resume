@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { Carousel, Slide } from 'vue3-carousel'
 
 const { t } = useI18n()
 
@@ -17,26 +18,42 @@ const skills = [
   { label: 'PostgreSQL', icon: '/assets/icons/postgresql.svg' },
   { label: 'Figma', icon: '/assets/icons/figma.svg' }
 ]
-
 </script>
 
 <template>
-  <section id="skills" class="py-20 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+  <section id="skills" class="bg-white px-6 py-20">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
         {{ t('skills.title') }}
       </h2>
 
-      <div class="grid gap-6 grid-cols-3 sm:grid-cols-4 md:grid-cols-6 place-items-center">
-        <div
-          v-for="(skill, index) in skills"
-          :key="index"
-          class="flex flex-col items-center gap-2 text-sm text-gray-700 hover:text-primary transition"
-        >
-          <img :src="skill.icon" :alt="skill.label" class="w-10 h-10" />
-          <span>{{ skill.label }}</span>
-        </div>
-      </div>
+      <Carousel
+        :items-to-show="2"
+        :wrap-around="true"
+        :autoplay="2500"
+        :pause-autoplay-on-hover="true"
+        :mouse-drag="true"
+        class="w-full"
+        breakpoints="{
+          640: { itemsToShow: 3 },
+          768: { itemsToShow: 5 },
+          1024: { itemsToShow: 6 }
+        }"
+      >
+        <Slide v-for="(skill, index) in skills" :key="index">
+          <div class="flex flex-col items-center justify-center gap-2 px-4 py-6">
+            <img :src="skill.icon" :alt="skill.label" class="w-10 h-10 object-contain" />
+            <span class="text-sm text-muted">{{ skill.label }}</span>
+          </div>
+        </Slide>
+      </Carousel>
     </div>
   </section>
 </template>
+
+<style scoped>
+.carousel__slide {
+  display: flex;
+  justify-content: center;
+}
+</style>
