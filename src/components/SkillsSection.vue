@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 
 const { t } = useI18n()
@@ -28,17 +29,17 @@ const skills = [
       </h2>
 
       <Carousel
-        :items-to-show="2"
-        :wrap-around="true"
+        :itemsToShow="2"
+        :wrapAround="true"
         :autoplay="2500"
-        :pause-autoplay-on-hover="true"
-        :mouse-drag="true"
-        class="w-full"
-        breakpoints="{
-          640: { itemsToShow: 3 },
-          768: { itemsToShow: 5 },
-          1024: { itemsToShow: 6 }
+        :pauseAutoplayOnHover="true"
+        :mouseDrag="true"
+        :breakpoints="{
+          640: { slidesToShow: 3 },
+          768: { slidesToShow: 5 },
+          1024: { slidesToShow: 6 }
         }"
+        class="w-full"
       >
         <Slide v-for="(skill, index) in skills" :key="index">
           <div class="flex flex-col items-center justify-center gap-2 px-4 py-6">
@@ -50,10 +51,3 @@ const skills = [
     </div>
   </section>
 </template>
-
-<style scoped>
-.carousel__slide {
-  display: flex;
-  justify-content: center;
-}
-</style>
