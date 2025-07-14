@@ -48,5 +48,8 @@
       "title": "VXDoc",
       "description": "Document management system with digital signing, protocol steps, and JWT authentication."
     }
+  },
+  "skills": {
+    "title": "Technologies"
   }
 }

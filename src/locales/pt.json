@@ -48,5 +48,8 @@
       "title": "VXDoc",
       "description": "Sistema de gerenciamento de documentos com assinatura digital, etapas de protocolo e autenticação JWT."
     }
+  },
+  "skills": {
+    "title": "Tecnologias"
   }
 }
