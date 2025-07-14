@@ -35,9 +35,9 @@ const skills = [
         :pauseAutoplayOnHover="true"
         :mouseDrag="true"
         :breakpoints="{
-          640: { slidesToShow: 3 },
-          768: { slidesToShow: 5 },
-          1024: { slidesToShow: 6 }
+          640: { itemsToShow: 3 },
+          768: { itemsToShow: 5 },
+          1024: { itemsToShow: 6 }
         }"
         class="w-full"
       >
