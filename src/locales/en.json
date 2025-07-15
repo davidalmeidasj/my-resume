@@ -67,17 +67,17 @@
     "dbc": {
       "title": "Onboarding Clients (DBC)",
       "description": "Client management system with tech stack upgrade and implementation of unit and end-to-end tests.",
-      "goal": "Migrated the React application to version 18 and implemented full test coverage using Cypress and Jest."
+      "goal": "I led the modernization of the project’s entire stack by migrating the application to React 18, enabling support for modern features such as Suspense and Concurrent Rendering. I implemented comprehensive unit tests with Jest and end-to-end tests using Cypress, achieving production-level coverage. Additionally, I designed the testing architecture, documented key workflows, and contributed to adopting CI/CD best practices to improve deployment reliability."
     },
     "helpvino": {
       "title": "Helpvino",
       "description": "Wine marketplace with CI/CD automation, test coverage, and full AWS deployment with EC2 and CloudFront.",
-      "goal": "Built CI/CD pipelines with Jenkins and Blue Ocean, modernized the frontend, and led the migration from GitHub Pages to AWS."
+      "goal": "I was responsible for the complete modernization of the project, implementing CI/CD pipelines with Jenkins and Blue Ocean, automated test coverage with Cypress and Jest, and integrating SonarQube for code quality analysis. Led the migration to AWS by configuring EC2, CloudFront, S3, and Route 53, ensuring scalability, security, and cost optimization. I also structured the frontend using React, standardized a modular architecture, and integrated external APIs and payment gateways."
     },
     "controllab": {
       "title": "ControlLab",
       "description": "Lab systems built from scratch using React, React Native, PHP, Laravel, Java, Kotlin with TDD/BDD practices.",
-      "goal": "Architected and developed complex systems from the ground up, applying modern practices and integrating multiple technologies."
+      "goal": "I was directly involved in the architecture and development of multiple systems from the ground up, integrating web and mobile technologies into a unified ecosystem. I built shared logic solutions using React and React Native, developed APIs with Laravel and Java, and implemented Android services with Kotlin. I applied TDD and BDD methodologies to ensure quality from day one and standardized SQL and NoSQL database integrations in scalable and high-complexity environments."
     }
   },
   "skills": {

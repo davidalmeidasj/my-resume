@@ -67,17 +67,17 @@
     "dbc": {
       "title": "Onboarding Clients (DBC)",
       "description": "Sistema de gestão de clientes com atualização de stack e implementação de testes unitários e end-to-end.",
-      "goal": "Liderei a migração da aplicação React para versão 18, e implementei cobertura total com testes Cypress e Jest."
+      "goal": "Fui responsável por modernizar toda a stack do projeto, migrando a aplicação para o React 18 com suporte a features modernas como Suspense e Concurrent Rendering. Implementei testes unitários robustos com Jest e testes end-to-end com Cypress, elevando a cobertura para níveis exigidos em produção. Além disso, estruturei a arquitetura de testes, documentei os fluxos principais e colaborei na adoção de boas práticas de CI/CD, garantindo mais confiabilidade no processo de deploy."
     },
     "helpvino": {
       "title": "Helpvino",
       "description": "Marketplace de vinhos com CI/CD, testes automatizados e deploy completo na AWS com EC2 e CloudFront.",
-      "goal": "Implementei pipeline de CI/CD com Jenkins e Blue Ocean, além de modernizar o projeto e gerenciar a migração para a AWS."
+      "goal": "Fui responsável pela modernização completa do projeto, implementando pipelines de CI/CD com Jenkins e Blue Ocean, cobertura de testes automatizados com Cypress e Jest, e integração com SonarQube para análise de qualidade de código. Liderei a migração da hospedagem para a AWS, configurando EC2, CloudFront, S3 e Route 53, garantindo escalabilidade, segurança e redução de custos operacionais. Também organizei a estrutura do frontend com React, padronizei a arquitetura em módulos e integrei o sistema com APIs externas e gateways de pagamento."
     },
     "controllab": {
       "title": "ControlLab",
       "description": "Plataformas laboratoriais criadas do zero com React, React Native, PHP, Laravel, Java, Kotlin e práticas TDD/BDD.",
-      "goal": "Participei ativamente da arquitetura de novos sistemas e integração de diversas tecnologias em ambientes complexos."
+      "goal": "Atuei diretamente na arquitetura e desenvolvimento de múltiplos sistemas do zero, unificando tecnologias web e mobile em um ecossistema integrado. Implementei soluções utilizando React e React Native com compartilhamento de lógica, criei APIs com Laravel e Java, além de serviços Android com Kotlin. Adotei práticas de TDD e BDD para garantir qualidade desde o início dos projetos e padronizei integrações com bancos SQL e NoSQL em ambientes escaláveis e de alta complexidade."
     }
   },
   "skills": {
