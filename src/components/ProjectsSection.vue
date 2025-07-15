@@ -10,12 +10,6 @@ const projects = [
     github: 'https://github.com/davidalmeidasj/my-resume'
   },
   {
-    titleKey: 'projects.trackmall.title',
-    descriptionKey: 'projects.trackmall.description',
-    techs: ['Vue 3', 'Tailwind', 'Node.js'],
-    github: 'https://github.com/davidalmeidasj/trackmall'
-  },
-  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: ['Vue', 'TypeScript', 'GraphQL', 'Node.js'],
@@ -48,7 +42,14 @@ const projects = [
     goalKey: 'projects.controllab.goal',
     techs: ['React', 'React Native', 'Laravel', 'Java', 'Kotlin', 'TDD', 'BDD'],
     github: null
-  }
+  },
+  {
+    titleKey: 'projects.trackmall.title',
+    descriptionKey: 'projects.trackmall.description',
+    techs: ['Vue 3', 'Tailwind', 'Three.js', 'Node.js', 'Next.js', 'NestJS', 'AWS', 'Jenkins'],
+    goalKey: 'projects.trackmall.goal',
+    github: null
+  },
 ]
 </script>
 

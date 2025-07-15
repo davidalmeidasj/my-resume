@@ -47,7 +47,8 @@
     },
     "trackmall": {
       "title": "TrackMall",
-      "description": "Plataforma de gestión de espacios comerciales integrada con APIs y paneles en tiempo real."
+      "description": "Plataforma de gestión de espacios comerciales integrada con APIs y paneles en tiempo real.",
+      "goal": "Led major improvements in system performance and scalability, integrating 3D maps using Three.js for commercial space visualization. Set up CI pipelines with Jenkins and Blue Ocean, implemented unit tests and code quality checks. Reduced cloud costs by optimizing AWS services (RDS, Athena, CloudWatch) and improved database performance through strategic indexing, enhancing client integrations and overall user experience."
     },
     "bookaboat": {
       "title": "Book a Boat",

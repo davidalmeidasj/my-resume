@@ -47,7 +47,8 @@
     },
     "trackmall": {
       "title": "TrackMall",
-      "description": "Plataforma de gestão de espaços comerciais integrada com APIs e dashboards em tempo real."
+      "description": "Plataforma de gestão de espaços comerciais integrada com APIs e dashboards em tempo real.",
+      "goal": "Liderei melhorias significativas no desempenho e escalabilidade do sistema, integrando mapas 3D com Three.js para visualização de espaços comerciais. Configurei pipelines com Jenkins e Blue Ocean, adicionei testes unitários e verificação de qualidade de código. Reduzi custos em nuvem com otimizações em serviços AWS (RDS, Athena, CloudWatch) e otimizei queries com índices estratégicos no banco de dados, melhorando a integração com clientes e a experiência do usuário final."
     },
     "bookaboat": {
       "title": "Book a Boat",
