@@ -41,21 +41,41 @@
   "projects": {
     "title": "Projects",
     "viewOnGitHub": "View on GitHub",
+    "resume": {
+      "title": "My Portfolio",
+      "description": "Responsive portfolio built with Vue 3, Tailwind CSS, multi-language support, and mobile-first design."
+    },
     "trackmall": {
       "title": "TrackMall",
-      "description": "Commercial space management platform integrated with real-time dashboards and APIs."
+      "description": "Commercial space management platform integrated with APIs and real-time dashboards."
     },
     "bookaboat": {
       "title": "Book a Boat",
-      "description": "Boat booking app with search, filters, interactive map, and admin dashboard."
+      "description": "Boat booking application with search system, filters, interactive map, and admin area."
     },
     "vxdoc": {
       "title": "VXDoc",
-      "description": "Document management system with digital signing, protocol steps, and JWT authentication."
+      "description": "Document management system with digital signature, protocol steps, and JWT authentication."
     },
-    "resume": {
-      "title": "My Portfolio",
-      "description": "Responsive portfolio built with Vue 3, Tailwind CSS, multilingual support and mobile-first design."
+    "provider": {
+      "title": "VisioDocX (Provider IT)",
+      "description": "Integration system combining spreadsheet data and AI with real-time communication via WebSocket and GraphQL in React.",
+      "goal": "Led the integration of AI and WebSocket communication, optimizing data analysis and interaction with the GraphQL API."
+    },
+    "dbc": {
+      "title": "Onboarding Clients (DBC)",
+      "description": "Client management system with tech stack upgrade and implementation of unit and end-to-end tests.",
+      "goal": "Migrated the React application to version 18 and implemented full test coverage using Cypress and Jest."
+    },
+    "helpvino": {
+      "title": "Helpvino",
+      "description": "Wine marketplace with CI/CD automation, test coverage, and full AWS deployment with EC2 and CloudFront.",
+      "goal": "Built CI/CD pipelines with Jenkins and Blue Ocean, modernized the frontend, and led the migration from GitHub Pages to AWS."
+    },
+    "controllab": {
+      "title": "ControlLab",
+      "description": "Lab systems built from scratch using React, React Native, PHP, Laravel, Java, Kotlin with TDD/BDD practices.",
+      "goal": "Architected and developed complex systems from the ground up, applying modern practices and integrating multiple technologies."
     }
   },
   "skills": {

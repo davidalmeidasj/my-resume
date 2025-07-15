@@ -12,20 +12,42 @@ const projects = [
   {
     titleKey: 'projects.trackmall.title',
     descriptionKey: 'projects.trackmall.description',
-    techs: ['Vue.js', 'Tailwind', 'Node.js'],
+    techs: ['Vue 3', 'Tailwind', 'Node.js'],
     github: 'https://github.com/davidalmeidasj/trackmall'
   },
   {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
-    techs: ['React', 'TypeScript', 'GraphQL'],
+    techs: ['Vue', 'TypeScript', 'GraphQL', 'Node.js'],
     github: 'https://github.com/davidalmeidasj/book-a-boat'
   },
   {
-    titleKey: 'projects.vxdoc.title',
-    descriptionKey: 'projects.vxdoc.description',
-    techs: ['Next.js', 'Styled-Components', 'REST API'],
-    github: 'https://github.com/davidalmeidasj/vxdoc'
+    titleKey: 'projects.provider.title',
+    descriptionKey: 'projects.provider.description',
+    goalKey: 'projects.provider.goal',
+    techs: ['NextJs', 'WebSocket', 'GraphQL', 'Apollo', 'AI'],
+    github: null
+  },
+  {
+    titleKey: 'projects.dbc.title',
+    descriptionKey: 'projects.dbc.description',
+    goalKey: 'projects.dbc.goal',
+    techs: ['React 18', 'Cypress', 'Jest'],
+    github: null
+  },
+  {
+    titleKey: 'projects.helpvino.title',
+    descriptionKey: 'projects.helpvino.description',
+    goalKey: 'projects.helpvino.goal',
+    techs: ['React', 'Jenkins', 'AWS EC2', 'CloudFront', 'CI/CD'],
+    github: null
+  },
+  {
+    titleKey: 'projects.controllab.title',
+    descriptionKey: 'projects.controllab.description',
+    goalKey: 'projects.controllab.goal',
+    techs: ['React', 'React Native', 'Laravel', 'Java', 'Kotlin', 'TDD', 'BDD'],
+    github: null
   }
 ]
 </script>
@@ -61,14 +83,19 @@ const projects = [
             </ul>
           </div>
 
-          <a
-            :href="project.github"
-            class="text-primary text-sm font-medium hover:underline mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ t('projects.viewOnGitHub') }} →
-          </a>
+          <div v-if="project.github">
+            <a
+              :href="project.github"
+              class="text-primary text-sm font-medium hover:underline mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ t('projects.viewOnGitHub') }} →
+            </a>
+          </div>
+          <div v-else class="text-sm text-muted mt-auto">
+            <strong>Goal:</strong> {{ t(project.goalKey || '') }}
+          </div>
         </article>
       </div>
     </div>

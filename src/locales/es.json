@@ -41,21 +41,41 @@
   "projects": {
     "title": "Proyectos",
     "viewOnGitHub": "Ver en GitHub",
+    "resume": {
+      "title": "Mi Portafolio",
+      "description": "Portafolio responsivo con Vue 3, Tailwind CSS, soporte para múltiples idiomas y diseño mobile first."
+    },
     "trackmall": {
       "title": "TrackMall",
-      "description": "Plataforma de gestión de espacios comerciales con dashboards en tiempo real e integración vía API."
+      "description": "Plataforma de gestión de espacios comerciales integrada con APIs y paneles en tiempo real."
     },
     "bookaboat": {
       "title": "Book a Boat",
-      "description": "Aplicación para reservar barcos con búsqueda, filtros, mapa interactivo y panel administrativo."
+      "description": "Aplicación de reservas de barcos con búsqueda, filtros, mapa interactivo y área administrativa."
     },
     "vxdoc": {
       "title": "VXDoc",
-      "description": "Sistema de gestión de documentos con firma digital, protocolos y autenticación vía JWT."
+      "description": "Sistema de gestión documental con firma digital, flujos de protocolo y autenticación JWT."
     },
-    "resume": {
-      "title": "Mi Portafolio",
-      "description": "Portafolio responsivo desarrollado con Vue 3, Tailwind CSS, soporte multilenguaje y enfoque mobile first."
+    "provider": {
+      "title": "VisioDocX (Provider IT)",
+      "description": "Sistema de integración entre datos de hojas de cálculo e IA, con comunicación por WebSocket y GraphQL en entorno React.",
+      "goal": "Implementé integración en tiempo real con IA y WebSocket, optimizando el análisis de datos y la comunicación con la API GraphQL."
+    },
+    "dbc": {
+      "title": "Onboarding Clients (DBC)",
+      "description": "Sistema de gestión de clientes con actualización tecnológica e implementación de pruebas unitarias y end-to-end.",
+      "goal": "Lideré la migración de la aplicación React a la versión 18 e implementé cobertura total con pruebas Cypress y Jest."
+    },
+    "helpvino": {
+      "title": "Helpvino",
+      "description": "Marketplace de vinos con CI/CD, pruebas automatizadas y despliegue completo en AWS con EC2 y CloudFront.",
+      "goal": "Implementé pipelines de CI/CD con Jenkins y Blue Ocean, modernicé el proyecto y gestioné la migración completa a AWS."
+    },
+    "controllab": {
+      "title": "ControlLab",
+      "description": "Plataformas de laboratorio creadas desde cero con React, React Native, PHP, Laravel, Java, Kotlin y prácticas TDD/BDD.",
+      "goal": "Participé activamente en la arquitectura de nuevos sistemas e integración de diversas tecnologías en entornos complejos."
     }
   },
   "skills": {

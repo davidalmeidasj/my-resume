@@ -41,6 +41,10 @@
   "projects": {
     "title": "Projetos",
     "viewOnGitHub": "Ver no GitHub",
+    "resume": {
+      "title": "Meu Portfólio",
+      "description": "Portfólio responsivo com Vue 3, Tailwind CSS, suporte a múltiplos idiomas e design mobile first."
+    },
     "trackmall": {
       "title": "TrackMall",
       "description": "Plataforma de gestão de espaços comerciais integrada com APIs e dashboards em tempo real."
@@ -53,9 +57,25 @@
       "title": "VXDoc",
       "description": "Sistema de gerenciamento de documentos com assinatura digital, etapas de protocolo e autenticação JWT."
     },
-    "resume": {
-      "title": "Meu Portfólio",
-      "description": "Portfólio responsivo com Vue 3, Tailwind CSS, suporte a múltiplos idiomas e design mobile first."
+    "provider": {
+      "title": "VisioDocX (Provider IT)",
+      "description": "Sistema de integração entre dados de planilhas e IA, com comunicação via WebSocket e GraphQL em ambiente React.",
+      "goal": "Implementei integração em tempo real com IA e WebSocket, otimizando a análise de dados e comunicação com a API GraphQL."
+    },
+    "dbc": {
+      "title": "Onboarding Clients (DBC)",
+      "description": "Sistema de gestão de clientes com atualização de stack e implementação de testes unitários e end-to-end.",
+      "goal": "Liderei a migração da aplicação React para versão 18, e implementei cobertura total com testes Cypress e Jest."
+    },
+    "helpvino": {
+      "title": "Helpvino",
+      "description": "Marketplace de vinhos com CI/CD, testes automatizados e deploy completo na AWS com EC2 e CloudFront.",
+      "goal": "Implementei pipeline de CI/CD com Jenkins e Blue Ocean, além de modernizar o projeto e gerenciar a migração para a AWS."
+    },
+    "controllab": {
+      "title": "ControlLab",
+      "description": "Plataformas laboratoriais criadas do zero com React, React Native, PHP, Laravel, Java, Kotlin e práticas TDD/BDD.",
+      "goal": "Participei ativamente da arquitetura de novos sistemas e integração de diversas tecnologias em ambientes complexos."
     }
   },
   "skills": {
