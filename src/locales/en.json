@@ -62,7 +62,7 @@
     "provider": {
       "title": "VisioDocX (Provider IT)",
       "description": "Integration system combining spreadsheet data and AI with real-time communication via WebSocket and GraphQL in React.",
-      "goal": "Led the integration of AI and WebSocket communication, optimizing data analysis and interaction with the GraphQL API."
+      "goal": "Technical leadership in building a smart solution for spreadsheet data analysis using generative AI, integrating a real-time React interface with GraphQL and WebSocket. Overcame challenges in synchronizing multiple users and the AI while maintaining data consistency and performance. The architecture focused on scalability with Apollo Client, optimized caching, reconnection handling, and offline fallback. As a result, response time was greatly improved and user experience significantly enhanced.\n\n"
     },
     "dbc": {
       "title": "Onboarding Clients (DBC)",

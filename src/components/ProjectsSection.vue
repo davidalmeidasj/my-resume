@@ -4,12 +4,6 @@ const { t } = useI18n()
 
 const projects = [
   {
-    titleKey: 'projects.resume.title',
-    descriptionKey: 'projects.resume.description',
-    techs: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'i18n'],
-    github: 'https://github.com/davidalmeidasj/my-resume'
-  },
-  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: [
@@ -31,7 +25,27 @@ const projects = [
     titleKey: 'projects.provider.title',
     descriptionKey: 'projects.provider.description',
     goalKey: 'projects.provider.goal',
-    techs: ['NextJs', 'WebSocket', 'GraphQL', 'Apollo', 'AI'],
+    techs: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'WebSocket',
+      'GraphQL',
+      'Apollo Client',
+      'Tailwind CSS',
+      'AI Integration',
+      'Vite',
+      'Zod',
+      'React Hook Form',
+      'i18n'
+    ],
+    github: null
+  },
+  {
+    titleKey: 'projects.trackmall.title',
+    descriptionKey: 'projects.trackmall.description',
+    techs: ['Vue 3', 'Tailwind', 'Three.js', 'Node.js', 'Next.js', 'NestJS', 'AWS', 'Jenkins'],
+    goalKey: 'projects.trackmall.goal',
     github: null
   },
   {
@@ -56,11 +70,10 @@ const projects = [
     github: null
   },
   {
-    titleKey: 'projects.trackmall.title',
-    descriptionKey: 'projects.trackmall.description',
-    techs: ['Vue 3', 'Tailwind', 'Three.js', 'Node.js', 'Next.js', 'NestJS', 'AWS', 'Jenkins'],
-    goalKey: 'projects.trackmall.goal',
-    github: null
+    titleKey: 'projects.resume.title',
+    descriptionKey: 'projects.resume.description',
+    techs: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'i18n'],
+    github: 'https://github.com/davidalmeidasj/my-resume'
   },
 ]
 </script>

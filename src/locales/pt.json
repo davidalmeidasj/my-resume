@@ -62,7 +62,7 @@
     "provider": {
       "title": "VisioDocX (Provider IT)",
       "description": "Sistema de integração entre dados de planilhas e IA, com comunicação via WebSocket e GraphQL em ambiente React.",
-      "goal": "Implementei integração em tempo real com IA e WebSocket, otimizando a análise de dados e comunicação com a API GraphQL."
+      "goal": "Liderança técnica na implementação de uma solução inteligente para análise e processamento de dados de planilhas com IA generativa, integrando uma interface React com GraphQL e WebSocket em tempo real. Enfrentei o desafio de garantir sincronia entre múltiplos usuários e a IA, mantendo consistência dos dados e performance. A arquitetura foi desenhada com foco em escalabilidade, usando Apollo Client com cache otimizado, controle de reconexão e fallback offline. Com isso, conseguimos reduzir significativamente o tempo de resposta do sistema e melhorar a experiência do usuário final."
     },
     "dbc": {
       "title": "Onboarding Clients (DBC)",
