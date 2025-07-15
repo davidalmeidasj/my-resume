@@ -53,7 +53,7 @@
     "bookaboat": {
       "title": "Book a Boat",
       "description": "Boat booking application with search system, filters, interactive map, and admin area.",
-      "goal": "Led the architecture and development of a full-stack boat rental platform using Next.js and NestJS, designed with SOLID principles and a clean architecture approach. I implemented SSR for better SEO, dynamic map integration for boat locations, and advanced filtering. Backend featured a scalable REST API with JWT authentication, PostgreSQL with Prisma ORM, and modular service layers. CI/CD pipelines were configured using GitHub Actions and Docker, ensuring high code quality and automatic deployment."
+      "goal": "I was responsible for architecting and developing a full-stack boat rental platform using Next.js and NestJS, applying SOLID principles and clean architecture. I implemented server-side rendering (SSR) for improved SEO, dynamic map integration for boat locations, and advanced filtering. The backend was built with a scalable REST API, JWT authentication, PostgreSQL with Prisma ORM, and a modular layered structure. I also configured CI/CD pipelines using GitHub Actions and Docker to ensure high test coverage and continuous deployment."
     },
     "vxdoc": {
       "title": "VXDoc",
