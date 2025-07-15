@@ -48,7 +48,7 @@
     "trackmall": {
       "title": "TrackMall",
       "description": "Plataforma de gestión de espacios comerciales integrada con APIs y paneles en tiempo real.",
-      "goal": "Led major improvements in system performance and scalability, integrating 3D maps using Three.js for commercial space visualization. Set up CI pipelines with Jenkins and Blue Ocean, implemented unit tests and code quality checks. Reduced cloud costs by optimizing AWS services (RDS, Athena, CloudWatch) and improved database performance through strategic indexing, enhancing client integrations and overall user experience."
+      "goal": "Lideré mejoras importantes en el rendimiento y la escalabilidad del sistema, integrando mapas 3D con Three.js para la visualización de espacios comerciales. Configuré pipelines de CI con Jenkins y Blue Ocean, implementé pruebas unitarias y controles de calidad de código. Reduje costos en la nube optimizando servicios de AWS (RDS, Athena, CloudWatch) y mejoré el rendimiento de la base de datos mediante índices estratégicos, mejorando la integración con los clientes y la experiencia del usuario final."
     },
     "bookaboat": {
       "title": "Book a Boat",
