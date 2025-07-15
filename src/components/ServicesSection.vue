@@ -20,6 +20,10 @@ const services = computed(() => [
   {
     title: t('services.api.title'),
     description: t('services.api.description')
+  },
+  {
+    title: t('services.devops.title'),
+    description: t('services.devops.description')
   }
 ])
 </script>

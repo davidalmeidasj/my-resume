@@ -32,6 +32,10 @@
     "api": {
       "title": "Integración de APIs",
       "description": "Trabajo con APIs REST, GraphQL y WebSockets para integraciones en tiempo real y comunicación entre servicios."
+    },
+    "devops": {
+      "title": "DevOps y Nube",
+      "description": "Automatización de despliegues e integración continua con Jenkins, Blue Ocean y GitHub Actions. Experiencia con servicios de AWS como Lambda, EC2, S3, RDS, Aurora, CloudFront, Route 53, IAM, Amplify y CodeDeploy Serverless. Configuración de pipelines eficientes y monitoreo de aplicaciones en entornos escalables."
     }
   },
   "projects": {
