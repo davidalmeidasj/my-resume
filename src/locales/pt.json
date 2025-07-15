@@ -52,7 +52,8 @@
     },
     "bookaboat": {
       "title": "Book a Boat",
-      "description": "Aplicação de reserva de barcos com sistema de busca, filtros, mapa interativo e área administrativa."
+      "description": "Aplicação de reserva de barcos com sistema de busca, filtros, mapa interativo e área administrativa.",
+      "goal": "Liderei a arquitetura e o desenvolvimento de uma plataforma de aluguel de barcos full-stack utilizando Next.js e NestJS, aplicando os princípios SOLID e arquitetura limpa. Implementei renderização do lado do servidor (SSR) para melhorar o SEO, integração com mapas dinâmicos para localização dos barcos e filtros avançados. O backend foi construído com uma API REST escalável, autenticação JWT, PostgreSQL com Prisma ORM e uma estrutura modular em camadas. Também configurei pipelines de CI/CD com GitHub Actions e Docker para garantir alta cobertura de testes e deploy contínuo."
     },
     "vxdoc": {
       "title": "VXDoc",

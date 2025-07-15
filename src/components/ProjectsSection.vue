@@ -12,8 +12,20 @@ const projects = [
   {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
-    techs: ['Vue', 'TypeScript', 'GraphQL', 'Node.js'],
-    github: 'https://github.com/davidalmeidasj/book-a-boat'
+    techs: [
+      'Next.js',
+      'NestJS',
+      'PostgreSQL',
+      'Prisma',
+      'Docker',
+      'Tailwind CSS',
+      'JWT Auth',
+      'CI/CD',
+      'SOLID'
+    ],
+    github: null,
+    goalKey: 'projects.bookaboat.goal'
+
   },
   {
     titleKey: 'projects.provider.title',
