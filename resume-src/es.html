@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>David Almeida - Desarrollador Full Stack</title>
+    <link rel="stylesheet" href="./resume.css" />
+  </head>
+  <body>
+    <h1>David Almeida</h1>
+    <div class="role">
+      Desarrollador Full Stack Senior &middot; TypeScript &middot; React / Next.js &middot; Node.js
+      &middot; PostgreSQL &middot; AWS
+    </div>
+    <div class="contact">
+      Río de Janeiro, RJ &ndash; Brasil (disponible para trabajo 100% remoto) &nbsp;|&nbsp; +55 (21)
+      99115-8960 &nbsp;|&nbsp; davidasj21@gmail.com &nbsp;|&nbsp; linkedin.com/in/david-almeida-sj
+      &nbsp;|&nbsp; github.com/davidalmeidasj
+    </div>
+
+    <h2>Resumen profesional</h2>
+    <p>
+      Ingeniero de software con más de 11 años de experiencia, activo en el área desde 2014 en
+      empresas de mediano y gran porte. Trabajo full stack con <b>TypeScript de extremo a extremo</b>
+      &mdash; <b>React y Next.js</b> (App Router, Server Components y Server Actions) en el frontend y
+      <b>Node.js, Express.js y NestJS</b> en el backend &mdash; construyendo APIs RESTful y GraphQL
+      con tipado estricto y validación mediante <b>Zod</b>. Base políglota consolidada en
+      <b>Java y Kotlin (Spring)</b>, <b>PHP (Laravel)</b> y <b>Python</b>, con historial de
+      modernización de sistemas legados. Práctica constante de
+      <b>Clean Architecture, DDD, patrón de repositorios y SOLID</b> en arquitectura de
+      <b>monorepo</b>, sobre <b>PostgreSQL</b>, MySQL, MongoDB y el ecosistema <b>Supabase</b> (Auth,
+      RLS, Storage). Experiencia en orquestación de <b>colas en segundo plano</b> (BullMQ, Redis, AWS
+      SQS, Celery), <b>Docker</b> e infraestructura en <b>nube AWS</b>, incluyendo arquitectura
+      <b>serverless con SST</b>, además de la integración de <b>APIs de LLM / IA generativa</b> con el
+      <b>Vercel AI SDK</b>. Fuerte cultura de pruebas automatizadas (<b>Jest, Vitest, Playwright</b>,
+      Testing Library, Cypress), buenos logs, manejo resiliente de errores y evaluación de impacto
+      (<i>blast radius</i>) antes de tocar un sistema crítico. Uso activo de agentes de IA
+      (<b>Claude Code</b>, Cursor) en mi flujo diario de desarrollo.
+    </p>
+
+    <h2>Competencias técnicas</h2>
+    <div class="skills">
+      <p><b>Lenguajes:</b> TypeScript, JavaScript (ES6+), SQL, Java, Kotlin, PHP, Python</p>
+      <p>
+        <b>Frontend:</b> React, Next.js (App Router, Server Components, Server Actions, SSR/ISR), Vue
+        3 / Vuex, AngularJS, React Native, Redux / Redux-Saga, Zustand, React Query, React Hook Form,
+        Tailwind CSS, Design System propio, Styled-Components, Sass/Less, Three.js, i18n,
+        accesibilidad y responsividad, prototipado en Figma
+      </p>
+      <p>
+        <b>Backend:</b> Node.js, Express.js, NestJS, Server Actions, APIs RESTful, GraphQL / Apollo,
+        WebSockets, Spring (Java/Kotlin), Laravel (PHP), Zod, JWT / OAuth2, RBAC multi-tenant
+      </p>
+      <p>
+        <b>Datos:</b> PostgreSQL, MySQL, MongoDB, Redis, Supabase (Auth, Row Level Security,
+        Storage), TypeORM, Prisma, modelado relacional, tuning de consultas y migraciones
+      </p>
+      <p>
+        <b>Arquitectura:</b> Clean Architecture, Domain-Driven Design, patrón de repositorios, SOLID,
+        monorepo (Turborepo / workspaces), diseño de contratos de API, multi-tenant
+      </p>
+      <p>
+        <b>Colas, IA e integraciones:</b> BullMQ, Redis, AWS SQS, Celery (Python), workers y trabajos
+        asíncronos, procesamiento en segundo plano, integración de APIs de LLM / IA generativa,
+        Vercel AI SDK, webhooks e integraciones con sistemas de terceros
+      </p>
+      <p>
+        <b>Nube y DevOps:</b> AWS (ECS, ECR, S3, RDS, Lambda, API Gateway, EC2, CloudFront, Route 53,
+        Athena, Amplify, CloudWatch, IAM), arquitectura serverless, SST (Serverless Stack), Docker,
+        Terraform, Vagrant, Jenkins (Blue Ocean), Bitbucket Pipelines, GitHub Actions, GitFlow,
+        Vercel
+      </p>
+      <p>
+        <b>Calidad:</b> Jest, Vitest, Playwright, Cypress, React Testing Library, TDD / BDD,
+        SonarQube, code review, conventional commits, logging estructurado, observabilidad y manejo
+        de errores
+      </p>
+      <p>
+        <b>Procesos:</b> Scrum, Kanban, Jira, colaboración con equipos reducidos, participación en
+        decisiones de arquitectura y uso activo de agentes de IA en el flujo de desarrollo
+      </p>
+    </div>
+
+    <h2>Experiencia profesional</h2>
+
+    <div class="job">
+      <div class="jobhead">Ingeniero de Software Full Stack &mdash; Provider IT</div>
+      <div class="jobmeta">Septiembre 2024 &ndash; Actualidad &nbsp;|&nbsp; Remoto</div>
+      <div class="ctx">
+        Plataforma SaaS multi-tenant de digital signage (monorepo TypeScript: API NestJS/Node.js +
+        SPA React + app Android), operando redes de centros comerciales en producción.
+      </div>
+      <ul>
+        <li>
+          Desarrollo <b>funcionalidades de extremo a extremo</b> en un monorepo TypeScript, aplicando
+          <b>Clean Architecture, DDD y patrón de repositorios</b> con TypeORM sobre bases
+          relacionales, manteniendo desacopladas las capas de dominio, aplicación e infraestructura.
+        </li>
+        <li>
+          Diseñé el <b>pipeline asíncrono de generación de informes</b> (cola en segundo plano,
+          workers, caché por hash SHA-256 y subida a S3 con polling en el cliente),
+          <b>eliminando los 504 Gateway Timeout</b> del balanceador en informes pesados y
+          deduplicando el reprocesamiento durante 7 días.
+        </li>
+        <li>
+          Reduje el tiempo de sincronización de catálogo de <b>379s a 18s (~95%)</b> tras un
+          profiling de extremo a extremo que identificó un cuello de botella transaccional en la
+          escritura por lotes.
+        </li>
+        <li>
+          Diagnostiqué y corregí una <b>estampida de caché</b> (<i>thundering herd</i>) que tumbaba
+          la aplicación en producción en cada expiración de TTL &mdash; investigación autónoma desde
+          el síntoma en el usuario hasta la causa raíz.
+        </li>
+        <li>
+          Implementé <b>autorización en profundidad</b>: guards por regla en el backend y protección
+          de rutas y de UI en el frontend, con revalidación server-side en cada navegación,
+          garantizando el aislamiento entre tenants.
+        </li>
+        <li>
+          Estructuré <b>observabilidad y manejo resiliente de errores</b> (filtro global de
+          excepciones, logs persistidos y alerta automática en Slack) y mantengo la cobertura de
+          <b>pruebas automatizadas con Jest y Playwright</b> (E2E), con evidencia de QA por cada
+          flujo entregado.
+        </li>
+        <li>
+          Trabajo en <b>AWS y Docker</b> (ECS/ECR, RDS, S3, Lambda, Amplify, Terraform, Bitbucket
+          Pipelines): corregí una falla de <i>health check</i> que mantenía la versión anterior
+          activa tras el despliegue y lideré una iniciativa de optimización de costos de la cuenta.
+        </li>
+        <li>
+          Desarrollo SPAs en React, Next.js y Vue.js con gestión de estado (Redux, Redux-Saga,
+          Zustand, useReducer), integración vía GraphQL, REST y WebSockets con OAuth2, y scripts
+          asíncronos en <b>Python con Celery</b>. También trabajo en los frentes <b>React Native</b> y
+          Android (Kotlin) del producto.
+        </li>
+        <li>
+          <b>Uso activo de agentes de IA</b> (Claude Code) en el flujo de desarrollo &mdash; análisis
+          de causa raíz, refactorización guiada por pruebas y automatización de QA.
+        </li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jobhead">Ingeniero de Software Full Stack &mdash; DBC Company</div>
+      <div class="jobmeta">Marzo 2023 &ndash; Septiembre 2024 &nbsp;|&nbsp; Remoto</div>
+      <ul>
+        <li>
+          Desarrollo de SPAs en Vue.js/Vuex y React, con gestión de estado mediante Reducer y Saga y
+          foco en el rendimiento percibido.
+        </li>
+        <li>
+          Lideré la modernización del stack con la migración a <b>React 18</b>, habilitando Suspense
+          y Concurrent Rendering, y diseñé la arquitectura de pruebas del proyecto.
+        </li>
+        <li>
+          Servicios de backend en Node.js (Express), PHP (Laravel) y Java/Kotlin (Spring), integrando
+          GraphQL, REST y WebSockets con autenticación OAuth2.
+        </li>
+        <li>
+          Pruebas unitarias con Jest y Testing Library y pruebas end-to-end con Cypress, en un flujo
+          TDD/BDD, alcanzando cobertura a nivel de producción.
+        </li>
+        <li>Aplicaciones móviles en React Native para un cliente de gran porte del sector salud.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jobhead">Desarrollador Full Stack &mdash; Helpvino</div>
+      <div class="jobmeta">Noviembre 2021 &ndash; Febrero 2023 &nbsp;|&nbsp; São Paulo</div>
+      <ul>
+        <li>
+          SPAs en React.js con Redux/Saga, integración de APIs REST y GraphQL autenticadas con
+          OAuth2, WebSockets en tiempo real y pruebas unitarias con Jest y Testing Library.
+        </li>
+        <li>
+          Lideré la modernización del proyecto: pipelines de <b>CI/CD con Jenkins y Blue Ocean</b>,
+          cobertura automatizada con Cypress y Jest y análisis de calidad con <b>SonarQube</b>.
+        </li>
+        <li>
+          Lideré la migración a <b>AWS</b>, configurando EC2, CloudFront, S3 y Route 53 con foco en
+          escalabilidad, seguridad y optimización de costos, además de integrar APIs externas y
+          pasarelas de pago.
+        </li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jobhead">Desarrollador Full Stack &mdash; ControlLab</div>
+      <div class="jobmeta">Marzo 2015 &ndash; Octubre 2021 &nbsp;|&nbsp; Río de Janeiro</div>
+      <ul>
+        <li>
+          Backend en Node.js, Kotlin/Spring y PHP (Laravel), con GraphQL, WebSockets, MongoDB y bases
+          relacionales; mantenimiento y modernización de sistemas legados.
+        </li>
+        <li>
+          Frontend en React y AngularJS con TypeScript y Redux-Saga, CSS escalable (LESS/Sass) y
+          móvil con Kotlin y React Native, compartiendo lógica entre web y móvil.
+        </li>
+        <li>
+          Arquitectura y desarrollo de múltiples sistemas desde cero, aplicando TDD y BDD desde el
+          primer día y estandarizando integraciones SQL y NoSQL.
+        </li>
+        <li>DevOps: entornos con Docker y Vagrant e integración continua con Jenkins.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jobhead">Desarrollador PHP &mdash; Instituto de Segurança Pública</div>
+      <div class="jobmeta">Marzo 2014 &ndash; Marzo 2015 &nbsp;|&nbsp; Río de Janeiro</div>
+      <ul>
+        <li>
+          Desarrollo y mantenimiento de aplicaciones web en PHP, integración entre sistemas,
+          prácticas de seguridad para la protección de datos y documentación técnica, trabajando con
+          equipos multidisciplinarios.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Formación académica</h2>
+    <p>
+      Tecnólogo en Análisis y Desarrollo de Sistemas &mdash; Universidade Veiga de Almeida, Río de
+      Janeiro
+    </p>
+
+    <h2>Idiomas</h2>
+    <p>Portugués &mdash; nativo &nbsp;&middot;&nbsp; Inglés &mdash; avanzado &nbsp;&middot;&nbsp; Español &mdash; intermedio</p>
+  </body>
+</html>
