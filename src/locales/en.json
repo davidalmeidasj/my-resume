@@ -44,9 +44,9 @@
     "viewOnGitHub": "View on GitHub",
     "goalLabel": "Goal",
     "asign": {
-      "title": "Asign — Legacy Migration",
+      "title": "Asign (Legacy Migration)",
       "description": "Migration of a structured-PHP legacy system to a TypeScript stack with NestJS and React/Next.js, plus the AWS infrastructure and a Kotlin Android app with maps.",
-      "goal": "I took part in migrating a legacy system written in structured PHP to a modern TypeScript stack: a NestJS API on the backend and React with Next.js on the frontend, applying Clean Architecture, DDD and the repository pattern so that domain, application and infrastructure layers stay decoupled. I set up and run the AWS infrastructure the stack lives on — ECS and ECR for containers, RDS, S3 and Lambda, provisioned with Terraform and shipped through a CI/CD pipeline — where I also tracked down a health check misconfiguration that let deploys report success while the previous version stayed live, and led a cost optimization effort across the account. I updated the Android application in Kotlin, adding map support and integration with the server. Report generation runs outside the request cycle, with the client consuming the result by polling instead of holding a long request open."
+      "goal": "I took part in migrating a legacy system written in structured PHP to a modern TypeScript stack: a NestJS API on the backend and React with Next.js on the frontend, applying Clean Architecture, DDD and the repository pattern so that domain, application and infrastructure layers stay decoupled. I set up and run the AWS infrastructure the stack lives on, with ECS and ECR for containers, RDS, S3 and Lambda, provisioned through Terraform and shipped by a CI/CD pipeline. There I also tracked down a health check misconfiguration that let deploys report success while the previous version stayed live, and led a cost optimization effort across the account. I updated the Android application in Kotlin, adding map support and integration with the server. Report generation runs outside the request cycle, with the client consuming the result by polling instead of holding a long request open."
     },
     "reportPipeline": {
       "title": "Async Report Pipeline",
@@ -56,7 +56,7 @@
     "cacheStampede": {
       "title": "Cache Stampede Fix",
       "description": "Root-cause investigation of a thundering herd that took the application down in production on every cache expiration.",
-      "goal": "The application was going down in production on a recurring pattern nobody had connected to a cause. I traced it from the user-facing symptom to the root: every time the cache TTL expired, all in-flight requests missed at once and stampeded the database — a textbook thundering herd. The fix removed the outages, and the investigation itself is the point: an autonomous path from 'the app is down' to a named failure mode, with no prior map of the system. I also structured observability around it — a global exception filter, persisted logs and automatic Slack alerting — so the next incident is caught by the system instead of by a user."
+      "goal": "The application was going down in production on a recurring pattern nobody had connected to a cause. I traced it from the user-facing symptom to the root: every time the cache TTL expired, all in-flight requests missed at once and stampeded the database, a textbook thundering herd. The fix removed the outages, and the investigation itself is the point: an autonomous path from a vague \"the app is down\" to a named failure mode, with no prior map of the system. I also structured observability around it, adding a global exception filter, persisted logs and automatic Slack alerting, so the next incident is caught by the system instead of by a user."
     },
     "resume": {
       "title": "My Portfolio",

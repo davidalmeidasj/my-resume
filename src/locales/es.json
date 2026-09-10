@@ -44,9 +44,9 @@
     "viewOnGitHub": "Ver en GitHub",
     "goalLabel": "Objetivo",
     "asign": {
-      "title": "Asign — Migración de Legado",
+      "title": "Asign (Migración de Legado)",
       "description": "Migración de un sistema legado en PHP estructurado a un stack TypeScript con NestJS y React/Next.js, más la infraestructura AWS y la app Android en Kotlin con mapa.",
-      "goal": "Participé en la migración de un sistema legado escrito en PHP estructurado a un stack TypeScript moderno: API en NestJS en el backend y React con Next.js en el frontend, aplicando Clean Architecture, DDD y el patrón de repositorios para mantener desacopladas las capas de dominio, aplicación e infraestructura. Monté y opero la infraestructura AWS donde corre el stack — ECS y ECR para contenedores, RDS, S3 y Lambda, provisionados con Terraform y desplegados por un pipeline de CI/CD — donde también rastreé una configuración errónea de health check que hacía que el despliegue reportara éxito mientras la versión anterior seguía activa, y lideré una iniciativa de optimización de costos de la cuenta. Actualicé la aplicación Android en Kotlin, añadiendo soporte de mapa e integración con el servidor. La generación de informes corre fuera del ciclo de la petición, con el cliente consumiendo el resultado por polling en lugar de mantener una petición larga abierta."
+      "goal": "Participé en la migración de un sistema legado escrito en PHP estructurado a un stack TypeScript moderno: API en NestJS en el backend y React con Next.js en el frontend, aplicando Clean Architecture, DDD y el patrón de repositorios para mantener desacopladas las capas de dominio, aplicación e infraestructura. Monté y opero la infraestructura AWS donde corre el stack, con ECS y ECR para contenedores, RDS, S3 y Lambda, provisionados vía Terraform y desplegados por un pipeline de CI/CD. Allí también rastreé una configuración errónea de health check que hacía que el despliegue reportara éxito mientras la versión anterior seguía activa, y lideré una iniciativa de optimización de costos de la cuenta. Actualicé la aplicación Android en Kotlin, añadiendo soporte de mapa e integración con el servidor. La generación de informes corre fuera del ciclo de la petición, con el cliente consumiendo el resultado por polling en lugar de mantener una petición larga abierta."
     },
     "reportPipeline": {
       "title": "Pipeline Asíncrono de Informes",
@@ -56,7 +56,7 @@
     "cacheStampede": {
       "title": "Corrección de Estampida de Caché",
       "description": "Investigación de causa raíz de un thundering herd que tumbaba la aplicación en producción en cada expiración de caché.",
-      "goal": "La aplicación caía en producción con un patrón recurrente que nadie había ligado a una causa. La rastreé desde el síntoma en el usuario hasta la raíz: cada vez que expiraba el TTL de la caché, todas las peticiones en curso fallaban a la vez y estampaban la base de datos — un thundering herd de manual. La corrección eliminó las caídas, y la investigación en sí es lo relevante: un camino autónomo desde 'la aplicación está caída' hasta un modo de fallo con nombre, sin un mapa previo del sistema. También estructuré la observabilidad alrededor — filtro global de excepciones, logs persistidos y alerta automática en Slack — para que el próximo incidente lo detecte el sistema y no un usuario."
+      "goal": "La aplicación caía en producción con un patrón recurrente que nadie había ligado a una causa. La rastreé desde el síntoma en el usuario hasta la raíz: cada vez que expiraba el TTL de la caché, todas las peticiones en curso fallaban a la vez y estampaban la base de datos, un thundering herd de manual. La corrección eliminó las caídas, y la investigación en sí es lo relevante: un camino autónomo desde un vago \"la aplicación está caída\" hasta un modo de fallo con nombre, sin un mapa previo del sistema. También estructuré la observabilidad alrededor, con filtro global de excepciones, logs persistidos y alerta automática en Slack, para que el próximo incidente lo detecte el sistema y no un usuario."
     },
     "resume": {
       "title": "Mi Portafolio",

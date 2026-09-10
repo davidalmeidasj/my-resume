@@ -44,9 +44,9 @@
     "viewOnGitHub": "Ver no GitHub",
     "goalLabel": "Objetivo",
     "asign": {
-      "title": "Asign — Migração de Legado",
+      "title": "Asign (Migração de Legado)",
       "description": "Migração de um sistema legado em PHP estruturado para uma stack TypeScript com NestJS e React/Next.js, mais a infraestrutura AWS e o app Android em Kotlin com mapa.",
-      "goal": "Participei da migração de um sistema legado escrito em PHP estruturado para uma stack TypeScript moderna: API em NestJS no backend e React com Next.js no frontend, aplicando Clean Architecture, DDD e padrão de repositórios para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Montei e opero a infraestrutura AWS onde a stack roda — ECS e ECR para contêineres, RDS, S3 e Lambda, provisionados com Terraform e publicados por pipeline de CI/CD — onde também rastreei uma configuração equivocada de health check que fazia o deploy reportar sucesso enquanto a versão anterior continuava no ar, e conduzi uma iniciativa de otimização de custos da conta. Atualizei o aplicativo Android em Kotlin, adicionando suporte a mapa e integração com o servidor. A geração de relatórios roda fora do ciclo da requisição, com o cliente consumindo o resultado por polling em vez de manter uma requisição longa aberta."
+      "goal": "Participei da migração de um sistema legado escrito em PHP estruturado para uma stack TypeScript moderna: API em NestJS no backend e React com Next.js no frontend, aplicando Clean Architecture, DDD e padrão de repositórios para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Montei e opero a infraestrutura AWS onde a stack roda, com ECS e ECR para contêineres, RDS, S3 e Lambda, provisionados via Terraform e publicados por pipeline de CI/CD. Ali também rastreei uma configuração equivocada de health check que fazia o deploy reportar sucesso enquanto a versão anterior continuava no ar, e conduzi uma iniciativa de otimização de custos da conta. Atualizei o aplicativo Android em Kotlin, adicionando suporte a mapa e integração com o servidor. A geração de relatórios roda fora do ciclo da requisição, com o cliente consumindo o resultado por polling em vez de manter uma requisição longa aberta."
     },
     "reportPipeline": {
       "title": "Pipeline Assíncrono de Relatórios",
@@ -56,7 +56,7 @@
     "cacheStampede": {
       "title": "Correção de Estampida de Cache",
       "description": "Investigação de causa raiz de um thundering herd que derrubava a aplicação em produção a cada expiração de cache.",
-      "goal": "A aplicação caía em produção num padrão recorrente que ninguém havia ligado a uma causa. Rastreei do sintoma no usuário até a raiz: a cada expiração do TTL do cache, todas as requisições em curso davam miss ao mesmo tempo e estampidavam o banco — um thundering herd clássico. A correção eliminou as quedas, e a investigação em si é o ponto: um caminho autônomo de 'a aplicação está fora' até um modo de falha nomeado, sem mapa prévio do sistema. Também estruturei a observabilidade em volta disso — filtro global de exceções, log persistido e alerta automático no Slack — para que o próximo incidente seja pego pelo sistema, e não por um usuário."
+      "goal": "A aplicação caía em produção num padrão recorrente que ninguém havia ligado a uma causa. Rastreei do sintoma no usuário até a raiz: a cada expiração do TTL do cache, todas as requisições em curso davam miss ao mesmo tempo e estampidavam o banco, um thundering herd clássico. A correção eliminou as quedas, e a investigação em si é o ponto: um caminho autônomo de um vago \"a aplicação está fora\" até um modo de falha nomeado, sem mapa prévio do sistema. Também estruturei a observabilidade em volta disso, com filtro global de exceções, log persistido e alerta automático no Slack, para que o próximo incidente seja pego pelo sistema, e não por um usuário."
     },
     "resume": {
       "title": "Meu Portfólio",
