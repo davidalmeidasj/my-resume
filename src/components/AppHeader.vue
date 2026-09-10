@@ -27,7 +27,9 @@ const scrollToSection = (id: string) => {
       <nav class="hidden md:flex gap-6 text-sm font-medium">
         <a href="#home" @click.prevent="scrollToSection('home')">{{ t('menu.home') }}</a>
         <a href="#about" @click.prevent="scrollToSection('about')">{{ t('menu.about') }}</a>
-        <a href="#projects" @click.prevent="scrollToSection('projects')">{{ t('menu.projects') }}</a>
+        <a href="#projects" @click.prevent="scrollToSection('projects')">{{
+          t('menu.projects')
+        }}</a>
         <a href="#contact" @click.prevent="scrollToSection('contact')">{{ t('menu.contact') }}</a>
       </nav>
 
@@ -41,8 +43,20 @@ const scrollToSection = (id: string) => {
       <!-- Mobile Hamburger -->
       <button class="md:hidden" @click="mobileMenuOpen = !mobileMenuOpen">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path :class="{ 'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          <path :class="{ 'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          <path
+            :class="{ hidden: mobileMenuOpen, block: !mobileMenuOpen }"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            :class="{ block: mobileMenuOpen, hidden: !mobileMenuOpen }"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
         </svg>
       </button>
     </div>

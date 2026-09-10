@@ -10,9 +10,7 @@ const { t } = useI18n()
         {{ t('about.title') }}
       </h2>
 
-      <p
-        class="text-base md:text-lg text-muted leading-relaxed whitespace-pre-line"
-      >
+      <p class="text-base md:text-lg text-muted leading-relaxed whitespace-pre-line">
         <span class="text-dark font-medium">
           {{ t('about.description').split('\n\n')[0] }}
         </span>

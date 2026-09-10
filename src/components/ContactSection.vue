@@ -5,7 +5,7 @@ const { t } = useI18n()
 
 const socials = [
   { name: 'GitHub', url: 'https://github.com/davidalmeidasj' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/david-almeida-sj/' }
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/david-almeida-sj/' },
 ]
 </script>
 
@@ -16,11 +16,7 @@ const socials = [
         {{ t('contact.title') }}
       </h2>
 
-      <form
-        action="https://formspree.io/f/xdkdnboy"
-        method="POST"
-        class="space-y-6"
-      >
+      <form action="https://formspree.io/f/xdkdnboy" method="POST" class="space-y-6">
         <div>
           <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
             {{ t('contact.name') }}

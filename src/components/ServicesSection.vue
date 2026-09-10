@@ -7,27 +7,26 @@ const { t } = useI18n()
 const services = computed(() => [
   {
     title: t('services.frontend.title'),
-    description: t('services.frontend.description')
+    description: t('services.frontend.description'),
   },
   {
     title: t('services.fullstack.title'),
-    description: t('services.fullstack.description')
+    description: t('services.fullstack.description'),
   },
   {
     title: t('services.uiux.title'),
-    description: t('services.uiux.description')
+    description: t('services.uiux.description'),
   },
   {
     title: t('services.api.title'),
-    description: t('services.api.description')
+    description: t('services.api.description'),
   },
   {
     title: t('services.devops.title'),
-    description: t('services.devops.description')
-  }
+    description: t('services.devops.description'),
+  },
 ])
 </script>
-
 
 <template>
   <section id="services" class="bg-background px-6 py-20">

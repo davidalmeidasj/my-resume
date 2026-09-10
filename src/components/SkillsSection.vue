@@ -17,7 +17,7 @@ const skills = [
   { label: 'GraphQL', icon: '/assets/icons/graphql.svg' },
   { label: 'MySQL', icon: '/assets/icons/mysql.svg' },
   { label: 'PostgreSQL', icon: '/assets/icons/postgresql.svg' },
-  { label: 'Figma', icon: '/assets/icons/figma.svg' }
+  { label: 'Figma', icon: '/assets/icons/figma.svg' },
 ]
 </script>
 
@@ -37,7 +37,7 @@ const skills = [
         :breakpoints="{
           640: { itemsToShow: 3 },
           768: { itemsToShow: 5 },
-          1024: { itemsToShow: 6 }
+          1024: { itemsToShow: 6 },
         }"
         class="w-full"
       >

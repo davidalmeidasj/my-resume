@@ -5,5 +5,5 @@ import es from './locales/es.json'
 export const i18n = createI18n({
   locale: 'en',
   fallbackLocale: 'pt',
-  messages: { pt, en, es }
+  messages: { pt, en, es },
 })
