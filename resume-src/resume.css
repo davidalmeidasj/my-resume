@@ -14,8 +14,8 @@
 
 body {
   font-family: 'Calibri', 'Carlito', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 8.6pt;
-  line-height: 1.22;
+  font-size: 8.8pt;
+  line-height: 1.25;
   color: #1a1a1a;
   margin: 0;
   font-variant-ligatures: none;
@@ -49,7 +49,7 @@ h2 {
   color: #1f4e79;
   border-bottom: 1px solid #b8cce4;
   padding-bottom: 0.8mm;
-  margin: 2.8mm 0 1.3mm;
+  margin: 3mm 0 1.4mm;
 }
 
 p {
@@ -63,7 +63,7 @@ ul {
 }
 
 li {
-  margin-bottom: 0.5mm;
+  margin-bottom: 0.6mm;
 }
 
 .job {

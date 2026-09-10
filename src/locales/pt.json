@@ -45,8 +45,8 @@
     "goalLabel": "Objetivo",
     "asign": {
       "title": "Asign — Migração de Legado",
-      "description": "Migração de um sistema legado em PHP estruturado para uma stack TypeScript com NestJS e React/Next.js, incluindo configuração da AWS e o app Android em Kotlin.",
-      "goal": "Participei da migração de um sistema legado escrito em PHP estruturado para uma stack TypeScript moderna — API em NestJS no backend e React com Next.js no frontend — aplicando Clean Architecture, DDD e padrão de repositórios para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Configurei a infraestrutura AWS onde a nova stack roda e atualizei o aplicativo Android em Kotlin, adicionando suporte a mapa e integração com o servidor. Os relatórios pesados saíram do ciclo da requisição para um pipeline em background que o cliente consome por polling. Também reduzi o tempo de sincronização de acervo de 379s para 18s (~95%) após profiling ponta a ponta que identificou um gargalo transacional na escrita em lote, e implementei autorização em profundidade com revalidação server-side para garantir o isolamento entre tenants."
+      "description": "Migração de um sistema legado em PHP estruturado para uma stack TypeScript com NestJS e React/Next.js, incluindo configuração da AWS e app Android em Kotlin com mapa.",
+      "goal": "Participei da migração de um sistema legado escrito em PHP estruturado para uma stack TypeScript moderna: API em NestJS no backend e React com Next.js no frontend, aplicando Clean Architecture, DDD e padrão de repositórios para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Configurei a infraestrutura AWS onde a nova stack roda e atualizei o aplicativo Android em Kotlin, adicionando suporte a mapa e integração com o servidor. A geração de relatórios roda fora do ciclo da requisição, com o cliente consumindo o resultado por polling em vez de manter uma requisição longa aberta."
     },
     "reportPipeline": {
       "title": "Pipeline Assíncrono de Relatórios",
