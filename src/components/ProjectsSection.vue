@@ -4,6 +4,28 @@ const { t } = useI18n()
 
 const projects = [
   {
+    titleKey: 'projects.asign.title',
+    descriptionKey: 'projects.asign.description',
+    goalKey: 'projects.asign.goal',
+    techs: [
+      'TypeScript',
+      'NestJS',
+      'React',
+      'React Native',
+      'Kotlin',
+      'PostgreSQL',
+      'TypeORM',
+      'Clean Architecture',
+      'DDD',
+      'Monorepo',
+      'Docker',
+      'AWS',
+      'Jest',
+      'Playwright'
+    ],
+    github: null
+  },
+  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: [

@@ -43,6 +43,11 @@
     "title": "Projects",
     "viewOnGitHub": "View on GitHub",
     "goalLabel": "Goal",
+    "asign": {
+      "title": "ASign — Digital Signage",
+      "description": "Multi-tenant SaaS platform for digital signage, running in production across shopping mall networks from a TypeScript monorepo.",
+      "goal": "I build end-to-end features in a TypeScript monorepo (NestJS API, React SPA and Android player), applying Clean Architecture, DDD and the repository pattern with TypeORM to keep domain, application and infrastructure layers decoupled. I implemented defense-in-depth authorization — rule-based guards on the backend plus route and UI protection on the frontend, with server-side revalidation on every navigation — to guarantee isolation between tenants. I also cut catalog synchronization from 379s to 18s (~95%) after end-to-end profiling exposed a transactional bottleneck in batch writes."
+    },
     "resume": {
       "title": "My Portfolio",
       "description": "Responsive portfolio built with Vue 3, Tailwind CSS, multi-language support, and mobile-first design."

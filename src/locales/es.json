@@ -43,6 +43,11 @@
     "title": "Proyectos",
     "viewOnGitHub": "Ver en GitHub",
     "goalLabel": "Objetivo",
+    "asign": {
+      "title": "ASign — Digital Signage",
+      "description": "Plataforma SaaS multi-tenant de digital signage, en producción en redes de centros comerciales, construida en un monorepo TypeScript.",
+      "goal": "Desarrollo funcionalidades de extremo a extremo en un monorepo TypeScript (API NestJS, SPA React y player Android), aplicando Clean Architecture, DDD y el patrón de repositorios con TypeORM para mantener desacopladas las capas de dominio, aplicación e infraestructura. Implementé autorización en profundidad — guards por regla en el backend y protección de rutas y de UI en el frontend, con revalidación server-side en cada navegación — garantizando el aislamiento entre tenants. También reduje el tiempo de sincronización de catálogo de 379s a 18s (~95%) tras un profiling de extremo a extremo que identificó un cuello de botella transaccional en la escritura por lotes."
+    },
     "resume": {
       "title": "Mi Portafolio",
       "description": "Portafolio responsivo con Vue 3, Tailwind CSS, soporte para múltiples idiomas y diseño mobile first."
