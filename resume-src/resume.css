@@ -1,0 +1,103 @@
+/* Shared print stylesheet for the PT/EN/ES resume PDFs.
+   ATS-oriented: single column, real text layer, no images, no tables.
+   Ligatures are disabled so extractors read "fi"/"fl" as two letters
+   instead of the U+FB01/U+FB02 glyphs, which break keyword matching. */
+
+@page {
+  size: A4;
+  margin: 10mm 13mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Calibri', 'Carlito', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.8pt;
+  line-height: 1.25;
+  color: #1a1a1a;
+  margin: 0;
+  font-variant-ligatures: none;
+  -webkit-font-feature-settings: 'liga' 0, 'clig' 0;
+  font-feature-settings: 'liga' 0, 'clig' 0;
+}
+
+h1 {
+  font-size: 17.5pt;
+  margin: 0 0 1mm;
+  letter-spacing: 0.3px;
+}
+
+.role {
+  font-size: 10.1pt;
+  font-weight: 600;
+  color: #1f4e79;
+  margin: 0 0 1mm;
+}
+
+.contact {
+  font-size: 8.8pt;
+  color: #333;
+  margin: 0 0 3.5mm;
+}
+
+h2 {
+  font-size: 9.2pt;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #1f4e79;
+  border-bottom: 1px solid #b8cce4;
+  padding-bottom: 0.8mm;
+  margin: 3mm 0 1.4mm;
+}
+
+p {
+  margin: 0 0 1.5mm;
+  text-align: justify;
+}
+
+ul {
+  margin: 0 0 1.4mm;
+  padding-left: 4.4mm;
+}
+
+li {
+  margin-bottom: 0.6mm;
+}
+
+.job {
+  margin-bottom: 2.2mm;
+  page-break-inside: avoid;
+}
+
+.jobhead {
+  font-weight: 700;
+  font-size: 9.4pt;
+}
+
+.jobmeta {
+  font-size: 8.7pt;
+  color: #555;
+  margin-bottom: 0.7mm;
+}
+
+.ctx {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 1.1mm;
+}
+
+.skills p {
+  margin-bottom: 0.9mm;
+  text-align: left;
+}
+
+.skills b {
+  color: #1f4e79;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
