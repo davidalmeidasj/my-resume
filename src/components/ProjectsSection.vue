@@ -15,7 +15,7 @@ const { t } = useI18n()
         <article
           v-for="(project, index) in projects"
           :key="index"
-          class="bg-background p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between h-full"
+          class="bg-background p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col h-full"
         >
           <div>
             <h3 class="text-lg font-semibold text-dark mb-2">
@@ -35,17 +35,18 @@ const { t } = useI18n()
             </ul>
           </div>
 
-          <div v-if="project.github">
+          <!-- a link is short enough to sit at the card foot; the goal text follows the chips -->
+          <div v-if="project.github" class="mt-auto">
             <a
               :href="project.github"
-              class="text-primary text-sm font-medium hover:underline mt-auto"
+              class="text-primary text-sm font-medium hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
               {{ t('projects.viewOnGitHub') }} →
             </a>
           </div>
-          <div v-else class="text-sm text-muted mt-auto">
+          <div v-else class="text-sm text-muted leading-relaxed">
             <strong>{{ t('projects.goalLabel') }}:</strong> {{ t(project.goalKey || '') }}
           </div>
         </article>
