@@ -26,6 +26,22 @@ const projects = [
     github: null
   },
   {
+    titleKey: 'projects.reportPipeline.title',
+    descriptionKey: 'projects.reportPipeline.description',
+    goalKey: 'projects.reportPipeline.goal',
+    techs: [
+      'Node.js',
+      'BullMQ',
+      'Redis',
+      'Workers',
+      'AWS S3',
+      'SHA-256 Cache',
+      'PostgreSQL',
+      'Docker'
+    ],
+    github: null
+  },
+  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: [

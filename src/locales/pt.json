@@ -48,6 +48,11 @@
       "description": "Plataforma SaaS multi-tenant de digital signage, em produção em redes de shopping centers, construída em monorepo TypeScript.",
       "goal": "Desenvolvo features ponta a ponta em monorepo TypeScript (API NestJS, SPA React e player Android), aplicando Clean Architecture, DDD e padrão de repositórios com TypeORM para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Implementei autorização em profundidade — guards por regra no backend e proteção de rotas e de UI no frontend, com revalidação server-side a cada navegação — garantindo o isolamento entre tenants. Também reduzi o tempo de sincronização de acervo de 379s para 18s (~95%) após profiling ponta a ponta que identificou um gargalo transacional na escrita em lote."
     },
+    "reportPipeline": {
+      "title": "Pipeline Assíncrono de Relatórios",
+      "description": "Pipeline de geração de relatórios em background que eliminou os 504 Gateway Timeout em relatórios pesados e deduplicou o reprocessamento.",
+      "goal": "Relatórios pesados eram gerados dentro do ciclo da requisição e morriam no balanceador com 504 Gateway Timeout. Projetei um pipeline assíncrono: a requisição enfileira um job e retorna na hora, workers em background geram o relatório, o resultado sobe para o S3 e o cliente busca por polling. Adicionei um hash SHA-256 do conteúdo como chave de cache, servindo relatórios idênticos a partir do cache em vez de recalculá-los por 7 dias. Os timeouts desapareceram, a API deixou de travar em trabalho longo e o reprocessamento redundante foi eliminado."
+    },
     "resume": {
       "title": "Meu Portfólio",
       "description": "Portfólio responsivo com Vue 3, Tailwind CSS, suporte a múltiplos idiomas e design mobile first."
