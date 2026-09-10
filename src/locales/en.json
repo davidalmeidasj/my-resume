@@ -44,9 +44,9 @@
     "viewOnGitHub": "View on GitHub",
     "goalLabel": "Goal",
     "asign": {
-      "title": "ASign — Digital Signage",
-      "description": "Multi-tenant SaaS platform for digital signage, running in production across shopping mall networks from a TypeScript monorepo.",
-      "goal": "I build end-to-end features in a TypeScript monorepo (NestJS API, React SPA and Android player), applying Clean Architecture, DDD and the repository pattern with TypeORM to keep domain, application and infrastructure layers decoupled. I implemented defense-in-depth authorization — rule-based guards on the backend plus route and UI protection on the frontend, with server-side revalidation on every navigation — to guarantee isolation between tenants. I also cut catalog synchronization from 379s to 18s (~95%) after end-to-end profiling exposed a transactional bottleneck in batch writes."
+      "title": "Asign — Legacy Migration",
+      "description": "Migration of a structured-PHP legacy system to a TypeScript stack with NestJS and React/Next.js, including AWS setup and the Kotlin Android app.",
+      "goal": "I took part in migrating a legacy system written in structured PHP to a modern TypeScript stack — a NestJS API on the backend and React with Next.js on the frontend — applying Clean Architecture, DDD and the repository pattern so that domain, application and infrastructure layers stay decoupled. I configured the AWS infrastructure the new stack runs on and updated the Android application in Kotlin, adding map support and integration with the server. Heavy reports moved out of the request cycle into a background pipeline the client consumes by polling. I also cut catalog synchronization from 379s to 18s (~95%) after end-to-end profiling exposed a transactional bottleneck in batch writes, and implemented defense-in-depth authorization with server-side revalidation to guarantee isolation between tenants."
     },
     "reportPipeline": {
       "title": "Async Report Pipeline",

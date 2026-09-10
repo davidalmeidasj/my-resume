@@ -44,9 +44,9 @@
     "viewOnGitHub": "Ver no GitHub",
     "goalLabel": "Objetivo",
     "asign": {
-      "title": "ASign — Digital Signage",
-      "description": "Plataforma SaaS multi-tenant de digital signage, em produção em redes de shopping centers, construída em monorepo TypeScript.",
-      "goal": "Desenvolvo features ponta a ponta em monorepo TypeScript (API NestJS, SPA React e player Android), aplicando Clean Architecture, DDD e padrão de repositórios com TypeORM para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Implementei autorização em profundidade — guards por regra no backend e proteção de rotas e de UI no frontend, com revalidação server-side a cada navegação — garantindo o isolamento entre tenants. Também reduzi o tempo de sincronização de acervo de 379s para 18s (~95%) após profiling ponta a ponta que identificou um gargalo transacional na escrita em lote."
+      "title": "Asign — Migração de Legado",
+      "description": "Migração de um sistema legado em PHP estruturado para uma stack TypeScript com NestJS e React/Next.js, incluindo configuração da AWS e o app Android em Kotlin.",
+      "goal": "Participei da migração de um sistema legado escrito em PHP estruturado para uma stack TypeScript moderna — API em NestJS no backend e React com Next.js no frontend — aplicando Clean Architecture, DDD e padrão de repositórios para manter as camadas de domínio, aplicação e infraestrutura desacopladas. Configurei a infraestrutura AWS onde a nova stack roda e atualizei o aplicativo Android em Kotlin, adicionando suporte a mapa e integração com o servidor. Os relatórios pesados saíram do ciclo da requisição para um pipeline em background que o cliente consome por polling. Também reduzi o tempo de sincronização de acervo de 379s para 18s (~95%) após profiling ponta a ponta que identificou um gargalo transacional na escrita em lote, e implementei autorização em profundidade com revalidação server-side para garantir o isolamento entre tenants."
     },
     "reportPipeline": {
       "title": "Pipeline Assíncrono de Relatórios",

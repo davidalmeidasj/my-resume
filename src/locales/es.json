@@ -44,9 +44,9 @@
     "viewOnGitHub": "Ver en GitHub",
     "goalLabel": "Objetivo",
     "asign": {
-      "title": "ASign — Digital Signage",
-      "description": "Plataforma SaaS multi-tenant de digital signage, en producción en redes de centros comerciales, construida en un monorepo TypeScript.",
-      "goal": "Desarrollo funcionalidades de extremo a extremo en un monorepo TypeScript (API NestJS, SPA React y player Android), aplicando Clean Architecture, DDD y el patrón de repositorios con TypeORM para mantener desacopladas las capas de dominio, aplicación e infraestructura. Implementé autorización en profundidad — guards por regla en el backend y protección de rutas y de UI en el frontend, con revalidación server-side en cada navegación — garantizando el aislamiento entre tenants. También reduje el tiempo de sincronización de catálogo de 379s a 18s (~95%) tras un profiling de extremo a extremo que identificó un cuello de botella transaccional en la escritura por lotes."
+      "title": "Asign — Migración de Legado",
+      "description": "Migración de un sistema legado en PHP estructurado a un stack TypeScript con NestJS y React/Next.js, incluyendo la configuración de AWS y la app Android en Kotlin.",
+      "goal": "Participé en la migración de un sistema legado escrito en PHP estructurado a un stack TypeScript moderno — API en NestJS en el backend y React con Next.js en el frontend — aplicando Clean Architecture, DDD y el patrón de repositorios para mantener desacopladas las capas de dominio, aplicación e infraestructura. Configuré la infraestructura AWS donde corre el nuevo stack y actualicé la aplicación Android en Kotlin, añadiendo soporte de mapa e integración con el servidor. Los informes pesados salieron del ciclo de la petición hacia un pipeline en segundo plano que el cliente consume por polling. También reduje el tiempo de sincronización de catálogo de 379s a 18s (~95%) tras un profiling de extremo a extremo que identificó un cuello de botella transaccional en la escritura por lotes, e implementé autorización en profundidad con revalidación server-side para garantizar el aislamiento entre tenants."
     },
     "reportPipeline": {
       "title": "Pipeline Asíncrono de Informes",
