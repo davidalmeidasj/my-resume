@@ -143,7 +143,7 @@ const projects = [
   {
     titleKey: 'projects.resume.title',
     descriptionKey: 'projects.resume.description',
-    techs: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'i18n'],
+    techs: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'i18n', 'Vite', 'Vitest', 'Playwright'],
     github: 'https://github.com/davidalmeidasj/my-resume'
   },
 ]
