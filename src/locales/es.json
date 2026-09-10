@@ -58,6 +58,11 @@
       "description": "Investigación de causa raíz de un thundering herd que tumbaba la aplicación en producción en cada expiración de caché.",
       "goal": "La aplicación caía en producción con un patrón recurrente que nadie había ligado a una causa. La rastreé desde el síntoma en el usuario hasta la raíz: cada vez que expiraba el TTL de la caché, todas las peticiones en curso fallaban a la vez y estampaban la base de datos — un thundering herd de manual. La corrección eliminó las caídas, y la investigación en sí es lo relevante: un camino autónomo desde 'la aplicación está caída' hasta un modo de fallo con nombre, sin un mapa previo del sistema. También estructuré la observabilidad alrededor — filtro global de excepciones, logs persistidos y alerta automática en Slack — para que el próximo incidente lo detecte el sistema y no un usuario."
     },
+    "awsInfra": {
+      "title": "Infraestructura AWS y Costos",
+      "description": "Infraestructura de contenedores en ECS/ECR con Terraform, corrección de un fallo silencioso de despliegue e iniciativa de optimización de costos de la cuenta.",
+      "goal": "Llevo el lado de nube de la plataforma en AWS y Docker — ECS y ECR para contenedores, RDS, S3, Lambda, Amplify, CloudWatch e IAM, provisionados con Terraform y desplegados vía Bitbucket Pipelines. Rastreé una configuración errónea de health check que hacía que el despliegue reportara éxito mientras la versión anterior seguía activa, es decir, el código entregado nunca llegaba al usuario. También lideré una iniciativa de optimización de costos de la cuenta, reduciendo el gasto con el dimensionamiento correcto de los recursos y la eliminación de lo que estaba ocioso."
+    },
     "resume": {
       "title": "Mi Portafolio",
       "description": "Portafolio responsivo con Vue 3, Tailwind CSS, soporte para múltiples idiomas y diseño mobile first."

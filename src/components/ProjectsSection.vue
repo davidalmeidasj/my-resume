@@ -57,6 +57,24 @@ const projects = [
     github: null
   },
   {
+    titleKey: 'projects.awsInfra.title',
+    descriptionKey: 'projects.awsInfra.description',
+    goalKey: 'projects.awsInfra.goal',
+    techs: [
+      'AWS ECS',
+      'AWS ECR',
+      'RDS',
+      'S3',
+      'Lambda',
+      'CloudWatch',
+      'IAM',
+      'Terraform',
+      'Docker',
+      'CI/CD'
+    ],
+    github: null
+  },
+  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: [
