@@ -120,7 +120,7 @@ const projects = [
             </a>
           </div>
           <div v-else class="text-sm text-muted mt-auto">
-            <strong>Goal:</strong> {{ t(project.goalKey || '') }}
+            <strong>{{ t('projects.goalLabel') }}:</strong> {{ t(project.goalKey || '') }}
           </div>
         </article>
       </div>

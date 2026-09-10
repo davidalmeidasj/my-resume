@@ -42,6 +42,7 @@
   "projects": {
     "title": "Projects",
     "viewOnGitHub": "View on GitHub",
+    "goalLabel": "Goal",
     "resume": {
       "title": "My Portfolio",
       "description": "Responsive portfolio built with Vue 3, Tailwind CSS, multi-language support, and mobile-first design."
