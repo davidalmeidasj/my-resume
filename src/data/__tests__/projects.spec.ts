@@ -29,7 +29,7 @@ describe('projects data', () => {
 
     for (const project of projects) {
       const keys = [project.titleKey, project.descriptionKey, project.goalKey].filter(
-        (k): k is string => Boolean(k)
+        (k): k is string => Boolean(k),
       )
 
       for (const key of keys) {
