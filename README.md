@@ -62,3 +62,25 @@ yarn test:e2e --debug
 ```sh
 yarn lint
 ```
+
+### Rebuild the Resume PDFs
+
+The PDFs offered by the hero download button live in `public/` and are generated
+from the HTML sources in `resume-src/` (`pt.html`, `en.html`, `es.html`, sharing
+`resume.css`). Edit the HTML, then:
+
+```sh
+# all three locales
+yarn resume:build
+
+# a single locale
+node resume-src/build.mjs pt
+```
+
+Rendering uses headless Chrome. Set `CHROME_PATH` if the binary is not in a
+standard location.
+
+The stylesheet is tuned for ATS parsing: single column, real text layer, no
+images or tables, and ligatures disabled so extractors read `fi`/`fl` as two
+letters instead of the `ﬁ`/`ﬂ` glyphs, which otherwise break keyword matching on
+words like "filas" and "profiling".
