@@ -53,6 +53,11 @@
       "description": "Background report generation pipeline that removed 504 Gateway Timeouts from heavy reports and deduplicated reprocessing.",
       "goal": "Heavy reports were being generated inside the request cycle and dying at the load balancer with 504 Gateway Timeout. I designed an asynchronous pipeline: the request enqueues a job and returns immediately, background workers render the report, the result is uploaded to S3 and the client picks it up by polling. I added a SHA-256 content hash as the cache key, so identical reports are served from cache instead of being recomputed for 7 days. The timeouts disappeared, the API stopped blocking on long-running work, and redundant reprocessing was eliminated."
     },
+    "cacheStampede": {
+      "title": "Cache Stampede Fix",
+      "description": "Root-cause investigation of a thundering herd that took the application down in production on every cache expiration.",
+      "goal": "The application was going down in production on a recurring pattern nobody had connected to a cause. I traced it from the user-facing symptom to the root: every time the cache TTL expired, all in-flight requests missed at once and stampeded the database — a textbook thundering herd. The fix removed the outages, and the investigation itself is the point: an autonomous path from 'the app is down' to a named failure mode, with no prior map of the system. I also structured observability around it — a global exception filter, persisted logs and automatic Slack alerting — so the next incident is caught by the system instead of by a user."
+    },
     "resume": {
       "title": "My Portfolio",
       "description": "Responsive portfolio built with Vue 3, Tailwind CSS, multi-language support, and mobile-first design."

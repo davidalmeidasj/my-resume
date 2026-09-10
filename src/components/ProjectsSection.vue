@@ -42,6 +42,21 @@ const projects = [
     github: null
   },
   {
+    titleKey: 'projects.cacheStampede.title',
+    descriptionKey: 'projects.cacheStampede.description',
+    goalKey: 'projects.cacheStampede.goal',
+    techs: [
+      'Redis',
+      'NestJS',
+      'PostgreSQL',
+      'Observability',
+      'Structured Logging',
+      'Root Cause Analysis',
+      'Profiling'
+    ],
+    github: null
+  },
+  {
     titleKey: 'projects.bookaboat.title',
     descriptionKey: 'projects.bookaboat.description',
     techs: [

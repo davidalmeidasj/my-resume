@@ -53,6 +53,11 @@
       "description": "Pipeline de generación de informes en segundo plano que eliminó los 504 Gateway Timeout en informes pesados y deduplicó el reprocesamiento.",
       "goal": "Los informes pesados se generaban dentro del ciclo de la petición y morían en el balanceador con 504 Gateway Timeout. Diseñé un pipeline asíncrono: la petición encola un job y responde de inmediato, workers en segundo plano generan el informe, el resultado se sube a S3 y el cliente lo recoge por polling. Añadí un hash SHA-256 del contenido como clave de caché, sirviendo informes idénticos desde la caché en lugar de recalcularlos durante 7 días. Los timeouts desaparecieron, la API dejó de bloquearse en trabajo largo y se eliminó el reprocesamiento redundante."
     },
+    "cacheStampede": {
+      "title": "Corrección de Estampida de Caché",
+      "description": "Investigación de causa raíz de un thundering herd que tumbaba la aplicación en producción en cada expiración de caché.",
+      "goal": "La aplicación caía en producción con un patrón recurrente que nadie había ligado a una causa. La rastreé desde el síntoma en el usuario hasta la raíz: cada vez que expiraba el TTL de la caché, todas las peticiones en curso fallaban a la vez y estampaban la base de datos — un thundering herd de manual. La corrección eliminó las caídas, y la investigación en sí es lo relevante: un camino autónomo desde 'la aplicación está caída' hasta un modo de fallo con nombre, sin un mapa previo del sistema. También estructuré la observabilidad alrededor — filtro global de excepciones, logs persistidos y alerta automática en Slack — para que el próximo incidente lo detecte el sistema y no un usuario."
+    },
     "resume": {
       "title": "Mi Portafolio",
       "description": "Portafolio responsivo con Vue 3, Tailwind CSS, soporte para múltiples idiomas y diseño mobile first."
