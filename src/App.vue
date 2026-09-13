@@ -7,4 +7,7 @@
 <script setup lang="ts">
 import AppHeader from '@/components/AppHeader.vue'
 import FooterSection from '@/components/FooterSection.vue'
+import { useSeo } from '@/composables/useSeo'
+
+useSeo()
 </script>

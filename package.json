@@ -18,6 +18,7 @@
     "resume:build": "node resume-src/build.mjs"
   },
   "dependencies": {
+    "@unhead/vue": "^3.4.0",
     "vue": "^3.5.17",
     "vue-i18n": "^11.1.9",
     "vue-router": "^4.5.1",
