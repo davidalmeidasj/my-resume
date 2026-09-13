@@ -5,7 +5,7 @@
  * links, og:url and og:image are all built from it, and social crawlers reject
  * relative URLs, so a wrong value here silently breaks link previews.
  */
-export const SITE_URL = 'https://my-resume.vercel.app'
+export const SITE_URL = 'https://david-almeida-resume.vercel.app'
 
 export const DEFAULT_LOCALE = 'en' as const
 
