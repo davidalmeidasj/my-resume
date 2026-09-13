@@ -63,6 +63,43 @@ yarn test:e2e --debug
 yarn lint
 ```
 
+## Rendering and SEO
+
+The site is **prerendered at build time** (`vite-ssg`), not client-rendered. Each
+language is a real route with its own static HTML file:
+
+```
+/          redirects to /en          (vercel.json)
+/en   ->   dist/en.html              lang="en-US"
+/pt   ->   dist/pt.html              lang="pt-BR"
+/es   ->   dist/es.html              lang="es-ES"
+```
+
+This matters because social crawlers (LinkedIn, WhatsApp, Slack) never execute
+JavaScript. A client-rendered SPA hands them an empty `<div id="app">`, so shared
+links render a blank preview card. Prerendering puts the real content, the
+Open Graph tags and the `Person` structured data in the served markup.
+
+SSG rather than SSR: the content is identical for every visitor, so there is
+nothing to compute per request and no reason to run a server.
+
+**Things that will bite you here:**
+
+- `SITE_URL` in `src/config/site.ts` is the single source of truth for canonical,
+  `og:url` and `og:image`. `public/robots.txt` and `public/sitemap.xml` repeat it
+  as static text; `src/config/__tests__/seo-files.spec.ts` fails if they drift.
+- The i18n instance is created **per app**, never at module scope. Prerendering
+  renders the routes in parallel in one Node process, and a shared instance makes
+  them race over `locale` so every page comes out in the same language.
+- Page titles are built in `useSeo.ts` instead of stored in the locale files:
+  vue-i18n reads `|` as a plural-form separator, so a title containing one comes
+  back truncated at the pipe.
+- Nothing at module scope may touch `window`. The router is created by `vite-ssg`
+  from the exported `routes`, not instantiated on import.
+
+Regenerate the social preview image with `yarn resume:build` after editing
+`resume-src/og-image.html`.
+
 ### Rebuild the Resume PDFs
 
 The PDFs offered by the hero download button live in `public/` and are generated
