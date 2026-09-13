@@ -11,7 +11,7 @@
   },
   "hero": {
     "title": "Olá, eu sou David Almeida",
-    "subtitle": "Desenvolvedor Front-End focado em experiências modernas, responsivas e performáticas.",
+    "subtitle": "Desenvolvedor Full Stack Sênior. TypeScript ponta a ponta: React e Next.js no front, Node.js e NestJS no back, sobre PostgreSQL e AWS.",
     "cta": "Fale comigo",
     "downloadResume": "Baixar Currículo",
     "scrollDown": "Role para ver mais"
@@ -38,24 +38,28 @@
   "services": {
     "title": "O que eu faço",
     "frontend": {
-      "title": "Desenvolvimento Front-End",
-      "description": "Criação de interfaces modernas com foco em performance, responsividade e experiência do usuário, usando Vue.js, React e Next.js."
+      "title": "Front-End",
+      "description": "Interfaces em React, Next.js (App Router, Server Components e Server Actions) e Vue 3, com Tailwind CSS, Design System próprio, acessibilidade e prototipação no Figma."
     },
-    "fullstack": {
-      "title": "Desenvolvimento Fullstack",
-      "description": "Experiência completa com backend usando Node.js, Express e PHP (Laravel), incluindo bancos de dados SQL e NoSQL."
+    "backend": {
+      "title": "Back-End",
+      "description": "APIs RESTful e GraphQL em Node.js, Express e NestJS, com tipagem estrita e validação via Zod, sobre PostgreSQL e Supabase, aplicando Clean Architecture, DDD e padrão de repositórios."
     },
-    "uiux": {
-      "title": "UI/UX Design",
-      "description": "Apoio em design de interfaces, usabilidade e prototipação com Figma, focado em acessibilidade e consistência visual."
+    "mobile": {
+      "title": "Mobile e White-label",
+      "description": "Apps em React Native e Kotlin, incluindo aplicações white-label: uma base de código que gera vários apps de marcas diferentes por build flavors, com publicação e versionamento na App Store e no Google Play."
     },
-    "api": {
-      "title": "Integração com APIs",
-      "description": "Trabalho com APIs REST, GraphQL e WebSockets para integrações em tempo real e comunicação entre serviços."
+    "queues": {
+      "title": "Filas e Processamento Assíncrono",
+      "description": "Jobs em background e mensageria com BullMQ, Redis, AWS SQS e Celery: workers, retries, deduplicação e trabalho pesado fora do ciclo da requisição."
     },
     "devops": {
-      "title": "DevOps & Cloud",
-      "description": "Automação de deploys e integração contínua com Jenkins, Blue Ocean e GitHub Actions. Experiência com serviços AWS como Lambda, EC2, S3, RDS, Aurora, CloudFront, Route 53, IAM, Amplify e CodeDeploy Serverless. Configuração de pipelines eficientes e monitoramento de aplicações em ambientes escaláveis."
+      "title": "DevOps e Cloud",
+      "description": "AWS (ECS, ECR, RDS, S3, Lambda, CloudFront, Route 53, IAM) com Docker e Terraform, pipelines de CI/CD com GitHub Actions, Jenkins e Bitbucket Pipelines, observabilidade e otimização de custos."
+    },
+    "quality": {
+      "title": "Qualidade e Testes",
+      "description": "Cobertura automatizada com Jest, Vitest, Playwright e Cypress em fluxo TDD/BDD, logging estruturado, tratamento resiliente de erros e code review."
     }
   },
   "projects": {
