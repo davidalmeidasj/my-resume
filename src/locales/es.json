@@ -22,7 +22,7 @@
     "paragraphs": [
       "En el frontend, construyo interfaces en React, Next.js (App Router, Server Components y Server Actions) y Vue, con Design System propio, accesibilidad y foco en el rendimiento percibido.",
       "En el backend, escribo APIs en Node.js, Express y NestJS aplicando Clean Architecture, DDD y el patrón de repositorios, sobre PostgreSQL y colas en segundo plano con BullMQ, Redis y SQS.",
-      "En mobile, trabajo con React Native y Kotlin, incluyendo aplicaciones white-label: una única base de código que genera varias apps de marcas distintas mediante build flavors, con publicación y versionado en la App Store y Google Play.",
+      "En mobile, trabajo con React Native y Kotlin, incluyendo aplicaciones white-label: una única base de código que genera cinco apps de marcas distintas mediante build flavors en Android y schemes en iOS, cada una con identificador, versionado y firma propios, publicadas en la App Store y Google Play, con entrega over-the-air y observabilidad en producción.",
       "En infraestructura, opero AWS con Docker y Terraform, y mantengo pipelines de CI/CD, observabilidad y cobertura de pruebas automatizadas como parte de la entrega, no como una etapa aparte."
     ],
     "stackTitle": "Stack",
