@@ -18,7 +18,22 @@
   },
   "about": {
     "title": "Sobre mim",
-    "description": "Sou Engenheiro de Software com mais de 9 anos de experiência em desenvolvimento front-end e back-end.\n\nTrabalho com tecnologias modernas como React, Vue, TypeScript, Node.js e PHP (Laravel). Tenho forte foco em código limpo, acessibilidade e experiências responsivas.\n\nAtualmente, atuo como desenvolvedor Front-End em projetos de larga escala utilizando React.js, Next.js e Vue.js, além de integração com APIs REST, GraphQL e WebSockets.\n\nSou entusiasta de boas práticas, arquitetura escalável e trabalho em equipe."
+    "lead": "Engenheiro de software há mais de 11 anos, atuando full stack com TypeScript ponta a ponta: da decisão de produto ao deploy na AWS.",
+    "paragraphs": [
+      "No frontend, construo interfaces em React, Next.js (App Router, Server Components e Server Actions) e Vue, com Design System próprio, acessibilidade e foco em performance percebida.",
+      "No backend, escrevo APIs em Node.js, Express e NestJS aplicando Clean Architecture, DDD e padrão de repositórios, sobre PostgreSQL e filas em background com BullMQ, Redis e SQS.",
+      "No mobile, trabalho com React Native e Kotlin, incluindo aplicações white-label: uma única base de código que gera vários apps de marcas diferentes por build flavors, com publicação e versionamento na App Store e no Google Play.",
+      "Na infraestrutura, opero AWS com Docker e Terraform e mantenho pipelines de CI/CD, observabilidade e cobertura de testes automatizados como parte da entrega, não como etapa separada."
+    ],
+    "stackTitle": "Stack",
+    "stack": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "data": "Dados",
+      "cloud": "Cloud e DevOps",
+      "quality": "Arquitetura e qualidade"
+    }
   },
   "services": {
     "title": "O que eu faço",
