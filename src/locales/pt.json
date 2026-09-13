@@ -1,4 +1,9 @@
 {
+  "seo": {
+    "title": "David Almeida | Desenvolvedor Full Stack Sênior",
+    "description": "Desenvolvedor Full Stack Sênior com mais de 11 anos em TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL e AWS. Disponível para trabalho 100% remoto.",
+    "jobTitle": "Desenvolvedor Full Stack Sênior"
+  },
   "menu": {
     "home": "Início",
     "about": "Sobre mim",
