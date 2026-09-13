@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import BrandLogo from '@/components/BrandLogo.vue'
+import { LOCALES, type Locale } from '@/config/site'
 
 const { locale, t } = useI18n()
 const mobileMenuOpen = ref(false)
 const router = useRouter()
+const route = useRoute()
 
-const switchLang = (lang: string) => {
-  locale.value = lang
+// Navigating instead of only flipping state is what gives each language a real,
+// shareable URL. The route guard is what actually applies the locale.
+const switchLang = (lang: Locale) => {
+  mobileMenuOpen.value = false
+  router.push({ path: `/${lang}`, hash: route.hash })
 }
 
 const scrollToSection = (id: string) => {
@@ -35,9 +40,17 @@ const scrollToSection = (id: string) => {
 
       <!-- Language Switcher -->
       <div class="hidden md:flex gap-2">
-        <button @click="switchLang('pt')" :class="{ 'font-bold': locale === 'pt' }">PT</button>
-        <button @click="switchLang('en')" :class="{ 'font-bold': locale === 'en' }">EN</button>
-        <button @click="switchLang('es')" :class="{ 'font-bold': locale === 'es' }">ES</button>
+        <button
+          v-for="lang in LOCALES"
+          :key="lang"
+          type="button"
+          :lang="lang"
+          :aria-current="locale === lang ? 'true' : undefined"
+          :class="{ 'font-bold': locale === lang }"
+          @click="switchLang(lang)"
+        >
+          {{ lang.toUpperCase() }}
+        </button>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -69,9 +82,17 @@ const scrollToSection = (id: string) => {
         <a @click.prevent="scrollToSection('projects')">{{ t('menu.projects') }}</a>
         <a @click.prevent="scrollToSection('contact')">{{ t('menu.contact') }}</a>
         <div class="flex gap-4 mt-4">
-          <button @click="switchLang('pt')" :class="{ 'font-bold': locale === 'pt' }">PT</button>
-          <button @click="switchLang('en')" :class="{ 'font-bold': locale === 'en' }">EN</button>
-          <button @click="switchLang('es')" :class="{ 'font-bold': locale === 'es' }">ES</button>
+          <button
+            v-for="lang in LOCALES"
+            :key="lang"
+            type="button"
+            :lang="lang"
+            :aria-current="locale === lang ? 'true' : undefined"
+            :class="{ 'font-bold': locale === lang }"
+            @click="switchLang(lang)"
+          >
+            {{ lang.toUpperCase() }}
+          </button>
         </div>
       </nav>
     </div>
