@@ -1,6 +1,6 @@
 import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
-import { routes, installLocaleGuard } from './router'
+import { routes, scrollBehavior, installLocaleGuard } from './router'
 import './assets/main.css'
 import { createAppI18n } from './i18n'
 import { isLocale } from './config/site'
@@ -13,7 +13,7 @@ import { isLocale } from './config/site'
  * search-engine passes never execute JavaScript, so a client-rendered SPA hands
  * them an empty <div id="app"> and nothing else.
  */
-export const createApp = ViteSSG(App, { routes }, ({ app, router, routePath }) => {
+export const createApp = ViteSSG(App, { routes, scrollBehavior }, ({ app, router, routePath }) => {
   // Per app, not per module: prerendering runs the routes in parallel in one
   // process, and a shared i18n instance would let them race over the locale.
   const i18n = createAppI18n()

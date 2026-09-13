@@ -1,4 +1,4 @@
-import type { Router, RouteRecordRaw } from 'vue-router'
+import type { Router, RouterOptions, RouteRecordRaw } from 'vue-router'
 import Home from '@/views/HomeView.vue'
 import { DEFAULT_LOCALE, isLocale } from '@/config/site'
 import type { AppI18n } from '@/i18n'
@@ -31,4 +31,20 @@ export function installLocaleGuard(router: Router, i18n: AppI18n) {
     i18n.global.locale.value = locale
     return true
   })
+}
+
+/**
+ * Anchor scrolling for the in-page nav.
+ *
+ * This has to be handed to the router factory explicitly: vite-ssg builds the
+ * router itself, so options not passed through here silently fall back to the
+ * defaults and #about-style links change the URL without moving the page.
+ *
+ * The offset for the fixed header is CSS (`scroll-margin-top` in main.css) so
+ * that native anchor loads land in the right place too, not just router ones.
+ */
+export const scrollBehavior: RouterOptions['scrollBehavior'] = (to, _from, savedPosition) => {
+  if (savedPosition) return savedPosition
+  if (to.hash) return { el: to.hash, behavior: 'smooth' }
+  return { top: 0 }
 }

@@ -17,9 +17,13 @@ const switchLang = (lang: Locale) => {
   router.push({ path: `/${lang}`, hash: route.hash })
 }
 
-const scrollToSection = (id: string) => {
+// Plain anchors, no preventDefault: the browser's own #hash jump is the
+// baseline, so in-page navigation keeps working even if the router or the
+// smooth-scroll animation does not. The handler only closes the mobile menu.
+const SECTIONS = ['home', 'about', 'projects', 'contact'] as const
+
+const closeMenu = () => {
   mobileMenuOpen.value = false
-  router.push({ hash: `#${id}` })
 }
 </script>
 
@@ -30,12 +34,9 @@ const scrollToSection = (id: string) => {
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#home" @click.prevent="scrollToSection('home')">{{ t('menu.home') }}</a>
-        <a href="#about" @click.prevent="scrollToSection('about')">{{ t('menu.about') }}</a>
-        <a href="#projects" @click.prevent="scrollToSection('projects')">{{
-          t('menu.projects')
-        }}</a>
-        <a href="#contact" @click.prevent="scrollToSection('contact')">{{ t('menu.contact') }}</a>
+        <a v-for="id in SECTIONS" :key="id" :href="`#${id}`" @click="closeMenu">
+          {{ t(`menu.${id}`) }}
+        </a>
       </nav>
 
       <!-- Language Switcher -->
@@ -77,10 +78,9 @@ const scrollToSection = (id: string) => {
     <!-- Mobile Menu -->
     <div v-if="mobileMenuOpen" class="md:hidden bg-white shadow-lg">
       <nav class="flex flex-col gap-4 px-4 py-6">
-        <a @click.prevent="scrollToSection('home')">{{ t('menu.home') }}</a>
-        <a @click.prevent="scrollToSection('about')">{{ t('menu.about') }}</a>
-        <a @click.prevent="scrollToSection('projects')">{{ t('menu.projects') }}</a>
-        <a @click.prevent="scrollToSection('contact')">{{ t('menu.contact') }}</a>
+        <a v-for="id in SECTIONS" :key="id" :href="`#${id}`" @click="closeMenu">
+          {{ t(`menu.${id}`) }}
+        </a>
         <div class="flex gap-4 mt-4">
           <button
             v-for="lang in LOCALES"
