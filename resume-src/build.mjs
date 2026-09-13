@@ -52,3 +52,22 @@ for (const locale of locales) {
 
   console.log(`built  public/david-almeida-resume-${locale}.pdf`)
 }
+
+// The social preview card. Rendered at exactly 1200x630, the size crawlers crop to.
+if (!process.argv.slice(2).length) {
+  execFileSync(
+    chrome,
+    [
+      '--headless',
+      '--disable-gpu',
+      '--hide-scrollbars',
+      '--window-size=1200,630',
+      '--virtual-time-budget=4000',
+      `--screenshot=${resolve(root, 'public', 'og-image.png')}`,
+      `file://${resolve(here, 'og-image.html')}`
+    ],
+    { stdio: ['ignore', 'ignore', 'ignore'] }
+  )
+
+  console.log('built  public/og-image.png')
+}
