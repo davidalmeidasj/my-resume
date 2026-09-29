@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/robots": "^6.2.3",
+    "@nuxtjs/sitemap": "^8.5.1",
     "nuxt": "^4.5.2",
     "vue": "^3.5.17",
     "vue3-carousel": "^0.16.0"

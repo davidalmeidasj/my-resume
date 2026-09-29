@@ -3,7 +3,17 @@ import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, SITE_URL } from './app/config/sit
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-29',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap', '@nuxtjs/robots'],
+  site: {
+    url: SITE_URL,
+  },
+  sitemap: {
+    sitemaps: false,
+    zeroRuntime: true,
+    credits: false,
+    discoverImages: false,
+    xsl: false,
+  },
   tailwindcss: {
     cssPath: '~/assets/main.css',
   },
