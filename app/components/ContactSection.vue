@@ -20,9 +20,9 @@ const socials = [
             {{ t('contact.name') }}
           </label>
           <input
+            id="name"
             type="text"
             name="name"
-            id="name"
             required
             placeholder="John Doe"
             class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
@@ -34,9 +34,9 @@ const socials = [
             {{ t('contact.email') }}
           </label>
           <input
+            id="email"
             type="email"
             name="email"
-            id="email"
             required
             placeholder="john@example.com"
             class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
@@ -48,8 +48,8 @@ const socials = [
             {{ t('contact.message') }}
           </label>
           <textarea
-            name="message"
             id="message"
+            name="message"
             required
             rows="5"
             placeholder="Your message..."

@@ -28,11 +28,11 @@ const skills = [
       </h2>
 
       <Carousel
-        :itemsToShow="2"
-        :wrapAround="true"
+        :items-to-show="2"
+        :wrap-around="true"
         :autoplay="2500"
-        :pauseAutoplayOnHover="true"
-        :mouseDrag="true"
+        :pause-autoplay-on-hover="true"
+        :mouse-drag="true"
         :breakpoints="{
           640: { itemsToShow: 3 },
           768: { itemsToShow: 5 },

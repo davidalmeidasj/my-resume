@@ -20,8 +20,8 @@ const scrollToTop = () => {
         <span class="text-base">🌐</span>
         <select
           :value="locale"
-          @change="switchLang"
           class="bg-white border border-muted text-sm rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-primary"
+          @change="switchLang"
         >
           <option v-for="lang in LOCALES" :key="lang" :value="lang">
             {{ lang.toUpperCase() }}
@@ -36,9 +36,9 @@ const scrollToTop = () => {
 
       <!-- Scroll to Top -->
       <button
-        @click="scrollToTop"
         class="text-primary hover:underline text-sm transition duration-300 hover:scale-105 w-[250px]"
         aria-label="Scroll to top"
+        @click="scrollToTop"
       >
         ↑ {{ t('footer.backToTop') }}
       </button>

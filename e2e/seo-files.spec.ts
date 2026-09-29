@@ -11,7 +11,7 @@ test('robots.txt allows crawling and points at the sitemap', async ({ request })
 
 test('sitemap.xml lists every locale with its alternates', async ({ request }) => {
   const sitemap = await (await request.get('/sitemap.xml')).text()
-  const entries = sitemap.match(/<url>[\s\S]*?<\/url>/g) ?? []
+  const entries = [...sitemap.matchAll(/<url>[\s\S]*?<\/url>/g)].map(([entry]) => entry)
 
   expect(entries).toHaveLength(LOCALES.length)
   for (const locale of LOCALES) {
