@@ -5,18 +5,18 @@ import { Carousel, Slide } from 'vue3-carousel'
 const { t } = useI18n()
 
 const skills = [
-  { label: 'Vue.js', icon: '/assets/icons/vuedotjs.svg' },
-  { label: 'React', icon: '/assets/icons/react.svg' },
-  { label: 'Next.js', icon: '/assets/icons/nextdotjs.svg' },
-  { label: 'TypeScript', icon: '/assets/icons/typescript.svg' },
-  { label: 'JavaScript', icon: '/assets/icons/javascript.svg' },
-  { label: 'Node.js', icon: '/assets/icons/nodedotjs.svg' },
-  { label: 'PHP', icon: '/assets/icons/php.svg' },
-  { label: 'Tailwind CSS', icon: '/assets/icons/tailwindcss.svg' },
-  { label: 'GraphQL', icon: '/assets/icons/graphql.svg' },
-  { label: 'MySQL', icon: '/assets/icons/mysql.svg' },
-  { label: 'PostgreSQL', icon: '/assets/icons/postgresql.svg' },
-  { label: 'Figma', icon: '/assets/icons/figma.svg' },
+  { label: 'Vue.js', icon: 'simple-icons:vuedotjs' },
+  { label: 'React', icon: 'simple-icons:react' },
+  { label: 'Next.js', icon: 'simple-icons:nextdotjs' },
+  { label: 'TypeScript', icon: 'simple-icons:typescript' },
+  { label: 'JavaScript', icon: 'simple-icons:javascript' },
+  { label: 'Node.js', icon: 'simple-icons:nodedotjs' },
+  { label: 'PHP', icon: 'simple-icons:php' },
+  { label: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+  { label: 'GraphQL', icon: 'simple-icons:graphql' },
+  { label: 'MySQL', icon: 'simple-icons:mysql' },
+  { label: 'PostgreSQL', icon: 'simple-icons:postgresql' },
+  { label: 'Figma', icon: 'simple-icons:figma' },
 ]
 </script>
 
@@ -42,7 +42,7 @@ const skills = [
       >
         <Slide v-for="(skill, index) in skills" :key="index">
           <div class="flex flex-col items-center justify-center gap-2 px-4 py-6">
-            <img :src="skill.icon" :alt="skill.label" class="w-10 h-10 object-contain" />
+            <Icon :name="skill.icon" class="w-10 h-10 text-black" />
             <span class="text-sm text-muted">{{ skill.label }}</span>
           </div>
         </Slide>

@@ -3,9 +3,19 @@ import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, SITE_URL } from './app/config/sit
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-29',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/fonts'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+  ],
   fonts: {
     families: [{ name: 'Inter', provider: 'google', weights: [400, 600, 700] }],
+  },
+  icon: {
+    clientBundle: { scan: true },
   },
   site: {
     url: SITE_URL,
@@ -29,7 +39,6 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { redirect: { to: `/${DEFAULT_LOCALE}`, statusCode: 301 } },
-    '/assets/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     ...Object.fromEntries(
       LOCALES.map((locale) => [
         `/david-almeida-resume-${locale}.pdf`,
