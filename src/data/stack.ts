@@ -68,6 +68,7 @@ export const stackGroups: StackGroup[] = [
       'Vitest',
       'Playwright',
       'Cypress',
+      'Husky / lint-staged',
       'TDD / BDD',
       'Clean Architecture',
       'DDD',
