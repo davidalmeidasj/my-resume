@@ -1,101 +1,60 @@
 # my-portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio built with [Nuxt 4](https://nuxt.com), Tailwind CSS and `@nuxtjs/i18n`,
+deployed on Vercel from the `main` branch.
 
-## Recommended IDE Setup
+## Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Requires Node 24 (see `.nvmrc`).
 
 ```sh
 yarn
 ```
 
-### Compile and Hot-Reload for Development
+| Command | What it does |
+| --- | --- |
+| `yarn dev` | Dev server with hot reload |
+| `yarn build` | Prerenders the site to `.output/public` (`nuxt generate`) |
+| `yarn preview` | Serves the generated output |
+| `yarn type-check` | `nuxt typecheck` |
+| `yarn test:unit` | Vitest |
+| `yarn test:e2e` | Playwright against `.output/public` (run `yarn build` first) |
+| `yarn lint` | oxlint and ESLint (`@nuxt/eslint`) |
 
-```sh
-yarn dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
-npx playwright install
-
-# When testing on CI, must build the project first
-yarn build
-
-# Runs the end-to-end tests
-yarn test:e2e
-# Runs the tests only on Chromium
-yarn test:e2e --project=chromium
-# Runs the tests of a specific file
-yarn test:e2e tests/example.spec.ts
-# Runs the tests in debug mode
-yarn test:e2e --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
-```
+A Husky pre-commit hook runs lint-staged, the type check and the unit tests.
 
 ## Rendering and SEO
 
-The site is **prerendered at build time** (`vite-ssg`), not client-rendered. Each
-language is a real route with its own static HTML file:
+The site is **prerendered at build time**, not client-rendered. Each language is a
+real route with its own static HTML file:
 
 ```
-/          redirects to /en          (vercel.json)
-/en   ->   dist/en.html              lang="en-US"
-/pt   ->   dist/pt.html              lang="pt-BR"
-/es   ->   dist/es.html              lang="es-ES"
+/          redirects to /en          (routeRules in nuxt.config.ts)
+/en   ->   .output/public/en/index.html   lang="en-US"
+/pt   ->   .output/public/pt/index.html   lang="pt-BR"
+/es   ->   .output/public/es/index.html   lang="es-ES"
 ```
 
-This matters because social crawlers (LinkedIn, WhatsApp, Slack) never execute
-JavaScript. A client-rendered SPA hands them an empty `<div id="app">`, so shared
-links render a blank preview card. Prerendering puts the real content, the
-Open Graph tags and the `Person` structured data in the served markup.
+Social crawlers (LinkedIn, WhatsApp, Slack) never execute JavaScript, so the content,
+the Open Graph tags and the `Person` structured data have to be in the served markup.
 
-SSG rather than SSR: the content is identical for every visitor, so there is
-nothing to compute per request and no reason to run a server.
+| Concern | Handled by |
+| --- | --- |
+| Locale routes, `lang`, canonical, hreflang, `og:locale` | `@nuxtjs/i18n` (`strategy: 'prefix'`) via `useLocaleHead` |
+| Title, description, Open Graph, Twitter, JSON-LD | `app/composables/useSeo.ts` |
+| `sitemap.xml` and `robots.txt` | `@nuxtjs/sitemap` and `@nuxtjs/robots` |
+| Fonts | `@nuxt/fonts`, self-hosted Inter |
+| Tech icons | `@nuxt/icon` with the local Simple Icons collection |
+| Redirect and cache headers | `routeRules`, emitted into Vercel's build output |
 
-**Things that will bite you here:**
+`SITE_URL` in `app/config/site.ts` is the single source of truth for canonical,
+`og:url`, `og:image`, the sitemap and robots.txt.
 
-- `SITE_URL` in `src/config/site.ts` is the single source of truth for canonical,
-  `og:url` and `og:image`. `public/robots.txt` and `public/sitemap.xml` repeat it
-  as static text; `src/config/__tests__/seo-files.spec.ts` fails if they drift.
-- The i18n instance is created **per app**, never at module scope. Prerendering
-  renders the routes in parallel in one Node process, and a shared instance makes
-  them race over `locale` so every page comes out in the same language.
-- Page titles are built in `useSeo.ts` instead of stored in the locale files:
-  vue-i18n reads `|` as a plural-form separator, so a title containing one comes
-  back truncated at the pipe.
-- Nothing at module scope may touch `window`. The router is created by `vite-ssg`
-  from the exported `routes`, not instantiated on import.
+Page titles are built in `useSeo.ts` instead of stored in the locale files: vue-i18n
+reads `|` as a plural-form separator, so a title containing one comes back truncated.
+
+`e2e/` checks the prerendered head of every locale, the sitemap, robots.txt and that
+both language switchers change the URL.
 
 Regenerate the social preview image with `yarn resume:build` after editing
 `resume-src/og-image.html`.
