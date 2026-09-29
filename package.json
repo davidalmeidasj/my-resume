@@ -27,6 +27,7 @@
     "vue3-carousel": "^0.16.0"
   },
   "devDependencies": {
+    "@nuxt/fonts": "^0.14.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@playwright/test": "^1.53.1",
     "@types/node": "^22.15.32",

@@ -3,7 +3,10 @@ import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, SITE_URL } from './app/config/sit
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-29',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap', '@nuxtjs/robots'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/fonts'],
+  fonts: {
+    families: [{ name: 'Inter', provider: 'google', weights: [400, 600, 700] }],
+  },
   site: {
     url: SITE_URL,
   },
