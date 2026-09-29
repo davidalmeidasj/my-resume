@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
 
 import { projects } from '../projects'
-import en from '@/locales/en.json'
-import pt from '@/locales/pt.json'
-import es from '@/locales/es.json'
+import en from '~~/i18n/locales/en.json'
+import pt from '~~/i18n/locales/pt.json'
+import es from '~~/i18n/locales/es.json'
 
 const locales = { en, pt, es } as Record<string, Record<string, unknown>>
 
@@ -33,7 +33,7 @@ describe('projects data', () => {
       )
 
       for (const key of keys) {
-        const value = resolve(locales[locale], key)
+        const value = resolve(locales[locale] ?? {}, key)
         if (typeof value !== 'string' || value.trim() === '') missing.push(key)
       }
     }

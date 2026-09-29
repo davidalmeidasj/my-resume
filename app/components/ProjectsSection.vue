@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import { projects } from '@/data/projects'
 const { t } = useI18n()
 </script>

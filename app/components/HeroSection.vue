@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
-import ScrollDown from '@/components/ScrollDown.vue'
-
 const { t, locale } = useI18n()
 const router = useRouter()
 

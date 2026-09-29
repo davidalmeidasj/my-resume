@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
-
 const { t } = useI18n()
 
 // Driven by a key list so adding an area means touching the locale files only.

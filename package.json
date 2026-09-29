@@ -4,40 +4,33 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
+    "dev": "nuxt dev",
+    "build": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "build-only": "vite-ssg build",
-    "type-check": "vue-tsc --build",
+    "type-check": "nuxt typecheck",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/",
+    "format": "prettier --write app/ i18n/",
     "resume:build": "node resume-src/build.mjs",
     "prepare": "husky"
   },
   "dependencies": {
-    "@unhead/vue": "^3.4.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "nuxt": "^4.5.2",
     "vue": "^3.5.17",
-    "vue-i18n": "^11.1.9",
-    "vue-router": "^4.5.1",
     "vue3-carousel": "^0.16.0"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0",
     "@playwright/test": "^1.53.1",
-    "@tailwindcss/postcss": "^4.1.11",
-    "@tsconfig/node22": "^22.0.2",
-    "@types/jsdom": "^21.1.7",
     "@types/node": "^22.15.32",
-    "@vitejs/plugin-vue": "^6.0.0",
-    "@vitejs/plugin-vue-jsx": "^5.0.0",
     "@vitest/eslint-plugin": "^1.2.7",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.5.1",
-    "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.29.0",
     "eslint-plugin-oxlint": "~1.1.0",
@@ -45,7 +38,6 @@
     "eslint-plugin-vue": "~10.2.0",
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
-    "jsdom": "^26.1.0",
     "lint-staged": "^16.4.0",
     "npm-run-all2": "^8.0.4",
     "oxlint": "~1.1.0",
@@ -54,14 +46,14 @@
     "prettier": "3.5.3",
     "tailwindcss": "3.4.1",
     "typescript": "~5.8.0",
-    "vite": "^7.0.0",
-    "vite-plugin-vue-devtools": "^7.7.7",
-    "vite-ssg": "^28.3.0",
     "vitest": "^3.2.4",
     "vue-tsc": "^2.2.10"
   },
   "lint-staged": {
     "*.{ts,mts,tsx,vue}": "eslint --fix",
-    "src/**/*.{ts,vue,css,json}": "prettier --write"
+    "{app,i18n}/**/*.{ts,vue,css,json}": "prettier --write"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

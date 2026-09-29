@@ -17,7 +17,7 @@ export default defineConfigWithVueTs(
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
 
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+  globalIgnores(['**/.nuxt/**', '**/.output/**', '**/.vercel/**', '**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
@@ -30,6 +30,10 @@ export default defineConfigWithVueTs(
   {
     ...pluginPlaywright.configs['flat/recommended'],
     files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+  },
+  {
+    files: ['app/pages/**/*.vue', 'app/app.vue'],
+    rules: { 'vue/multi-word-component-names': 'off' },
   },
   ...pluginOxlint.configs['flat/recommended'],
   skipFormatting,

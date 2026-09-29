@@ -1,20 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useRoute, useRouter } from 'vue-router'
-import BrandLogo from '@/components/BrandLogo.vue'
 import { LOCALES, type Locale } from '@/config/site'
 
 const { locale, t } = useI18n()
 const mobileMenuOpen = ref(false)
-const router = useRouter()
 const route = useRoute()
+const switchLocalePath = useSwitchLocalePath()
 
-// Navigating instead of only flipping state is what gives each language a real,
-// shareable URL. The route guard is what actually applies the locale.
 const switchLang = (lang: Locale) => {
   mobileMenuOpen.value = false
-  router.push({ path: `/${lang}`, hash: route.hash })
+  navigateTo({ path: switchLocalePath(lang), hash: route.hash })
 }
 
 // Plain anchors, no preventDefault: the browser's own #hash jump is the

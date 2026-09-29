@@ -46,7 +46,9 @@ describe('sitemap.xml', () => {
 
   it('never points at a host other than the configured one', () => {
     const hosts = [...sitemap.matchAll(/https?:\/\/[^/"<]+/g)].map((m) => m[0])
-    const external = hosts.filter((h) => h !== SITE_URL && !h.includes('sitemaps.org') && !h.includes('w3.org'))
+    const external = hosts.filter(
+      (h) => h !== SITE_URL && !h.includes('sitemaps.org') && !h.includes('w3.org'),
+    )
     expect(external).toEqual([])
   })
 })

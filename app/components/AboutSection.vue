@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
 import { stackGroups } from '@/data/stack'
 
 const { t, tm, rt } = useI18n()

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
   <div
     class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted animate-bounce"
@@ -13,7 +17,7 @@
     >
       <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
-    <span class="text-xs tracking-wide uppercase">{{ $t('hero.scrollDown') }}</span>
+    <span class="text-xs tracking-wide uppercase">{{ t('hero.scrollDown') }}</span>
   </div>
 </template>
 

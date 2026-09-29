@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
-const { locale, availableLocales } = useI18n()
+const { t, locale, availableLocales } = useI18n()
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -35,7 +33,7 @@ const scrollToTop = () => {
         class="text-primary hover:underline text-sm transition duration-300 hover:scale-105 w-[250px]"
         aria-label="Scroll to top"
       >
-        ↑ {{ $t('footer.backToTop') || 'Back to top' }}
+        ↑ {{ t('footer.backToTop') }}
       </button>
     </div>
   </footer>
