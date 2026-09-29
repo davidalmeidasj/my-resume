@@ -3,12 +3,11 @@ import { LOCALES, type Locale } from '@/config/site'
 
 const { locale, t } = useI18n()
 const mobileMenuOpen = ref(false)
-const route = useRoute()
-const switchLocalePath = useSwitchLocalePath()
+const switchLocale = useLocaleSwitch()
 
 const switchLang = (lang: Locale) => {
   mobileMenuOpen.value = false
-  navigateTo({ path: switchLocalePath(lang), hash: route.hash })
+  switchLocale(lang)
 }
 
 // Plain anchors, no preventDefault: the browser's own #hash jump is the

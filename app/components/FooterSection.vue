@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const { t, locale, availableLocales } = useI18n()
+import { LOCALES, type Locale } from '@/config/site'
+
+const { t, locale } = useI18n()
+const switchLocale = useLocaleSwitch()
+
+const switchLang = (event: Event) =>
+  switchLocale((event.target as HTMLSelectElement).value as Locale)
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -13,10 +19,11 @@ const scrollToTop = () => {
       <div class="flex items-center gap-2">
         <span class="text-base">🌐</span>
         <select
-          v-model="locale"
+          :value="locale"
+          @change="switchLang"
           class="bg-white border border-muted text-sm rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-primary"
         >
-          <option v-for="lang in availableLocales" :key="lang" :value="lang">
+          <option v-for="lang in LOCALES" :key="lang" :value="lang">
             {{ lang.toUpperCase() }}
           </option>
         </select>
