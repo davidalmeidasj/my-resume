@@ -15,7 +15,8 @@
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
     "format": "prettier --write src/",
-    "resume:build": "node resume-src/build.mjs"
+    "resume:build": "node resume-src/build.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "@unhead/vue": "^3.4.0",
@@ -42,8 +43,10 @@
     "eslint-plugin-oxlint": "~1.1.0",
     "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-vue": "~10.2.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "jsdom": "^26.1.0",
+    "lint-staged": "^16.4.0",
     "npm-run-all2": "^8.0.4",
     "oxlint": "~1.1.0",
     "postcss": "^8.5.6",
@@ -56,5 +59,9 @@
     "vite-ssg": "^28.3.0",
     "vitest": "^3.2.4",
     "vue-tsc": "^2.2.10"
+  },
+  "lint-staged": {
+    "*.{ts,mts,tsx,vue}": "eslint --fix",
+    "src/**/*.{ts,vue,css,json}": "prettier --write"
   }
 }
