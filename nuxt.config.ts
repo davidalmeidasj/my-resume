@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/fonts',
     '@nuxt/icon',
+    '@nuxt/eslint',
   ],
   fonts: {
     families: [{ name: 'Inter', provider: 'google', weights: [400, 600, 700] }],
