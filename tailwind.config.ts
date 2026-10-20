@@ -1,27 +1,41 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{vue,js,ts}'],
   theme: {
     extend: {
       colors: {
-        primary: '#606C38',         // Dark Olive Green
-        'primary-dark': '#C2185B',  // (Consider updating this — it doesn’t match the new palette)
-        background: '#F9FAFB',      // Consider replacing with `light`
-        surface: '#FFFFFF',
-        muted: '#6B7280',
-        dark: '#1F2937',
-        secondary: '#283618',       // Very Dark Green
-        light: '#FEFAE0',           // Light Cream
-        accent1: '#DDA15E',         // Warm Beige
-        accent2: '#BC6C25',         // Burnt Orange
+        glass: '#E8E8E8',
+        'glass-deep': '#DCDFE0',
+        ink: '#1B2427',
+        'ink-2': '#3F4C52',
+        slate: '#6E7E86',
+        teal: '#00799B',
+        'teal-ink': '#006480',
+        hot: '#FF6816',
+        lock: '#FCD800',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
-      }
-    }
+        display: ['"Chakra Petch"', 'system-ui', 'sans-serif'],
+        sans: ['B612', 'system-ui', 'sans-serif'],
+        mono: ['"B612 Mono"', 'ui-monospace', 'monospace'],
+      },
+      spacing: {
+        m: 'var(--m)',
+        '2m': 'calc(var(--m) * 2)',
+        '3m': 'calc(var(--m) * 3)',
+        '4m': 'calc(var(--m) * 4)',
+        '6m': 'calc(var(--m) * 6)',
+      },
+      maxWidth: {
+        frame: '72rem',
+      },
+      transitionTimingFunction: {
+        lock: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 }
 
 export default config
