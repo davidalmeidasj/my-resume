@@ -27,9 +27,6 @@ const config: Config = {
         '4m': 'calc(var(--m) * 4)',
         '6m': 'calc(var(--m) * 6)',
       },
-      maxWidth: {
-        frame: '72rem',
-      },
       transitionTimingFunction: {
         lock: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
