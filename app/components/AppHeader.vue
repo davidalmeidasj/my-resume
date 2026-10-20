@@ -202,6 +202,10 @@ onBeforeUnmount(() => {
   color: #ece0fb;
 }
 
+.bar__link:focus-visible {
+  outline-offset: -4px;
+}
+
 .bar__marker {
   position: absolute;
   left: 0;
@@ -304,7 +308,7 @@ onBeforeUnmount(() => {
   clip-path: inset(0 0 0 0);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .bar__nav,
   .bar__locales {
     display: flex;
