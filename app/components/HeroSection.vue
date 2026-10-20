@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { AUTHOR } from '@/config/site'
+
 const { t, locale } = useI18n()
 const router = useRouter()
+
+const greeting = computed(() => t('hero.title').replace(AUTHOR.name, '').trim())
 
 const scrollToContact = () => {
   router.push({ hash: '#contact' })
@@ -17,34 +21,32 @@ const downloadResume = () => {
 </script>
 
 <template>
-  <section
-    id="home"
-    class="flex flex-col justify-center items-center text-center min-h-screen px-6 bg-light"
-  >
-    <div class="animate-fade-in max-w-2xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight tracking-tight">
-        {{ t('hero.title') }}
-      </h1>
+  <section id="home" class="hero">
+    <div class="hero__grid px-wrap">
+      <div class="hero__copy">
+        <h1 class="hero__title">
+          <span class="hero__greeting">{{ greeting }}</span>
+          <span class="sr-only">{{ AUTHOR.name }}</span>
+          <PixelName :text="AUTHOR.name" class="hero__name" />
+        </h1>
 
-      <p class="text-base md:text-lg text-muted leading-relaxed mb-6">
-        {{ t('hero.subtitle') }}
-      </p>
+        <p class="hero__subtitle">
+          {{ t('hero.subtitle') }}
+        </p>
 
-      <div class="flex flex-col gap-4 items-center sm:flex-row sm:justify-center">
-        <button
-          class="bg-accent2 text-white font-semibold px-6 py-3 rounded-xl hover:bg-accent1 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
-          @click="scrollToContact"
-        >
-          {{ t('hero.cta') }}
-        </button>
-
-        <button
-          class="bg-white text-accent2 font-semibold px-6 py-3 rounded-xl border border-accent2 hover:bg-accent2 hover:text-white transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
-          @click="downloadResume"
-        >
-          {{ t('hero.downloadResume') }}
-        </button>
+        <div class="hero__keys">
+          <button type="button" class="px-key px-key--primary" @click="scrollToContact">
+            {{ t('hero.cta') }}
+            <PixelIcon name="arrow-down" />
+          </button>
+          <button type="button" class="px-key" @click="downloadResume">
+            {{ t('hero.downloadResume') }}
+            <PixelIcon name="download" />
+          </button>
+        </div>
       </div>
+
+      <GlyphInspector class="hero__inspector" />
     </div>
 
     <ScrollDown />
@@ -52,18 +54,67 @@ const downloadResume = () => {
 </template>
 
 <style scoped>
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding: calc(72px + var(--cell) * 6) var(--gutter) calc(var(--cell) * 14);
+}
+
+.hero__grid {
+  width: 100%;
+  display: grid;
+  gap: calc(var(--cell) * 8);
+  align-items: center;
+}
+
+.hero__title {
+  display: grid;
+  gap: calc(var(--cell) * 3);
+  font-weight: 400;
+}
+
+.hero__greeting {
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-size: clamp(1.375rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  color: #9e7b9b;
+}
+
+.hero__subtitle {
+  max-width: 40rem;
+  margin-top: calc(var(--cell) * 5);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.hero__keys {
+  display: grid;
+  gap: calc(var(--cell) * 4);
+  margin-top: calc(var(--cell) * 6);
+}
+
+.hero__inspector {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hero__keys {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--cell) * 3);
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 7fr 4fr;
+  }
+
+  .hero__inspector {
+    display: grid;
+  }
 }
 </style>

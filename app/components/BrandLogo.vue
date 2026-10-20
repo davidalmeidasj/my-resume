@@ -1,26 +1,56 @@
+<script setup lang="ts">
+import { AUTHOR } from '@/config/site'
+import { glyphCells } from '@/utils/bitmap'
+
+const mark = glyphCells('D')
+</script>
+
 <template>
-  <svg
-    width="220"
-    height="40"
-    viewBox="0 0 220 40"
-    xmlns="http://www.w3.org/2000/svg"
-    class="cursor-pointer transition-transform duration-300 hover:scale-105 hover:brightness-110"
-  >
-    <defs>
-      <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#d4af37" />
-        <stop offset="100%" stop-color="#b8860b" />
-      </linearGradient>
-    </defs>
-    <g
-      fill="url(#gold-gradient)"
-      font-family="Arial, sans-serif"
-      font-size="20"
-      dominant-baseline="middle"
-      alignment-baseline="middle"
+  <a href="#home" class="brand">
+    <svg
+      class="brand__mark"
+      viewBox="0 0 5 7"
+      width="15"
+      height="21"
+      shape-rendering="crispEdges"
+      aria-hidden="true"
+      focusable="false"
     >
-      <text x="0" y="24" font-weight="bold">&lt;/&gt;</text>
-      <text x="40" y="24">David Almeida</text>
-    </g>
-  </svg>
+      <rect
+        v-for="cell in mark"
+        :key="`${cell.x}-${cell.y}`"
+        :x="cell.x"
+        :y="cell.y"
+        width="1"
+        height="1"
+      />
+    </svg>
+    <span class="brand__name">{{ AUTHOR.name }}</span>
+  </a>
 </template>
+
+<style scoped>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  color: #cb9cf2;
+}
+
+.brand__mark {
+  fill: currentColor;
+  transition: transform calc(var(--step) * 3) steps(3, end);
+}
+
+.brand:hover .brand__mark {
+  transform: translateY(-3px);
+}
+
+.brand__name {
+  font-family: 'Pixelify Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+</style>

@@ -13,35 +13,123 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <footer class="bg-light border-t border-accent1 px-6 py-10 text-dark">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <!-- Language Switcher -->
-      <div class="flex items-center gap-2">
-        <span class="text-base">🌐</span>
+  <footer class="foot">
+    <div class="foot__inner px-wrap">
+      <label class="foot__locale px-frame">
+        <PixelIcon name="globe" class="foot__globe" />
         <select
           :value="locale"
-          class="bg-white border border-muted text-sm rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-primary"
+          class="foot__select"
+          :aria-label="t('a11y.language')"
           @change="switchLang"
         >
           <option v-for="lang in LOCALES" :key="lang" :value="lang">
             {{ lang.toUpperCase() }}
           </option>
         </select>
-      </div>
+        <PixelIcon name="chevron" class="foot__chevron" />
+      </label>
 
-      <!-- Credits -->
-      <p class="text-sm text-muted text-center md:text-left">
-        © 2025 David Almeida. All rights reserved.
-      </p>
+      <p class="foot__credits">© 2025 David Almeida. All rights reserved.</p>
 
-      <!-- Scroll to Top -->
-      <button
-        class="text-primary hover:underline text-sm transition duration-300 hover:scale-105 w-[250px]"
-        aria-label="Scroll to top"
-        @click="scrollToTop"
-      >
-        ↑ {{ t('footer.backToTop') }}
+      <button type="button" class="foot__top" aria-label="Scroll to top" @click="scrollToTop">
+        <PixelIcon name="arrow-up" />
+        {{ t('footer.backToTop') }}
       </button>
     </div>
   </footer>
 </template>
+
+<style scoped>
+.foot {
+  padding: calc(var(--cell) * 6) var(--gutter);
+  border-top: 4px solid #374a67;
+  background: #0e1116;
+}
+
+.foot__inner {
+  display: grid;
+  justify-items: center;
+  gap: calc(var(--cell) * 3);
+}
+
+.foot__locale {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 0.75rem;
+  color: #cb9cf2;
+}
+
+.foot__select {
+  appearance: none;
+  background: transparent;
+  padding: 0 1.5rem 0 0.25rem;
+  min-height: 40px;
+  font-family: Silkscreen, ui-monospace, monospace;
+  font-size: 0.875rem;
+  color: #ece0fb;
+  cursor: pointer;
+}
+
+.foot__select:focus-visible {
+  outline: none;
+}
+
+.foot__locale:focus-within {
+  outline: 4px solid #ece0fb;
+  outline-offset: 4px;
+}
+
+.foot__select option {
+  background: #0e1116;
+  color: #ece0fb;
+}
+
+.foot__chevron {
+  position: absolute;
+  right: 0.75rem;
+  pointer-events: none;
+}
+
+.foot__credits {
+  font-size: 0.875rem;
+  color: #9e7b9b;
+  text-align: center;
+}
+
+.foot__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #cb9cf2;
+  transition: transform calc(var(--step) * 2) steps(2, end);
+}
+
+.foot__top:hover {
+  color: #ece0fb;
+  transform: translateY(-4px);
+}
+
+@media (min-width: 768px) {
+  .foot__inner {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .foot__locale {
+    justify-self: start;
+  }
+
+  .foot__top {
+    justify-self: end;
+    margin-right: -0.75rem;
+  }
+}
+</style>

@@ -133,5 +133,9 @@
   "footer": {
     "rights": "Todos los derechos reservados.",
     "backToTop": "Volver arriba"
+  },
+  "a11y": {
+    "menu": "Menú",
+    "language": "Idioma"
   }
 }
