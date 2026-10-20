@@ -65,7 +65,8 @@
     caret-color: #ff6816;
   }
 
-  ::placeholder {
+  input::placeholder,
+  textarea::placeholder {
     color: #4a575d;
     opacity: 1;
   }

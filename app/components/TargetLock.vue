@@ -208,7 +208,7 @@ onBeforeUnmount(() => {
 .lock__pip {
   width: 6px;
   height: 6px;
-  margin: -9px 0 0 -9px;
+  margin: 4px 0 0 4px;
   background: #fcd800;
   outline: 1px solid #1b2427;
   animation: pip 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
