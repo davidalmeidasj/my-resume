@@ -83,6 +83,7 @@
 
   .hud-heading {
     @apply font-display font-light text-ink;
+    width: fit-content;
     font-size: clamp(2.25rem, 4.6vw, 3.75rem);
     line-height: 1.02;
     letter-spacing: -0.02em;
