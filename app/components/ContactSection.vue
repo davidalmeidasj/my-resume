@@ -179,7 +179,13 @@ const socials = [
 }
 
 .form__send {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+}
+
+@media (min-width: 640px) {
+  .form__send {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 </style>

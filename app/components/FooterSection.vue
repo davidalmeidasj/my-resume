@@ -72,6 +72,7 @@ const scrollToTop = () => {
 
   .foot__top {
     justify-self: end;
+    margin-right: -12px;
   }
 }
 
@@ -107,6 +108,9 @@ const scrollToTop = () => {
 }
 
 .foot__credits {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 0.8125rem;
   color: #3f4c52;
   text-align: center;
