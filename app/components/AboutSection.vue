@@ -18,31 +18,33 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
         </p>
       </div>
 
-      <div class="about__body">
-        <p v-for="(paragraph, index) in paragraphs" :key="index" class="about__para">
-          {{ paragraph }}
-        </p>
-      </div>
+      <div class="about__main">
+        <div class="about__body">
+          <p v-for="(paragraph, index) in paragraphs" :key="index" class="about__para">
+            {{ paragraph }}
+          </p>
+        </div>
 
-      <div class="about__stack">
-        <h3 class="about__stack-title">
-          {{ t('about.stackTitle') }}
-        </h3>
+        <div class="about__stack">
+          <h3 class="about__stack-title">
+            {{ t('about.stackTitle') }}
+          </h3>
 
-        <dl class="readout">
-          <div v-for="group in stackGroups" :key="group.key" class="readout__row">
-            <dt class="hud-label readout__label">
-              {{ t(`about.stack.${group.key}`) }}
-            </dt>
-            <dd>
-              <ul class="readout__techs">
-                <li v-for="tech in group.techs" :key="tech" class="readout__tech">
-                  {{ tech }}
-                </li>
-              </ul>
-            </dd>
-          </div>
-        </dl>
+          <dl class="readout">
+            <div v-for="group in stackGroups" :key="group.key" class="readout__row">
+              <dt class="hud-label readout__label">
+                {{ t(`about.stack.${group.key}`) }}
+              </dt>
+              <dd>
+                <ul class="readout__techs">
+                  <li v-for="tech in group.techs" :key="tech" class="readout__tech">
+                    {{ tech }}
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -60,8 +62,18 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
   .about {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     column-gap: calc(var(--m) * 3);
-    row-gap: calc(var(--m) * 4);
+    align-items: start;
   }
+
+  .about__intro {
+    position: sticky;
+    top: calc(var(--m) * 6);
+  }
+}
+
+.about__main {
+  display: grid;
+  gap: calc(var(--m) * 3);
 }
 
 .about__lead {
@@ -84,7 +96,6 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
   .about__body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: calc(var(--m) * 1.5);
-    padding-top: calc(var(--m) * 0.5);
   }
 }
 
@@ -96,14 +107,6 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
 .about__stack {
   display: grid;
   gap: var(--m);
-}
-
-@media (min-width: 1024px) {
-  .about__stack {
-    grid-column: 1 / -1;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    column-gap: calc(var(--m) * 3);
-  }
 }
 
 .about__stack-title {
