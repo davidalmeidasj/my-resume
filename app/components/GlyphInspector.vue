@@ -129,6 +129,18 @@ const sizes = [2, 3, 4, 6]
   fill: #cb9cf2;
 }
 
+@media (max-width: 1023px) {
+  .inspector {
+    grid-template-columns: 7rem 1fr;
+    column-gap: calc(var(--cell) * 4);
+    align-items: end;
+  }
+
+  .inspector__glyph {
+    grid-row: span 2;
+  }
+}
+
 @keyframes cell-on {
   from {
     opacity: 0;

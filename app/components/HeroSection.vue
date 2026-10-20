@@ -108,6 +108,13 @@ const downloadResume = () => {
   }
 }
 
+@media (min-width: 640px) and (max-width: 1023px) and (min-height: 900px) {
+  .hero__inspector {
+    display: grid;
+    max-width: 34rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .hero__grid {
     grid-template-columns: 7fr 4fr;
