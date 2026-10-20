@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
 .bar__nav {
   position: relative;
   display: none;
-  gap: calc(var(--cell) * 5);
+  gap: calc(var(--cell) * 4);
   margin-left: auto;
   align-self: stretch;
 }
@@ -192,6 +192,9 @@ onBeforeUnmount(() => {
 .bar__link {
   display: flex;
   align-items: center;
+  align-self: center;
+  min-height: 44px;
+  padding-inline: 0.25rem;
   color: #9e7b9b;
   font-size: 0.9375rem;
   transition: color calc(var(--step) * 2) steps(2, end);
@@ -200,10 +203,6 @@ onBeforeUnmount(() => {
 .bar__link:hover,
 .bar__link[aria-current='location'] {
   color: #ece0fb;
-}
-
-.bar__link:focus-visible {
-  outline-offset: -4px;
 }
 
 .bar__marker {
