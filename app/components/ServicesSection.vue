@@ -48,10 +48,11 @@ const services = computed(() =>
 
 .service::before {
   content: '';
-  @apply absolute left-0 top-[-1px] h-px w-full origin-left scale-x-0 bg-crest transition-transform duration-700 ease-out-expo;
+  @apply absolute left-0 top-[-1px] h-px w-full origin-left scale-x-0 bg-crest transition-transform duration-[600ms] ease-out-expo;
 }
 
-.service:hover::before {
+.service:hover::before,
+.service:focus-within::before {
   @apply scale-x-100;
 }
 </style>

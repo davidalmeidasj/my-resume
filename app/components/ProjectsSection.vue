@@ -48,7 +48,7 @@ const { t } = useI18n()
               :href="project.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex min-h-[44px] items-center gap-2 font-display text-sm tracking-[0.08em] text-signal hover:text-mist"
+              class="inline-flex min-h-[44px] items-center gap-2 font-display text-sm text-signal hover:text-mist"
             >
               {{ t('projects.viewOnGitHub') }}
               <Icon name="lucide:arrow-up-right" class="h-4 w-4" />
@@ -70,3 +70,19 @@ const { t } = useI18n()
     </div>
   </section>
 </template>
+
+<style scoped>
+.project {
+  position: relative;
+}
+
+.project::before {
+  content: '';
+  @apply absolute left-0 top-[-1px] h-px w-full origin-left scale-x-0 bg-crest transition-transform duration-[600ms] ease-out-expo;
+}
+
+.project:hover::before,
+.project:focus-within::before {
+  @apply scale-x-100;
+}
+</style>

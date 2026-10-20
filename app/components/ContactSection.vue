@@ -86,7 +86,7 @@ const socials = [
 
         <button
           type="submit"
-          class="group inline-flex min-h-[3.5rem] items-center justify-center gap-3 self-start rounded-full bg-spark px-8 font-display text-sm tracking-[0.08em] text-abyss transition-colors duration-300 hover:bg-signal"
+          class="group inline-flex min-h-[3.5rem] items-center justify-center gap-3 self-start rounded-full bg-spark px-8 font-display text-sm text-abyss transition-colors duration-300 hover:bg-signal"
         >
           {{ t('contact.send') }}
           <Icon

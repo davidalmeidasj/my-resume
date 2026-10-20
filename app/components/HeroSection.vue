@@ -43,7 +43,7 @@ const resumeHref = computed(() => `/david-almeida-resume-${locale.value}.pdf`)
 
 <style scoped>
 .action {
-  @apply inline-flex min-h-[3.5rem] items-center justify-center gap-3 rounded-full px-8 font-display text-sm font-normal tracking-[0.08em] transition-colors duration-300;
+  @apply inline-flex min-h-[3.5rem] items-center justify-center gap-3 rounded-full px-8 font-display text-sm font-normal transition-colors duration-300;
 }
 
 .action-primary {
