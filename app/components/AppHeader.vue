@@ -25,6 +25,8 @@ const onKey = (event: KeyboardEvent) => {
   if (event.key === 'Escape') closeMenu()
 }
 
+watch(mobileMenuOpen, (open) => document.body.classList.toggle('hud-locked', open))
+
 onMounted(() => window.addEventListener('keydown', onKey))
 onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
@@ -114,6 +116,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
 <style scoped>
 .hud-header {
+  --bar: clamp(60px, calc(var(--m) * 3.5), 72px);
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
@@ -126,9 +129,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   align-items: center;
   justify-content: space-between;
   gap: var(--m);
-  height: calc(var(--m) * 3.5);
-  max-height: 72px;
-  min-height: 60px;
+  height: var(--bar);
   padding-inline: var(--m);
 }
 
@@ -282,6 +283,8 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 }
 
 .drawer {
+  height: calc(100dvh - var(--bar));
+  overflow-y: auto;
   border-top: 1px solid rgb(110 126 134 / 0.4);
   background: #e8e8e8;
 }
