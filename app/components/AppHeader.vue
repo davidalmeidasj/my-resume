@@ -208,8 +208,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   min-width: 44px;
   min-height: 36px;
   padding-inline: 8px;
-  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-family: B612, system-ui, sans-serif;
   font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   color: #3f4c52;
   border: 1px solid transparent;

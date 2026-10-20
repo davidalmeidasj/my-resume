@@ -90,7 +90,8 @@ const scrollToTop = () => {
 .foot__locale select {
   appearance: none;
   background: transparent;
-  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-family: B612, system-ui, sans-serif;
+  font-weight: 700;
   font-size: 0.8125rem;
   letter-spacing: 0.08em;
   color: #1b2427;
@@ -108,9 +109,6 @@ const scrollToTop = () => {
 }
 
 .foot__credits {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
   font-size: 0.8125rem;
   color: #3f4c52;
   text-align: center;
@@ -129,6 +127,12 @@ const scrollToTop = () => {
   color: #006480;
   border: 1px solid transparent;
   transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 767px) {
+  .foot__top {
+    margin-top: -12px;
+  }
 }
 
 .foot__top:hover {
