@@ -18,19 +18,26 @@ const skills = [
   { label: 'PostgreSQL', icon: 'simple-icons:postgresql' },
   { label: 'Figma', icon: 'simple-icons:figma' },
 ]
+
+const autoplay = ref(2500)
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) autoplay.value = 0
+})
 </script>
 
 <template>
-  <section id="skills" class="bg-white px-6 py-20">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
+  <section id="skills" class="px-section">
+    <div class="px-wrap">
+      <h2 v-arrive class="px-heading">
         {{ t('skills.title') }}
       </h2>
 
       <Carousel
+        :key="autoplay"
         :items-to-show="2"
         :wrap-around="true"
-        :autoplay="2500"
+        :autoplay="autoplay"
         :pause-autoplay-on-hover="true"
         :mouse-drag="true"
         :breakpoints="{
@@ -38,15 +45,51 @@ const skills = [
           768: { itemsToShow: 5 },
           1024: { itemsToShow: 6 },
         }"
-        class="w-full"
+        class="glyphset"
       >
-        <Slide v-for="(skill, index) in skills" :key="index">
-          <div class="flex flex-col items-center justify-center gap-2 px-4 py-6">
-            <Icon :name="skill.icon" class="w-10 h-10 text-black" />
-            <span class="text-sm text-muted">{{ skill.label }}</span>
+        <Slide v-for="skill in skills" :key="skill.label">
+          <div class="glyph px-frame">
+            <Icon :name="skill.icon" class="glyph__icon" />
+            <span class="glyph__label">{{ skill.label }}</span>
           </div>
         </Slide>
       </Carousel>
     </div>
   </section>
 </template>
+
+<style scoped>
+.glyphset {
+  margin-top: calc(var(--cell) * 6);
+}
+
+.glyphset :deep(.carousel__track) {
+  transition-timing-function: steps(6, end) !important;
+}
+
+.glyph {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: calc(var(--cell) * 2);
+  width: calc(100% - var(--cell) * 2);
+  min-height: calc(var(--cell) * 18);
+  padding: calc(var(--cell) * 2);
+}
+
+.glyph__icon {
+  width: 40px;
+  height: 40px;
+  color: #ece0fb;
+}
+
+.glyph:hover .glyph__icon {
+  color: #cb9cf2;
+}
+
+.glyph__label {
+  font-size: 0.875rem;
+  color: #9e7b9b;
+  text-align: center;
+}
+</style>
