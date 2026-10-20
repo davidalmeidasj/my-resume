@@ -20,24 +20,33 @@ const scrollToTop = () => {
     >
       <p class="text-sm text-haze">© 2025 David Almeida. {{ t('footer.rights') }}</p>
 
-      <div class="flex items-center justify-between gap-6 md:justify-end">
-        <label class="flex items-center gap-2 text-haze">
-          <Icon name="lucide:globe" class="h-4 w-4" />
+      <div class="flex items-center gap-3 md:justify-end">
+        <label
+          class="relative inline-flex h-11 items-center rounded-full border border-line text-haze transition-colors duration-300 focus-within:border-crest hover:border-haze/50 hover:text-mist"
+        >
+          <Icon name="lucide:globe" class="pointer-events-none absolute left-4 h-4 w-4" />
           <span class="sr-only">Language</span>
           <select
             :value="locale"
-            class="min-h-[44px] rounded-full border border-line bg-abyss px-3 font-display text-xs tracking-[0.2em] text-mist"
+            class="h-full cursor-pointer appearance-none rounded-full bg-transparent pl-10 pr-10 text-sm text-mist outline-none"
             @change="switchLang"
           >
-            <option v-for="lang in LOCALES" :key="lang" :value="lang" :selected="lang === locale">
+            <option
+              v-for="lang in LOCALES"
+              :key="lang"
+              :value="lang"
+              :selected="lang === locale"
+              class="bg-abyss"
+            >
               {{ lang.toUpperCase() }}
             </option>
           </select>
+          <Icon name="lucide:chevron-down" class="pointer-events-none absolute right-4 h-4 w-4" />
         </label>
 
         <button
           type="button"
-          class="group inline-flex min-h-[44px] items-center gap-2 text-sm text-haze transition-colors duration-300 hover:text-mist"
+          class="group inline-flex h-11 items-center gap-2 rounded-full border border-line px-5 text-sm text-haze transition-colors duration-300 hover:border-haze/50 hover:text-mist"
           @click="scrollToTop"
         >
           <Icon
