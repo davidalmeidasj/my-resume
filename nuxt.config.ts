@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
   ],
   fonts: {
-    families: [{ name: 'Inter', provider: 'google', weights: [400, 600, 700] }],
+    families: [
+      { name: 'Pixelify Sans', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Atkinson Hyperlegible Next', provider: 'google', weights: [400, 700] },
+      { name: 'Silkscreen', provider: 'google', weights: [400] },
+    ],
   },
   icon: {
     clientBundle: { scan: true },

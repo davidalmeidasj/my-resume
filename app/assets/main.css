@@ -2,28 +2,192 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilo base global */
 @layer base {
+  :root {
+    --cell: 8px;
+    --glyph: 8px;
+    --gutter: 1rem;
+    --frame-grape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23616283' d='M4 0h4v4H4zM0 4h4v4H0zM8 4h4v4H8zM4 8h4v4H4z'/%3E%3C/svg%3E");
+    --frame-wisteria: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23CB9CF2' d='M4 0h4v4H4zM0 4h4v4H0zM8 4h4v4H8zM4 8h4v4H4z'/%3E%3C/svg%3E");
+    --fill-wisteria: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23CB9CF2' d='M4 0h4v4H4zM0 4h4v4H0zM8 4h4v4H8zM4 8h4v4H4zM4 4h4v4H4z'/%3E%3C/svg%3E");
+    --fill-lilac: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23ECE0FB' d='M4 0h4v4H4zM0 4h4v4H0zM8 4h4v4H8zM4 8h4v4H4zM4 4h4v4H4z'/%3E%3C/svg%3E");
+    --fill-dusk: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23CB9CF2' d='M4 0h4v4H4zM0 4h4v4H0zM8 4h4v4H8zM4 8h4v4H4z'/%3E%3Cpath fill='%23374A67' d='M4 4h4v4H4z'/%3E%3C/svg%3E");
+    --dots: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='2' height='2' fill='%23374A67'/%3E%3C/svg%3E");
+    --step: 40ms;
+    scrollbar-color: #616283 #0e1116;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --glyph: 12px;
+      --gutter: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --glyph: 14px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --glyph: 16px;
+      --gutter: 4rem;
+    }
+  }
+
   body {
-    @apply font-sans bg-background text-dark;
+    @apply font-sans text-lilac;
+    background-color: #0e1116;
+    background-image: var(--dots);
+    background-position: 7px 7px;
+    caret-color: #cb9cf2;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.px-locked {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: #cb9cf2;
+    color: #0e1116;
+  }
+
+  :focus-visible {
+    outline: 4px solid #ece0fb;
+    outline-offset: 4px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #9e7b9b;
+    opacity: 1;
   }
 
   h1,
   h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-bold text-dark;
-  }
-
-  section {
-    @apply py-20 px-6;
+  h3 {
+    text-wrap: balance;
   }
 }
 
-/* The header is fixed, so an anchored section would otherwise land underneath
-   it. Using scroll-margin keeps native #hash loads correct as well as the
-   router's own scrollBehavior. */
+@layer components {
+  .px-section {
+    padding-block: calc(var(--cell) * 12);
+    padding-inline: var(--gutter);
+  }
+
+  .px-wrap {
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  .px-heading {
+    font-family: 'Pixelify Sans', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+    line-height: 1.05;
+    color: #cb9cf2;
+    width: fit-content;
+  }
+
+  .px-label {
+    font-family: Silkscreen, ui-monospace, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .px-frame {
+    border: 4px solid transparent;
+    border-image: var(--frame-grape) 4 / 4px stretch;
+  }
+
+  .px-key {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.5rem;
+    min-width: 14rem;
+    padding: 0 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #cb9cf2;
+    border: 4px solid transparent;
+    border-image: var(--frame-wisteria) 4 / 4px stretch;
+    transition: transform calc(var(--step) * 2) steps(2, end);
+  }
+
+  .px-key::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+    height: 4px;
+    background: #616283;
+    transition: transform calc(var(--step) * 2) steps(2, end);
+  }
+
+  .px-key:hover {
+    transform: translateY(-4px);
+    color: #ece0fb;
+    border-image: var(--fill-dusk) 4 fill / 4px stretch;
+  }
+
+  .px-key:hover::after {
+    transform: translateY(4px);
+  }
+
+  .px-key:active {
+    transform: translateY(4px);
+  }
+
+  .px-key:active::after {
+    transform: translateY(-4px);
+  }
+
+  .px-key--primary {
+    color: #0e1116;
+    border-image: var(--fill-wisteria) 4 fill / 4px stretch;
+  }
+
+  .px-key--primary:hover {
+    color: #0e1116;
+    border-image: var(--fill-lilac) 4 fill / 4px stretch;
+  }
+
+  .is-arriving {
+    animation: px-arrive calc(var(--step) * 12) steps(8, end) both;
+  }
+}
+
+@keyframes px-arrive {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 section[id] {
   scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
