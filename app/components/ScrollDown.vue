@@ -3,36 +3,71 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div
-    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted animate-bounce"
-    role="presentation"
-    aria-hidden="true"
-  >
-    <svg
-      class="w-6 h-6 text-accent2 mb-1"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+  <div class="descent" role="presentation" aria-hidden="true">
+    <span class="descent__label">{{ t('hero.scrollDown') }}</span>
+    <svg class="descent__chevrons" viewBox="0 0 16 30">
+      <path d="M2 2l6 6 6-6" />
+      <path d="M2 12l6 6 6-6" />
+      <path d="M2 22l6 6 6-6" />
     </svg>
-    <span class="text-xs tracking-wide uppercase">{{ t('hero.scrollDown') }}</span>
   </div>
 </template>
 
 <style scoped>
-.animate-bounce {
-  animation: bounce 2s infinite;
+.descent {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--m) * 1.5);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0) translateX(-50%);
+.descent__label {
+  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3f4c52;
+  white-space: nowrap;
+}
+
+.descent__chevrons {
+  width: 16px;
+  height: 30px;
+  fill: none;
+  stroke: #00799b;
+  stroke-width: 1.75;
+}
+
+.descent__chevrons path {
+  animation: chevron 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  opacity: 0.25;
+}
+
+.descent__chevrons path:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.descent__chevrons path:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes chevron {
+  30% {
+    opacity: 1;
   }
-  50% {
-    transform: translateY(6px) translateX(-50%);
+  70%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@media (max-height: 640px) {
+  .descent {
+    display: none;
   }
 }
 </style>

@@ -13,35 +13,121 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <footer class="bg-light border-t border-accent1 px-6 py-10 text-dark">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <!-- Language Switcher -->
-      <div class="flex items-center gap-2">
-        <span class="text-base">🌐</span>
-        <select
-          :value="locale"
-          class="bg-white border border-muted text-sm rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-primary"
-          @change="switchLang"
-        >
-          <option v-for="lang in LOCALES" :key="lang" :value="lang">
+  <footer class="foot">
+    <div class="foot__row">
+      <label class="foot__locale" data-lock>
+        <Icon name="lucide:globe" class="size-4 text-teal" aria-hidden="true" />
+        <select :value="locale" :aria-label="t('a11y.language')" @change="switchLang">
+          <option v-for="lang in LOCALES" :key="lang" :value="lang" :selected="locale === lang">
             {{ lang.toUpperCase() }}
           </option>
         </select>
-      </div>
+        <Icon
+          name="lucide:chevron-down"
+          class="size-4 text-ink-2 pointer-events-none"
+          aria-hidden="true"
+        />
+      </label>
 
-      <!-- Credits -->
-      <p class="text-sm text-muted text-center md:text-left">
-        © 2025 David Almeida. All rights reserved.
-      </p>
+      <p class="foot__credits">© 2025 David Almeida. All rights reserved.</p>
 
-      <!-- Scroll to Top -->
-      <button
-        class="text-primary hover:underline text-sm transition duration-300 hover:scale-105 w-[250px]"
-        aria-label="Scroll to top"
-        @click="scrollToTop"
-      >
-        ↑ {{ t('footer.backToTop') }}
+      <button type="button" class="foot__top" data-lock @click="scrollToTop">
+        <Icon name="lucide:arrow-up" class="size-4" aria-hidden="true" />
+        {{ t('footer.backToTop') }}
       </button>
     </div>
   </footer>
 </template>
+
+<style scoped>
+.foot {
+  border-top: 1px solid rgb(110 126 134 / 0.55);
+  background: #dcdfe0;
+  padding: calc(var(--m) * 1.5) var(--m);
+}
+
+@media (min-width: 1024px) {
+  .foot {
+    padding-inline: calc(var(--m) * 4);
+  }
+}
+
+.foot__row {
+  display: grid;
+  gap: var(--m);
+  justify-items: center;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .foot__row {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .foot__locale {
+    justify-self: start;
+  }
+
+  .foot__top {
+    justify-self: end;
+  }
+}
+
+.foot__locale {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding-inline: 12px;
+  border: 1px solid #6e7e86;
+  cursor: pointer;
+}
+
+.foot__locale select {
+  appearance: none;
+  background: transparent;
+  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: #1b2427;
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+.foot__locale select:focus-visible {
+  outline: none;
+}
+
+.foot__locale:focus-within {
+  outline: 2px solid #00799b;
+  outline-offset: 3px;
+}
+
+.foot__credits {
+  font-size: 0.8125rem;
+  color: #3f4c52;
+  text-align: center;
+}
+
+.foot__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding-inline: 12px;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  color: #006480;
+  border: 1px solid transparent;
+  transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.foot__top:hover {
+  border-color: #006480;
+}
+</style>
