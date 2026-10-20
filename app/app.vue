@@ -2,6 +2,7 @@
   <AppHeader />
   <NuxtPage />
   <FooterSection />
+  <HudInstruments />
 </template>
 
 <script setup lang="ts">
