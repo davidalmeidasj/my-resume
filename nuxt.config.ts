@@ -13,7 +13,10 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
   ],
   fonts: {
-    families: [{ name: 'Inter', provider: 'google', weights: [400, 600, 700] }],
+    families: [
+      { name: 'Sora', provider: 'google', weights: [200, 300, 400, 600] },
+      { name: 'Figtree', provider: 'google', weights: [400, 500, 600] },
+    ],
   },
   icon: {
     clientBundle: { scan: true },

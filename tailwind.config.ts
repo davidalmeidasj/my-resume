@@ -1,27 +1,31 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{vue,ts}'],
   theme: {
     extend: {
       colors: {
-        primary: '#606C38',         // Dark Olive Green
-        'primary-dark': '#C2185B',  // (Consider updating this — it doesn’t match the new palette)
-        background: '#F9FAFB',      // Consider replacing with `light`
-        surface: '#FFFFFF',
-        muted: '#6B7280',
-        dark: '#1F2937',
-        secondary: '#283618',       // Very Dark Green
-        light: '#FEFAE0',           // Light Cream
-        accent1: '#DDA15E',         // Warm Beige
-        accent2: '#BC6C25',         // Burnt Orange
+        abyss: '#031216',
+        deep: '#061C22',
+        teal: '#00799B',
+        crest: '#4CC3DF',
+        spark: '#FF6816',
+        signal: '#FCD800',
+        mist: '#E8E8E8',
+        slate: '#6E7E86',
+        haze: '#A3B1B7',
+        line: 'rgb(232 232 232 / 0.12)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
-      }
-    }
+        display: ['Sora', 'system-ui', 'sans-serif'],
+        sans: ['Figtree', 'system-ui', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 }
 
 export default config

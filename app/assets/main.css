@@ -2,28 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilo base global */
 @layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-color: #2a4a54 #031216;
+  }
+
   body {
-    @apply font-sans bg-background text-dark;
+    @apply bg-abyss font-sans text-mist antialiased;
+    caret-color: #4cc3df;
+  }
+
+  ::selection {
+    background: #00799b;
+    color: #e8e8e8;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4cc3df;
+    outline-offset: 3px;
   }
 
   h1,
   h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-bold text-dark;
+  h3 {
+    @apply font-display text-mist;
+    text-wrap: balance;
   }
 
-  section {
-    @apply py-20 px-6;
+  a {
+    text-underline-offset: 0.25em;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
-/* The header is fixed, so an anchored section would otherwise land underneath
-   it. Using scroll-margin keeps native #hash loads correct as well as the
-   router's own scrollBehavior. */
 section[id] {
   scroll-margin-top: 5rem;
 }
