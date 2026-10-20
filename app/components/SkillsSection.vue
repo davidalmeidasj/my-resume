@@ -27,7 +27,7 @@ const skills = [
 </script>
 
 <template>
-  <section id="skills" class="hud-section skills-band">
+  <section id="skills" class="hud-section hud-band skills-band">
     <div class="skills">
       <h2 class="hud-heading" data-lock-heading>
         {{ t('skills.title') }}
@@ -62,7 +62,7 @@ const skills = [
 
 <style scoped>
 .skills-band {
-  background: #dcdfe0;
+  background-color: #dcdfe0;
   border-block: 1px solid rgb(110 126 134 / 0.45);
 }
 
@@ -106,9 +106,8 @@ const skills = [
 }
 
 .skill__label {
-  font-family: 'B612 Mono', ui-monospace, monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  font-family: B612, system-ui, sans-serif;
+  font-size: 0.8125rem;
   color: #1b2427;
 }
 </style>

@@ -13,7 +13,7 @@ const services = computed(() =>
 </script>
 
 <template>
-  <section id="services" class="hud-section services-band">
+  <section id="services" class="hud-section hud-band services-band">
     <div class="services">
       <h2 class="hud-heading" data-lock-heading>
         {{ t('services.title') }}
@@ -36,7 +36,7 @@ const services = computed(() =>
 
 <style scoped>
 .services-band {
-  background: #dcdfe0;
+  background-color: #dcdfe0;
   border-block: 1px solid rgb(110 126 134 / 0.45);
 }
 

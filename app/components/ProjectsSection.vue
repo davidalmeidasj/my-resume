@@ -139,6 +139,7 @@ const toggle = (index: number, event: MouseEvent) => {
 
 .track__summary {
   grid-row: 2;
+  grid-column: 1 / -1;
   font-family: B612, system-ui, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -234,7 +235,7 @@ const toggle = (index: number, event: MouseEvent) => {
 }
 
 .track__tech {
-  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-family: B612, system-ui, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
   padding: 3px 8px;

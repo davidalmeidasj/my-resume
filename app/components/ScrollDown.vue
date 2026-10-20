@@ -26,9 +26,10 @@ const { t } = useI18n()
 }
 
 .descent__label {
-  font-family: 'B612 Mono', ui-monospace, monospace;
+  font-family: B612, system-ui, sans-serif;
   font-size: 0.6875rem;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #3f4c52;
   white-space: nowrap;
