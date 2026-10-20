@@ -8,10 +8,15 @@ const code = computed(
   () => `U+${glyph.value.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0')}`,
 )
 const sizes = [2, 3, 4, 6]
+
+const redraw = ref(false)
+watch(glyph, () => {
+  redraw.value = true
+})
 </script>
 
 <template>
-  <figure class="inspector px-frame" aria-hidden="true">
+  <figure class="inspector px-frame" :class="{ 'inspector--redraw': redraw }" aria-hidden="true">
     <svg
       :key="glyph"
       class="inspector__glyph"
@@ -96,6 +101,9 @@ const sizes = [2, 3, 4, 6]
 
 .inspector__cell {
   fill: #cb9cf2;
+}
+
+.inspector--redraw .inspector__cell {
   animation: cell-on calc(1ms + var(--f) * var(--step)) steps(1, end) both;
 }
 
