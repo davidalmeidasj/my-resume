@@ -1,5 +1,10 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, type Page } from '@playwright/test'
 import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, SITE_URL } from '../app/config/site'
+
+const open = async (page: Page, path: string) => {
+  await page.goto(path)
+  await page.waitForFunction(() => Boolean(document.querySelector('#__nuxt') && '__vue_app__' in document.querySelector('#__nuxt')!))
+}
 
 for (const locale of LOCALES) {
   test(`/${locale} is prerendered with its own head`, async ({ request }) => {
@@ -16,7 +21,7 @@ for (const locale of LOCALES) {
 }
 
 test('header switches locale through the URL', async ({ page }) => {
-  await page.goto(`/${DEFAULT_LOCALE}`)
+  await open(page, `/${DEFAULT_LOCALE}`)
   await page.locator('header').getByRole('button', { name: 'PT', exact: true }).first().click()
 
   await expect(page).toHaveURL(/\/pt$/)
@@ -24,7 +29,7 @@ test('header switches locale through the URL', async ({ page }) => {
 })
 
 test('footer switches locale through the URL and keeps it on navigation', async ({ page }) => {
-  await page.goto(`/${DEFAULT_LOCALE}`)
+  await open(page, `/${DEFAULT_LOCALE}`)
   await page.locator('footer select').selectOption('es')
 
   await expect(page).toHaveURL(/\/es$/)
