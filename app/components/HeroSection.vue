@@ -7,7 +7,7 @@ const resumeHref = computed(() => `/david-almeida-resume-${locale.value}.pdf`)
 <template>
   <section id="home" class="relative flex min-h-[100svh] items-center px-4 pb-24 pt-28 sm:px-6">
     <div class="mx-auto w-full max-w-6xl">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl" data-wake-shield>
         <h1
           class="hero-title text-[clamp(2.75rem,7.5vw,6rem)] font-extralight leading-[0.98] tracking-[-0.035em]"
         >

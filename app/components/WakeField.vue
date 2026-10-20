@@ -48,6 +48,7 @@ onMounted(() => {
   let frame = 0
   let tick = 0
   let lastScroll = window.scrollY
+  let calm = 0
   const pointer = { x: 0, y: 0, active: false }
 
   const resize = () => {
@@ -102,8 +103,11 @@ onMounted(() => {
   const gauss = () => (Math.random() + Math.random() + Math.random() - 1.5) / 1.5
 
   const current = (t: number, phase: number) => {
-    const baseX = width < 640 ? width * 0.86 : width < 1024 ? width * 0.9 : width * 0.74
-    const amp = width < 640 ? width * 0.09 : width < 1024 ? width * 0.06 : width * 0.13
+    const heroX = width < 1024 ? width * 0.82 : width * 0.74
+    const heroAmp = width < 1024 ? width * 0.12 : width * 0.13
+    const gutter = Math.max((width - 1152) / 2, 16)
+    const baseX = heroX + (width - gutter / 2 - heroX) * calm
+    const amp = heroAmp + (gutter * 0.25 - heroAmp) * calm
     const top = 72
     const y = top + t * (height - top) * 1.08
     const x = baseX + Math.sin(t * Math.PI * 2.2 + phase) * amp
@@ -114,7 +118,7 @@ onMounted(() => {
     for (let i = 0; i < count; i++) {
       const t = Math.random()
       const p = current(t, phase)
-      const spread = gauss() * (width < 768 ? 34 : 64)
+      const spread = gauss() * (width < 768 ? 34 : 64) * (1 - calm * 0.75)
       spawn(
         p.x + spread,
         p.y + spread * 0.4,
@@ -127,12 +131,20 @@ onMounted(() => {
   }
 
   const draw = () => {
+    const shield = document.querySelector('[data-wake-shield]')?.getBoundingClientRect()
     ctx.clearRect(0, 0, width, height)
     ctx.globalCompositeOperation = 'lighter'
     for (const p of particles) {
       const k = p.life / p.ttl
       const fade = k < 0.15 ? k / 0.15 : 1 - (k - 0.15) / 0.85
-      const alpha = Math.max(fade, 0) * Math.min(Math.max((p.y - 56) / 40, 0), 1)
+      const covered =
+        shield &&
+        p.x > shield.left - 12 &&
+        p.x < shield.right + 12 &&
+        p.y > shield.top - 12 &&
+        p.y < shield.bottom + 12
+      const alpha =
+        Math.max(fade, 0) * Math.min(Math.max((p.y - 56) / 40, 0), 1) * (covered ? 0.18 : 1)
       if (alpha <= 0) continue
       const s = p.size * (1 + k * 0.6)
       const speed = Math.hypot(p.vx, p.vy)
@@ -163,7 +175,7 @@ onMounted(() => {
     const scrollDelta = window.scrollY - lastScroll
     lastScroll = window.scrollY
 
-    const calm = Math.min(window.scrollY / height, 1)
+    calm = Math.min(window.scrollY / height, 1)
     if (Math.random() > calm * 0.6) seedCurrent(width < 768 ? 3 : 7, phase)
     if (Math.abs(scrollDelta) > 1)
       seedCurrent(Math.min(Math.abs(scrollDelta) / 6, 10) * (1 - calm * 0.6), phase)
