@@ -37,7 +37,7 @@ const socials = [
       </div>
 
       <form action="https://formspree.io/f/xdkdnboy" method="POST" class="form">
-        <div class="field" data-lock>
+        <div class="field">
           <label for="name" class="hud-label field__label">{{ t('contact.name') }}</label>
           <input
             id="name"
@@ -47,10 +47,11 @@ const socials = [
             autocomplete="name"
             placeholder="John Doe"
             class="field__input"
+            data-lock
           />
         </div>
 
-        <div class="field" data-lock>
+        <div class="field">
           <label for="email" class="hud-label field__label">{{ t('contact.email') }}</label>
           <input
             id="email"
@@ -60,10 +61,11 @@ const socials = [
             autocomplete="email"
             placeholder="john@example.com"
             class="field__input"
+            data-lock
           />
         </div>
 
-        <div class="field field--wide" data-lock>
+        <div class="field field--wide">
           <label for="message" class="hud-label field__label">{{ t('contact.message') }}</label>
           <textarea
             id="message"
@@ -72,6 +74,7 @@ const socials = [
             rows="5"
             placeholder="Your message..."
             class="field__input field__input--area"
+            data-lock
           ></textarea>
         </div>
 
