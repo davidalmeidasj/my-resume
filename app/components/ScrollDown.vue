@@ -3,36 +3,37 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div
-    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted animate-bounce"
-    role="presentation"
-    aria-hidden="true"
+  <a
+    href="#about"
+    class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-haze transition-colors hover:text-mist sm:flex"
   >
-    <svg
-      class="w-6 h-6 text-accent2 mb-1"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-    <span class="text-xs tracking-wide uppercase">{{ t('hero.scrollDown') }}</span>
-  </div>
+    <span class="font-display text-[11px] uppercase tracking-[0.3em]">{{
+      t('hero.scrollDown')
+    }}</span>
+    <span class="relative block h-12 w-px overflow-hidden bg-line">
+      <span class="drop absolute left-0 top-0 block h-3 w-px bg-crest" />
+    </span>
+  </a>
 </template>
 
 <style scoped>
-.animate-bounce {
-  animation: bounce 2s infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .drop {
+    animation: drift 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0) translateX(-50%);
+@keyframes drift {
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(6px) translateX(-50%);
+  30% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(48px);
+    opacity: 0;
   }
 }
 </style>

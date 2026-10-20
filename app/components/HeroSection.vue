@@ -1,49 +1,39 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
-const router = useRouter()
 
-const scrollToContact = () => {
-  router.push({ hash: '#contact' })
-}
-
-const downloadResume = () => {
-  const lang = locale.value
-  const filename = `david-almeida-resume-${lang}.pdf`
-  const link = document.createElement('a')
-  link.href = `/${filename}`
-  link.download = filename
-  link.click()
-}
+const resumeHref = computed(() => `/david-almeida-resume-${locale.value}.pdf`)
 </script>
 
 <template>
-  <section
-    id="home"
-    class="flex flex-col justify-center items-center text-center min-h-screen px-6 bg-light"
-  >
-    <div class="animate-fade-in max-w-2xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight tracking-tight">
-        {{ t('hero.title') }}
-      </h1>
-
-      <p class="text-base md:text-lg text-muted leading-relaxed mb-6">
-        {{ t('hero.subtitle') }}
-      </p>
-
-      <div class="flex flex-col gap-4 items-center sm:flex-row sm:justify-center">
-        <button
-          class="bg-accent2 text-white font-semibold px-6 py-3 rounded-xl hover:bg-accent1 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
-          @click="scrollToContact"
+  <section id="home" class="relative flex min-h-[100svh] items-center px-4 pb-24 pt-28 sm:px-6">
+    <div class="mx-auto w-full max-w-6xl">
+      <div class="max-w-3xl">
+        <h1
+          class="hero-title text-[clamp(2.75rem,7.5vw,6rem)] font-extralight leading-[0.98] tracking-[-0.035em]"
         >
-          {{ t('hero.cta') }}
-        </button>
+          {{ t('hero.title') }}
+        </h1>
 
-        <button
-          class="bg-white text-accent2 font-semibold px-6 py-3 rounded-xl border border-accent2 hover:bg-accent2 hover:text-white transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent2 w-full sm:w-auto sm:min-w-[200px]"
-          @click="downloadResume"
-        >
-          {{ t('hero.downloadResume') }}
-        </button>
+        <p class="mt-8 max-w-[38rem] text-lg leading-relaxed text-haze md:text-xl">
+          {{ t('hero.subtitle') }}
+        </p>
+
+        <div class="mt-12 flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <a href="#contact" class="action action-primary group">
+            {{ t('hero.cta') }}
+            <Icon
+              name="lucide:arrow-right"
+              class="h-5 w-5 transition-transform duration-500 ease-out-expo group-hover:translate-x-1"
+            />
+          </a>
+          <a :href="resumeHref" download class="action action-secondary group">
+            {{ t('hero.downloadResume') }}
+            <Icon
+              name="lucide:download"
+              class="h-5 w-5 transition-transform duration-500 ease-out-expo group-hover:translate-y-0.5"
+            />
+          </a>
+        </div>
       </div>
     </div>
 
@@ -52,18 +42,33 @@ const downloadResume = () => {
 </template>
 
 <style scoped>
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.action {
+  @apply inline-flex min-h-[3.5rem] items-center justify-center gap-3 rounded-full px-8 font-display text-sm font-normal tracking-[0.08em] transition-colors duration-300;
+}
+
+.action-primary {
+  @apply bg-spark text-abyss hover:bg-signal;
+}
+
+.action-secondary {
+  @apply border border-signal/70 text-signal hover:border-signal hover:bg-signal/10;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title {
+    animation: ignite 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
+@keyframes ignite {
+  from {
+    opacity: 0.35;
+    filter: blur(10px);
+    letter-spacing: 0.02em;
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 </style>

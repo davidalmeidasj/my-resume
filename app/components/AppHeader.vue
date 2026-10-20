@@ -2,86 +2,92 @@
 import { LOCALES, type Locale } from '@/config/site'
 
 const { locale, t } = useI18n()
-const mobileMenuOpen = ref(false)
 const switchLocale = useLocaleSwitch()
+const menuOpen = ref(false)
+const scrolled = ref(false)
+
+const SECTIONS = ['home', 'about', 'projects', 'contact'] as const
 
 const switchLang = (lang: Locale) => {
-  mobileMenuOpen.value = false
+  menuOpen.value = false
   switchLocale(lang)
 }
 
-// Plain anchors, no preventDefault: the browser's own #hash jump is the
-// baseline, so in-page navigation keeps working even if the router or the
-// smooth-scroll animation does not. The handler only closes the mobile menu.
-const SECTIONS = ['home', 'about', 'projects', 'contact'] as const
-
 const closeMenu = () => {
-  mobileMenuOpen.value = false
+  menuOpen.value = false
 }
+
+const onScroll = () => {
+  scrolled.value = window.scrollY > 24
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="fixed top-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <BrandLogo class="h-10 w-auto" />
+  <header
+    class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ease-out-expo"
+    :class="scrolled || menuOpen ? 'border-line bg-abyss/95' : 'border-transparent bg-transparent'"
+  >
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <BrandLogo @click="closeMenu" />
 
-      <!-- Desktop Menu -->
-      <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a v-for="id in SECTIONS" :key="id" :href="`#${id}`" @click="closeMenu">
+      <nav class="hidden items-center gap-8 md:flex" :aria-label="t('menu.home')">
+        <a v-for="id in SECTIONS" :key="id" :href="`#${id}`" class="nav-link">
           {{ t(`menu.${id}`) }}
         </a>
       </nav>
 
-      <!-- Language Switcher -->
-      <div class="hidden md:flex gap-2">
+      <div class="hidden items-center gap-1 md:flex">
         <button
           v-for="lang in LOCALES"
           :key="lang"
           type="button"
           :lang="lang"
           :aria-current="locale === lang ? 'true' : undefined"
-          :class="{ 'font-bold': locale === lang }"
+          class="lang"
           @click="switchLang(lang)"
         >
           {{ lang.toUpperCase() }}
         </button>
       </div>
 
-      <!-- Mobile Hamburger -->
-      <button class="md:hidden" @click="mobileMenuOpen = !mobileMenuOpen">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            :class="{ hidden: mobileMenuOpen, block: !mobileMenuOpen }"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-          <path
-            :class="{ block: mobileMenuOpen, hidden: !mobileMenuOpen }"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+      <button
+        type="button"
+        class="-mr-2 grid h-11 w-11 place-items-center text-mist md:hidden"
+        :aria-expanded="menuOpen"
+        aria-controls="mobile-menu"
+        :aria-label="t('menu.home')"
+        @click="menuOpen = !menuOpen"
+      >
+        <Icon :name="menuOpen ? 'lucide:x' : 'lucide:menu'" class="h-6 w-6" />
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div v-if="mobileMenuOpen" class="md:hidden bg-white shadow-lg">
-      <nav class="flex flex-col gap-4 px-4 py-6">
-        <a v-for="id in SECTIONS" :key="id" :href="`#${id}`" @click="closeMenu">
+    <div v-if="menuOpen" id="mobile-menu" class="border-t border-line bg-abyss md:hidden">
+      <nav class="flex flex-col px-4 py-4 sm:px-6">
+        <a
+          v-for="id in SECTIONS"
+          :key="id"
+          :href="`#${id}`"
+          class="border-b border-line py-4 font-display text-2xl font-extralight text-mist"
+          @click="closeMenu"
+        >
           {{ t(`menu.${id}`) }}
         </a>
-        <div class="flex gap-4 mt-4">
+        <div class="flex gap-2 pt-5">
           <button
             v-for="lang in LOCALES"
             :key="lang"
             type="button"
             :lang="lang"
             :aria-current="locale === lang ? 'true' : undefined"
-            :class="{ 'font-bold': locale === lang }"
+            class="lang"
             @click="switchLang(lang)"
           >
             {{ lang.toUpperCase() }}
@@ -93,7 +99,25 @@ const closeMenu = () => {
 </template>
 
 <style scoped>
-a {
-  @apply cursor-pointer text-gray-700 hover:text-primary transition;
+.nav-link {
+  @apply relative py-2 text-sm text-haze transition-colors duration-300 hover:text-mist;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-crest transition-transform duration-500 ease-out-expo;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  @apply scale-x-100;
+}
+
+.lang {
+  @apply min-h-[44px] min-w-[44px] px-2 font-display text-xs tracking-[0.2em] text-haze transition-colors duration-300 hover:text-mist;
+}
+
+.lang[aria-current='true'] {
+  @apply text-signal;
 }
 </style>
