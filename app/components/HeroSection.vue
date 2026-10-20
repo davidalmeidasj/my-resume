@@ -91,7 +91,7 @@ const downloadResume = () => {
 }
 
 .hero__subtitle {
-  margin-top: calc(var(--m) * 1.5);
+  margin-top: calc(var(--m) * 2);
   max-width: 54ch;
   font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
   line-height: 1.6;
@@ -120,11 +120,19 @@ const downloadResume = () => {
   display: none;
 }
 
+@media (max-width: 639px) and (min-height: 760px) {
+  .hero__instrument {
+    display: block;
+    width: 12rem;
+    justify-self: center;
+  }
+}
+
 @media (min-width: 640px) {
   .hero__instrument {
     display: block;
-    width: min(100%, 22rem);
-    justify-self: end;
+    width: min(70%, 22rem);
+    justify-self: center;
     animation: fade 1400ms 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }

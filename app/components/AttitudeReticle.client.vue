@@ -114,13 +114,19 @@ const RUNGS = [-20, -10, 10, 20]
   font-size: 13px;
 }
 
+@media (max-width: 639px) {
+  .reticle__num {
+    display: none;
+  }
+}
+
 .reticle__fpm {
   stroke: #1b2427;
   stroke-width: 2;
 }
 
 .reticle__bore {
-  stroke: #ff6816;
+  stroke: #1b2427;
   stroke-width: 2;
 }
 </style>
