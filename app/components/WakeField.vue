@@ -7,6 +7,8 @@ type Particle = {
   life: number
   ttl: number
   size: number
+  halo: boolean
+  rgb: string
   sprite: HTMLCanvasElement
 }
 
@@ -58,23 +60,52 @@ onMounted(() => {
     budget = width < 768 ? 520 : 1500
   }
 
-  const pickSprite = () => {
+  const tones = {
+    crest: '76, 195, 223',
+    teal: '0, 121, 155',
+    spark: '255, 104, 22',
+    signal: '252, 216, 0',
+  } as const
+
+  const pickTone = (warm: boolean) => {
     const roll = Math.random()
-    if (roll < 0.03) return sprites.spark
-    if (roll < 0.05) return sprites.signal
-    return roll < 0.6 ? sprites.crest : sprites.teal
+    if (warm && roll < 0.03) return 'spark'
+    if (warm && roll < 0.05) return 'signal'
+    return roll < 0.6 ? 'crest' : 'teal'
   }
 
-  const spawn = (x: number, y: number, vx: number, vy: number, ttl: number, size: number) => {
+  const spawn = (
+    x: number,
+    y: number,
+    vx: number,
+    vy: number,
+    ttl: number,
+    size: number,
+    warm = false,
+  ) => {
     if (particles.length >= budget) particles.shift()
-    particles.push({ x, y, vx, vy, life: 0, ttl, size, sprite: pickSprite() })
+    const tone = pickTone(warm)
+    particles.push({
+      x,
+      y,
+      vx,
+      vy,
+      life: 0,
+      ttl,
+      size,
+      halo: Math.random() < 0.08,
+      rgb: tones[tone],
+      sprite: sprites[tone],
+    })
   }
+
+  const gauss = () => (Math.random() + Math.random() + Math.random() - 1.5) / 1.5
 
   const current = (t: number, phase: number) => {
-    const narrow = width < 1024
-    const baseX = narrow ? width * 0.84 : width * 0.74
-    const amp = narrow ? width * 0.12 : width * 0.13
-    const y = t * height * 1.1 - height * 0.05
+    const baseX = width < 640 ? width * 0.86 : width < 1024 ? width * 0.9 : width * 0.74
+    const amp = width < 640 ? width * 0.09 : width < 1024 ? width * 0.06 : width * 0.13
+    const top = 72
+    const y = top + t * (height - top) * 1.08
     const x = baseX + Math.sin(t * Math.PI * 2.2 + phase) * amp
     return { x, y }
   }
@@ -83,7 +114,7 @@ onMounted(() => {
     for (let i = 0; i < count; i++) {
       const t = Math.random()
       const p = current(t, phase)
-      const spread = (Math.random() - 0.5) * (width < 768 ? 60 : 110)
+      const spread = gauss() * (width < 768 ? 34 : 64)
       spawn(
         p.x + spread,
         p.y + spread * 0.4,
@@ -100,9 +131,26 @@ onMounted(() => {
     ctx.globalCompositeOperation = 'lighter'
     for (const p of particles) {
       const k = p.life / p.ttl
-      const alpha = k < 0.15 ? k / 0.15 : 1 - (k - 0.15) / 0.85
-      ctx.globalAlpha = Math.max(alpha, 0) * 0.9
+      const fade = k < 0.15 ? k / 0.15 : 1 - (k - 0.15) / 0.85
+      const alpha = Math.max(fade, 0) * Math.min(Math.max((p.y - 56) / 40, 0), 1)
+      if (alpha <= 0) continue
       const s = p.size * (1 + k * 0.6)
+      const speed = Math.hypot(p.vx, p.vy)
+      if (speed > 0.25) {
+        ctx.globalAlpha = alpha * 0.35
+        ctx.strokeStyle = `rgb(${p.rgb})`
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(p.x - p.vx * 7, p.y - p.vy * 7)
+        ctx.lineTo(p.x, p.y)
+        ctx.stroke()
+      }
+      if (p.halo) {
+        ctx.globalAlpha = alpha * 0.12
+        const h = s * 7
+        ctx.drawImage(p.sprite, p.x - h, p.y - h, h * 2, h * 2)
+      }
+      ctx.globalAlpha = alpha * 0.9
       ctx.drawImage(p.sprite, p.x - s, p.y - s, s * 2, s * 2)
     }
     ctx.globalAlpha = 1
@@ -116,7 +164,7 @@ onMounted(() => {
     lastScroll = window.scrollY
 
     const calm = Math.min(window.scrollY / height, 1)
-    if (Math.random() > calm * 0.7) seedCurrent(width < 768 ? 3 : 7, phase)
+    if (Math.random() > calm * 0.6) seedCurrent(width < 768 ? 3 : 7, phase)
     if (Math.abs(scrollDelta) > 1)
       seedCurrent(Math.min(Math.abs(scrollDelta) / 6, 10) * (1 - calm * 0.6), phase)
 
@@ -165,6 +213,7 @@ onMounted(() => {
         (Math.random() - 0.5) * 1.2 + vy * 0.04,
         70 + Math.random() * 90,
         1.5 + Math.random() * 3.5,
+        true,
       )
     }
   }
