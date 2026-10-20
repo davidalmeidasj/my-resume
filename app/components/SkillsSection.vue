@@ -4,6 +4,12 @@ import { Carousel, Slide } from 'vue3-carousel'
 
 const { t } = useI18n()
 
+const autoplay = ref(2600)
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) autoplay.value = 0
+})
+
 const skills = [
   { label: 'Vue.js', icon: 'simple-icons:vuedotjs' },
   { label: 'React', icon: 'simple-icons:react' },
@@ -31,9 +37,10 @@ const skills = [
 
       <div class="fade-edges mt-16">
         <Carousel
+          :key="autoplay"
           :items-to-show="2.5"
           :wrap-around="true"
-          :autoplay="2600"
+          :autoplay="autoplay"
           :transition="900"
           :pause-autoplay-on-hover="true"
           :mouse-drag="true"
