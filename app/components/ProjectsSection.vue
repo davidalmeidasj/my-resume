@@ -1,52 +1,69 @@
 <script setup lang="ts">
 import { projects } from '@/data/projects'
+
 const { t } = useI18n()
 </script>
 
 <template>
-  <section id="projects" class="bg-white px-6 py-20">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+  <section id="projects" class="px-4 py-28 sm:px-6 md:py-36">
+    <div class="mx-auto max-w-6xl">
+      <h2
+        class="text-[clamp(2.25rem,4.5vw,3.75rem)] font-extralight leading-none tracking-[-0.03em]"
+      >
         {{ t('projects.title') }}
       </h2>
 
-      <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-16">
         <article
           v-for="(project, index) in projects"
-          :key="index"
-          class="bg-background p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col h-full"
+          :key="project.titleKey"
+          class="project group grid gap-8 border-t border-line py-12 lg:grid-cols-12 lg:gap-12"
+          :class="{ 'lg:py-16': index === 0 }"
         >
-          <div>
-            <h3 class="text-lg font-semibold text-dark mb-2">
+          <div class="lg:col-span-5">
+            <h3
+              class="font-light tracking-[-0.02em] transition-colors duration-500 group-hover:text-crest"
+              :class="
+                index === 0
+                  ? 'text-[clamp(2rem,3.5vw,2.75rem)] leading-tight'
+                  : 'text-[clamp(1.5rem,2.4vw,1.875rem)] leading-snug'
+              "
+            >
               {{ t(project.titleKey) }}
             </h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
+            <p class="mt-4 max-w-[52ch] leading-relaxed text-haze">
               {{ t(project.descriptionKey) }}
             </p>
-            <ul class="flex flex-wrap gap-2 mb-4">
-              <li
-                v-for="(tech, idx) in project.techs"
-                :key="idx"
-                class="bg-primary text-white text-xs px-2 py-1 rounded"
-              >
+            <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-mist/85">
+              <li v-for="tech in project.techs" :key="tech" class="flex items-center gap-2">
+                <span class="h-1 w-1 rounded-full bg-crest" aria-hidden="true" />
                 {{ tech }}
               </li>
             </ul>
           </div>
 
-          <!-- a link is short enough to sit at the card foot; the goal text follows the chips -->
-          <div v-if="project.github" class="mt-auto">
+          <div class="lg:col-span-7">
             <a
+              v-if="project.github"
               :href="project.github"
-              class="text-primary text-sm font-medium hover:underline"
               target="_blank"
               rel="noopener noreferrer"
+              class="inline-flex min-h-[44px] items-center gap-2 font-display text-sm tracking-[0.08em] text-signal hover:text-mist"
             >
-              {{ t('projects.viewOnGitHub') }} →
+              {{ t('projects.viewOnGitHub') }}
+              <Icon name="lucide:arrow-up-right" class="h-4 w-4" />
             </a>
-          </div>
-          <div v-else class="text-sm text-muted leading-relaxed">
-            <strong>{{ t('projects.goalLabel') }}:</strong> {{ t(project.goalKey || '') }}
+            <div v-else-if="project.goalKey">
+              <p class="font-display text-xs uppercase tracking-[0.25em] text-crest">
+                {{ t('projects.goalLabel') }}
+              </p>
+              <p
+                class="mt-4 max-w-[36rem] leading-relaxed text-haze"
+                :class="{ 'text-mist/90 md:text-lg': index === 0 }"
+              >
+                {{ t(project.goalKey) }}
+              </p>
+            </div>
           </div>
         </article>
       </div>

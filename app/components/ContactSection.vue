@@ -1,85 +1,119 @@
 <script setup lang="ts">
+import { AUTHOR } from '@/config/site'
+
 const { t } = useI18n()
 
 const socials = [
-  { name: 'GitHub', url: 'https://github.com/davidalmeidasj' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/david-almeida-sj/' },
+  { name: 'GitHub', url: AUTHOR.github, icon: 'simple-icons:github' },
+  { name: 'LinkedIn', url: AUTHOR.linkedin, icon: 'simple-icons:linkedin' },
 ]
 </script>
 
 <template>
-  <section id="contact" class="bg-white px-6 py-20">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-        {{ t('contact.title') }}
-      </h2>
+  <section id="contact" class="px-4 py-28 sm:px-6 md:py-36">
+    <div class="mx-auto grid max-w-6xl gap-16 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h2
+          class="text-[clamp(2.5rem,5vw,4.5rem)] font-extralight leading-none tracking-[-0.035em]"
+        >
+          {{ t('contact.title') }}
+        </h2>
 
-      <form action="https://formspree.io/f/xdkdnboy" method="POST" class="space-y-6">
+        <ul class="mt-12 flex flex-col gap-2">
+          <li v-for="item in socials" :key="item.name">
+            <a
+              :href="item.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex min-h-[44px] items-center gap-3 text-haze transition-colors duration-300 hover:text-mist"
+            >
+              <Icon
+                :name="item.icon"
+                class="h-5 w-5 transition-colors duration-300 group-hover:text-crest"
+              />
+              {{ item.name }}
+              <Icon
+                name="lucide:arrow-up-right"
+                class="h-4 w-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form
+        action="https://formspree.io/f/xdkdnboy"
+        method="POST"
+        class="flex flex-col gap-8 lg:col-span-7"
+      >
         <div>
-          <label for="name" class="block mb-2 text-sm font-medium text-gray-700">
-            {{ t('contact.name') }}
-          </label>
+          <label for="name" class="field-label">{{ t('contact.name') }}</label>
           <input
             id="name"
             type="text"
             name="name"
             required
+            autocomplete="name"
             placeholder="John Doe"
-            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
+            class="field"
           />
         </div>
 
         <div>
-          <label for="email" class="block mb-2 text-sm font-medium text-gray-700">
-            {{ t('contact.email') }}
-          </label>
+          <label for="email" class="field-label">{{ t('contact.email') }}</label>
           <input
             id="email"
             type="email"
             name="email"
             required
+            autocomplete="email"
             placeholder="john@example.com"
-            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
+            class="field"
           />
         </div>
 
         <div>
-          <label for="message" class="block mb-2 text-sm font-medium text-gray-700">
-            {{ t('contact.message') }}
-          </label>
+          <label for="message" class="field-label">{{ t('contact.message') }}</label>
           <textarea
             id="message"
             name="message"
             required
             rows="5"
             placeholder="Your message..."
-            class="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition"
-          ></textarea>
+            class="field resize-y"
+          />
         </div>
 
-        <div class="text-center">
-          <button
-            type="submit"
-            class="bg-primary text-white font-medium px-6 py-3 rounded-md hover:bg-primary-dark transition"
-          >
-            {{ t('contact.send') }}
-          </button>
-        </div>
-      </form>
-
-      <!-- Social Links -->
-      <div class="mt-10 flex justify-center gap-6">
-        <a
-          v-for="(item, index) in socials"
-          :key="index"
-          :href="item.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-muted hover:text-primary transition"
+        <button
+          type="submit"
+          class="group inline-flex min-h-[3.5rem] items-center justify-center gap-3 self-start rounded-full bg-spark px-8 font-display text-sm tracking-[0.08em] text-abyss transition-colors duration-300 hover:bg-signal"
         >
-          {{ item.name }}
-        </a>
-      </div>
+          {{ t('contact.send') }}
+          <Icon
+            name="lucide:send"
+            class="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1"
+          />
+        </button>
+      </form>
     </div>
   </section>
 </template>
+
+<style scoped>
+.field-label {
+  @apply block font-display text-xs uppercase tracking-[0.25em] text-haze;
+}
+
+.field {
+  @apply mt-3 w-full border-0 border-b border-line bg-transparent px-0 py-3 text-lg text-mist transition-colors duration-300 placeholder:text-[#83939A] hover:border-haze/50;
+}
+
+.field:focus {
+  @apply border-crest outline-none;
+}
+
+.field:focus-visible {
+  outline: none;
+  box-shadow: 0 1px 0 0 #4cc3df;
+}
+</style>

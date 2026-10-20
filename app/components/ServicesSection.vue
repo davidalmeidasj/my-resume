@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// Driven by a key list so adding an area means touching the locale files only.
 const AREAS = ['frontend', 'backend', 'mobile', 'queues', 'devops', 'quality'] as const
 
 const services = computed(() =>
@@ -14,26 +13,45 @@ const services = computed(() =>
 </script>
 
 <template>
-  <section id="services" class="bg-background px-6 py-20">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
+  <section id="services" class="px-4 py-28 sm:px-6 md:py-36">
+    <div class="mx-auto max-w-6xl">
+      <h2
+        class="text-[clamp(2.25rem,4.5vw,3.75rem)] font-extralight leading-none tracking-[-0.03em]"
+      >
         {{ t('services.title') }}
       </h2>
 
-      <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-left">
-        <div
+      <ul class="mt-16">
+        <li
           v-for="service in services"
           :key="service.key"
-          class="bg-white rounded-xl shadow-md p-6 transition hover:shadow-xl hover:-translate-y-1 duration-300"
+          class="service group grid gap-4 border-t border-line py-10 md:grid-cols-12 md:gap-10"
         >
-          <h3 class="text-lg font-semibold text-dark mb-2">
+          <h3
+            class="text-2xl font-light tracking-[-0.02em] transition-colors duration-500 group-hover:text-crest md:col-span-4"
+          >
             {{ service.title }}
           </h3>
-          <p class="text-sm text-muted leading-relaxed">
+          <p class="max-w-[36rem] leading-relaxed text-haze md:col-span-8">
             {{ service.description }}
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
+
+<style scoped>
+.service {
+  position: relative;
+}
+
+.service::before {
+  content: '';
+  @apply absolute left-0 top-[-1px] h-px w-full origin-left scale-x-0 bg-crest transition-transform duration-700 ease-out-expo;
+}
+
+.service:hover::before {
+  @apply scale-x-100;
+}
+</style>
