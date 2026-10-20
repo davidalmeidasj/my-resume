@@ -76,7 +76,6 @@ const downloadResume = () => {
 }
 
 .hero__greeting {
-  font-family: 'Pixelify Sans', system-ui, sans-serif;
   font-size: clamp(1.375rem, 2.2vw, 2rem);
   line-height: 1.2;
   color: #9e7b9b;
@@ -111,7 +110,6 @@ const downloadResume = () => {
 @media (min-width: 640px) and (max-width: 1023px) and (min-height: 900px) {
   .hero__inspector {
     display: grid;
-    max-width: 34rem;
   }
 }
 
