@@ -32,7 +32,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 <template>
   <header
     class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ease-out-expo"
-    :class="scrolled || menuOpen ? 'border-line bg-abyss/95' : 'border-transparent bg-transparent'"
+    :class="scrolled || menuOpen ? 'border-line bg-abyss' : 'border-transparent bg-transparent'"
   >
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
       <BrandLogo @click="closeMenu" />
