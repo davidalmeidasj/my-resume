@@ -187,5 +187,11 @@ const socials = [
     grid-template-columns: 5fr 7fr;
     gap: calc(var(--cell) * 10);
   }
+
+  .contact__intro {
+    position: sticky;
+    top: calc(72px + var(--cell) * 6);
+    align-self: start;
+  }
 }
 </style>
