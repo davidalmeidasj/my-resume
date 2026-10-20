@@ -42,7 +42,12 @@ const place = () => {
     visible.value = false
     return
   }
-  const r = el.getBoundingClientRect()
+  let r = el.getBoundingClientRect()
+  if (el.hasAttribute('data-lock-heading')) {
+    const range = document.createRange()
+    range.selectNodeContents(el)
+    r = range.getBoundingClientRect()
+  }
   const header = el.closest('header')
     ? 0
     : (document.querySelector('header')?.getBoundingClientRect().bottom ?? 0)
