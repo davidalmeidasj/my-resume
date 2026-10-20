@@ -29,7 +29,7 @@ const scrollToTop = () => {
             class="min-h-[44px] rounded-full border border-line bg-abyss px-3 font-display text-xs tracking-[0.2em] text-mist"
             @change="switchLang"
           >
-            <option v-for="lang in LOCALES" :key="lang" :value="lang">
+            <option v-for="lang in LOCALES" :key="lang" :value="lang" :selected="lang === locale">
               {{ lang.toUpperCase() }}
             </option>
           </select>
