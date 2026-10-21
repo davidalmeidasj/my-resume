@@ -143,5 +143,29 @@
     "summer": "Verano",
     "autumn": "Otoño",
     "winter": "Invierno"
+  },
+  "themes": {
+    "title": "Mira otros temas de mi portafolio",
+    "current": "Estás aquí",
+    "label": "Temas",
+    "open": "Abrir",
+    "items": {
+      "career-seasons": {
+        "name": "Estaciones",
+        "description": "Una carrera contada como un año, de la primavera al invierno."
+      },
+      "daylight-hud": {
+        "name": "Daylight HUD",
+        "description": "Cristal de cabina a plena luz: corchetes se fijan en lo que lees."
+      },
+      "bitmap-specimen": {
+        "name": "Bitmap Specimen",
+        "description": "Un espécimen de fuente pixel al atardecer, montado en pasos de 8 bits."
+      },
+      "bioluminescent-wake": {
+        "name": "Bioluminescent Wake",
+        "description": "Una estela luminosa en el mar de noche, dibujada mientras te desplazas."
+      }
+    }
   }
 }

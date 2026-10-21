@@ -143,5 +143,29 @@
     "summer": "Verão",
     "autumn": "Outono",
     "winter": "Inverno"
+  },
+  "themes": {
+    "title": "Veja outros temas do meu portfólio",
+    "current": "Você está aqui",
+    "label": "Temas",
+    "open": "Abrir",
+    "items": {
+      "career-seasons": {
+        "name": "Estações",
+        "description": "Uma carreira contada como um ano, da primavera ao inverno."
+      },
+      "daylight-hud": {
+        "name": "Daylight HUD",
+        "description": "Vidro de cockpit à luz do dia: colchetes travam no que você lê."
+      },
+      "bitmap-specimen": {
+        "name": "Bitmap Specimen",
+        "description": "Um especímen de fonte pixel ao entardecer, montado em passos 8-bit."
+      },
+      "bioluminescent-wake": {
+        "name": "Bioluminescent Wake",
+        "description": "Um rastro luminoso no mar à noite, desenhado enquanto você rola."
+      }
+    }
   }
 }

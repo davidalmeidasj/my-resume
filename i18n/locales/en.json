@@ -143,5 +143,29 @@
     "summer": "Summer",
     "autumn": "Autumn",
     "winter": "Winter"
+  },
+  "themes": {
+    "title": "See this portfolio in other themes",
+    "current": "You are here",
+    "label": "Themes",
+    "open": "Open",
+    "items": {
+      "career-seasons": {
+        "name": "Seasons",
+        "description": "A career told as one year, from spring to winter."
+      },
+      "daylight-hud": {
+        "name": "Daylight HUD",
+        "description": "Cockpit glass in daylight: brackets lock onto what you read."
+      },
+      "bitmap-specimen": {
+        "name": "Bitmap Specimen",
+        "description": "A pixel typeface specimen at dusk, assembled in 8-bit steps."
+      },
+      "bioluminescent-wake": {
+        "name": "Bioluminescent Wake",
+        "description": "A glowing wake on the night sea, drawn as you scroll."
+      }
+    }
   }
 }
