@@ -44,6 +44,21 @@ test('the seasons cards link to every theme in the current locale', async ({ pag
   await expect(page.locator('html')).toHaveClass(/theme-bitmap-specimen/)
 })
 
+for (const slug of EXTRA_THEMES) {
+  test(`the ${slug} cards mark it as current and open the others`, async ({ page }) => {
+    await open(page, themePath(slug, 'en'))
+    await expect(page.locator('#themes .card')).toHaveCount(THEMES.length)
+    await expect(page.locator('#themes .card[aria-current="page"]')).toHaveCount(1)
+    for (const other of THEMES.filter((item) => item.slug !== slug)) {
+      await expect(page.locator(`#themes a.card[href="${themePath(other.slug, 'en')}"]`)).toHaveCount(1)
+    }
+
+    await page.locator(`#themes a.card[href="${themePath('career-seasons', 'en')}"]`).click()
+    await expect(page).toHaveURL(/\/en$/)
+    await expect(page.locator('html')).toHaveClass(/theme-career-seasons/)
+  })
+}
+
 for (const { slug } of THEMES) {
   test(`the ${slug} footer reaches every theme`, async ({ page }) => {
     await open(page, themePath(slug, 'es'))
