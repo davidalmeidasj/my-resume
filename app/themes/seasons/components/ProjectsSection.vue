@@ -3,20 +3,14 @@ import { projects } from '@/data/projects'
 
 const { t } = useI18n()
 
-const open = ref<number[]>([0])
-
-const isOpen = (index: number) => open.value.includes(index)
-
-const toggle = (index: number) => {
-  open.value = isOpen(index) ? open.value.filter((item) => item !== index) : [...open.value, index]
-}
+const { isOpen, toggle } = useProjectToggle()
 </script>
 
 <template>
   <section id="projects" class="season season--winter">
-    <SeasonEdge season="winter" />
+    <SeasonsEdge season="winter" />
     <div class="season__wrap">
-      <SeasonMark season="winter" />
+      <SeasonsMark season="winter" />
       <h2 v-arrive class="season-heading projects__heading">
         {{ t('projects.title') }}
       </h2>

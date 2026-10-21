@@ -34,7 +34,7 @@ onBeforeUnmount(() => {
 <template>
   <header class="bar">
     <div class="bar__inner">
-      <BrandLogo @click="closeMenu" />
+      <SeasonsBrand @click="closeMenu" />
 
       <nav class="bar__nav" :aria-label="t('a11y.menu')">
         <a

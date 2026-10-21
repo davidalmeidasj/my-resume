@@ -1,4 +1,5 @@
 import { DEFAULT_LOCALE, LOCALES, LOCALE_TAGS, SITE_URL } from './app/config/site'
+import { EXTRA_THEMES, themePath } from './app/config/themes'
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-29',
@@ -11,6 +12,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/eslint',
+  ],
+  components: [
+    { path: '~/components', pathPrefix: false },
+    { path: '~/themes/seasons/components', prefix: 'Seasons', pathPrefix: false },
   ],
   fonts: {
     families: [
@@ -26,6 +31,7 @@ export default defineNuxtConfig({
   },
   sitemap: {
     sitemaps: false,
+    exclude: EXTRA_THEMES.map((slug) => `/${slug}/**`),
     zeroRuntime: true,
     credits: false,
     discoverImages: false,
@@ -52,7 +58,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: LOCALES.map((locale) => `/${locale}`),
+      routes: [
+        ...LOCALES.map((locale) => `/${locale}`),
+        ...EXTRA_THEMES.flatMap((slug) => LOCALES.map((locale) => themePath(slug, locale))),
+      ],
     },
   },
 })

@@ -1,14 +1,7 @@
 <script setup lang="ts">
-const { t } = useI18n()
+import { CONTACT_FORM_ACTION, SOCIALS } from '@/config/site'
 
-const socials = [
-  { name: 'GitHub', url: 'https://github.com/davidalmeidasj', icon: 'simple-icons:github' },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/david-almeida-sj/',
-    icon: 'simple-icons:linkedin',
-  },
-]
+const { t } = useI18n()
 </script>
 
 <template>
@@ -20,7 +13,7 @@ const socials = [
         </h2>
 
         <ul class="contact__socials">
-          <li v-for="item in socials" :key="item.name">
+          <li v-for="item in SOCIALS" :key="item.name">
             <a :href="item.url" target="_blank" rel="noopener noreferrer" class="social">
               <Icon :name="item.icon" class="social__icon" aria-hidden="true" />
               <span>{{ item.name }}</span>
@@ -32,7 +25,7 @@ const socials = [
         </ul>
       </div>
 
-      <form action="https://formspree.io/f/xdkdnboy" method="POST" class="form">
+      <form :action="CONTACT_FORM_ACTION" method="POST" class="form">
         <div class="field">
           <label for="name" class="field__label">{{ t('contact.name') }}</label>
           <input

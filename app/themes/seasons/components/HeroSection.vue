@@ -1,18 +1,10 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const router = useRouter()
+const downloadResume = useResumeDownload()
 
 const scrollToContact = () => {
   router.push({ hash: '#contact' })
-}
-
-const downloadResume = () => {
-  const lang = locale.value
-  const filename = `david-almeida-resume-${lang}.pdf`
-  const link = document.createElement('a')
-  link.href = `/${filename}`
-  link.download = filename
-  link.click()
 }
 </script>
 
@@ -57,7 +49,7 @@ const downloadResume = () => {
       />
     </div>
 
-    <ScrollDown />
+    <SeasonsScrollCue />
   </section>
 </template>
 

@@ -8,10 +8,10 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
 
 <template>
   <section id="about" class="season season--autumn">
-    <SeasonEdge season="autumn" />
+    <SeasonsEdge season="autumn" />
     <div class="about season__wrap">
       <div class="about__intro">
-        <SeasonMark season="autumn" />
+        <SeasonsMark season="autumn" />
         <h2 v-arrive class="season-heading about__heading">
           {{ t('about.title') }}
         </h2>

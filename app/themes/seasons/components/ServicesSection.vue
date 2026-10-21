@@ -14,9 +14,9 @@ const services = computed(() =>
 
 <template>
   <section id="services" class="season season--summer">
-    <SeasonEdge season="summer" />
+    <SeasonsEdge season="summer" />
     <div class="season__wrap">
-      <SeasonMark season="summer" />
+      <SeasonsMark season="summer" />
       <h2 v-arrive class="season-heading services__heading">
         {{ t('services.title') }}
       </h2>
