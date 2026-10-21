@@ -55,12 +55,15 @@ const services = computed(() =>
   grid-template-columns: 2.75rem minmax(0, 1fr);
   column-gap: 1rem;
   row-gap: 0.5rem;
+  align-content: start;
   padding-top: 1.5rem;
   border-top: 2px solid var(--season-ink);
 }
 
 .service__sun {
-  grid-row: 1 / span 2;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
@@ -75,6 +78,9 @@ const services = computed(() =>
 }
 
 .service__title {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
@@ -83,6 +89,8 @@ const services = computed(() =>
 }
 
 .service__text {
+  grid-column: 2;
+  grid-row: 2;
   max-width: 44ch;
   line-height: 1.6;
   color: var(--season-soft);
