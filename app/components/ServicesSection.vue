@@ -66,6 +66,7 @@ const services = computed(() =>
   align-self: center;
   width: 2.75rem;
   height: 2.75rem;
+  margin-block: -0.5rem;
   border-radius: 50%;
   background: var(--season-accent);
   transform: scale(0.55);
