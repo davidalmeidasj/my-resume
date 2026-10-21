@@ -23,4 +23,5 @@ const theme = String(route.params.theme) as ThemeSlug
 
 <template>
   <LazyBitmapPage v-if="theme === 'bitmap-specimen'" />
+  <LazyDaylightPage v-else-if="theme === 'daylight-hud'" />
 </template>

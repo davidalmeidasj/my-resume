@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     { path: '~/components', pathPrefix: false },
     { path: '~/themes/seasons/components', prefix: 'Seasons', pathPrefix: false },
     { path: '~/themes/bitmap/components', prefix: 'Bitmap', pathPrefix: false },
+    { path: '~/themes/daylight/components', prefix: 'Daylight', pathPrefix: false },
   ],
   fonts: {
     families: [
@@ -25,6 +26,9 @@ export default defineNuxtConfig({
       { name: 'Pixelify Sans', provider: 'google', weights: [400, 500, 600, 700] },
       { name: 'Atkinson Hyperlegible Next', provider: 'google', weights: [400, 700] },
       { name: 'Silkscreen', provider: 'google', weights: [400] },
+      { name: 'Chakra Petch', provider: 'google', weights: [300, 400, 500] },
+      { name: 'B612', provider: 'google', weights: [400, 700] },
+      { name: 'B612 Mono', provider: 'google', weights: [400] },
     ],
   },
   icon: {

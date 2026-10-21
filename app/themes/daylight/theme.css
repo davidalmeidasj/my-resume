@@ -1,0 +1,153 @@
+html.theme-daylight-hud {
+  --m: 16px;
+  --hair: 1px;
+  color-scheme: light;
+  accent-color: #00799b;
+}
+
+@media (min-width: 768px) {
+  html.theme-daylight-hud {
+    --m: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  html.theme-daylight-hud {
+    --m: 24px;
+  }
+}
+
+html.theme-daylight-hud {
+  scrollbar-color: #6e7e86 #dcdfe0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.theme-daylight-hud body {
+  font-family: B612, system-ui, sans-serif;
+  background-color: #e8e8e8;
+  color: #1b2427;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+html.theme-daylight-hud body,
+html.theme-daylight-hud .hud-band {
+  background-image:
+    linear-gradient(rgb(110 126 134 / 0.07) var(--hair), transparent var(--hair)),
+    linear-gradient(90deg, rgb(110 126 134 / 0.07) var(--hair), transparent var(--hair));
+  background-size: calc(var(--m) * 4) calc(var(--m) * 4);
+  background-attachment: fixed;
+}
+
+html.theme-daylight-hud body.hud-locked {
+  overflow: hidden;
+}
+
+html.theme-daylight-hud h1,
+html.theme-daylight-hud h2,
+html.theme-daylight-hud h3 {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  color: #1b2427;
+  text-wrap: balance;
+}
+
+html.theme-daylight-hud ::selection {
+  background: #fcd800;
+  color: #1b2427;
+}
+
+html.theme-daylight-hud :focus-visible {
+  outline: 2px solid #00799b;
+  outline-offset: 3px;
+}
+
+html.theme-daylight-hud a {
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+
+html.theme-daylight-hud input,
+html.theme-daylight-hud textarea {
+  caret-color: #00799b;
+}
+
+html.theme-daylight-hud input::placeholder,
+html.theme-daylight-hud textarea::placeholder {
+  color: #4a575d;
+  opacity: 1;
+}
+
+html.theme-daylight-hud .hud-label {
+  font-family: B612, system-ui, sans-serif;
+  color: #3f4c52;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+html.theme-daylight-hud .hud-heading {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 300;
+  color: #1b2427;
+  width: fit-content;
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+html.theme-daylight-hud .hud-key {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 500;
+  color: #1b2427;
+  min-height: calc(var(--m) * 2.5);
+  padding-inline: calc(var(--m) * 1.5);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  min-width: 15rem;
+  border: 1.5px solid #1b2427;
+  transition:
+    background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.theme-daylight-hud .hud-key:hover {
+  background-color: #1b2427;
+  color: #e8e8e8;
+}
+
+html.theme-daylight-hud .hud-key--hot {
+  background-color: #ff6816;
+  border-color: #ff6816;
+}
+
+html.theme-daylight-hud .hud-key--hot:hover {
+  background-color: #1b2427;
+  border-color: #1b2427;
+  color: #ff6816;
+}
+
+html.theme-daylight-hud .hud-section {
+  position: relative;
+  padding-block: calc(var(--m) * 6);
+  padding-inline: var(--m);
+}
+
+@media (min-width: 1024px) {
+  html.theme-daylight-hud .hud-section {
+    padding-inline: calc(var(--m) * 4);
+  }
+}
+
+html.theme-daylight-hud section[id] {
+  scroll-margin-top: 5rem;
+}
