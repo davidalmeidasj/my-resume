@@ -2,7 +2,6 @@
 import { SECTION_ORDER, type SeasonSection } from '@/data/seasons'
 
 const section = useSeasonSection()
-const progress = useSeasonProgress()
 
 let frame = 0
 
@@ -10,7 +9,7 @@ const measure = () => {
   frame = 0
   const doc = document.documentElement
   const range = doc.scrollHeight - window.innerHeight
-  progress.value = range > 0 ? Math.min(1, Math.max(0, window.scrollY / range)) : 0
+  const progress = range > 0 ? window.scrollY / range : 0
 
   const line = window.innerHeight * 0.4
   let current: SeasonSection = 'home'
@@ -18,7 +17,7 @@ const measure = () => {
     const el = document.getElementById(id)
     if (el && el.getBoundingClientRect().top <= line) current = id
   }
-  if (progress.value > 0.995) current = 'contact'
+  if (progress > 0.995) current = 'contact'
   section.value = current
 }
 
@@ -40,5 +39,5 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <SeasonRail />
+  <span hidden />
 </template>

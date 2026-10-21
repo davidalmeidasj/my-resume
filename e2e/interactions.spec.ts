@@ -88,13 +88,3 @@ test('the season follows the section the visitor is reading', async ({ page }) =
     await expect(chip).toHaveText(season!)
   }
 })
-
-test('the season rail links reach every season', async ({ page }) => {
-  await open(page, `/${DEFAULT_LOCALE}`)
-  const rail = page.getByRole('navigation', { name: 'Seasons' })
-
-  await rail.getByRole('link', { name: 'Winter' }).click()
-  await expect(page).toHaveURL(/#projects$/)
-  await rail.getByRole('link', { name: 'Autumn' }).click()
-  await expect(page).toHaveURL(/#about$/)
-})
