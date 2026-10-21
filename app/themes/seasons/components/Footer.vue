@@ -27,7 +27,7 @@ const scrollToTop = () => {
           :aria-label="t('a11y.language')"
           @change="switchLang"
         >
-          <option v-for="lang in LOCALES" :key="lang" :value="lang">
+          <option v-for="lang in LOCALES" :key="lang" :value="lang" :selected="lang === locale">
             {{ lang.toUpperCase() }}
           </option>
         </select>
