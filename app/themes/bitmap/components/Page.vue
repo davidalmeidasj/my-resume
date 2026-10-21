@@ -12,6 +12,7 @@ useHead({ htmlAttrs: { class: 'theme-bitmap-specimen' } })
     <BitmapServicesSection />
     <BitmapProjectsSection />
     <BitmapSkillsSection />
+    <BitmapThemesSection />
     <BitmapContactSection />
   </main>
   <BitmapFooter />
