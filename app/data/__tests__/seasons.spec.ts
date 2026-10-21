@@ -8,7 +8,7 @@ import es from '~~/i18n/locales/es.json'
 describe('seasons', () => {
   it('walks the year in order and ends in winter', () => {
     const order = SECTION_ORDER.map((section) => SECTION_SEASON[section])
-    expect(order).toEqual(['spring', 'summer', 'summer', 'autumn', 'winter', 'winter'])
+    expect(order).toEqual(['spring', 'summer', 'summer', 'summer', 'autumn', 'winter', 'winter'])
   })
 
   it('names every season in every locale', () => {

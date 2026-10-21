@@ -6,6 +6,7 @@ export const SECTION_SEASON = {
   home: 'spring',
   services: 'summer',
   skills: 'summer',
+  themes: 'summer',
   about: 'autumn',
   projects: 'winter',
   contact: 'winter',

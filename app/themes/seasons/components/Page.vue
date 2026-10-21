@@ -10,6 +10,7 @@ useHead({ htmlAttrs: { class: 'theme-career-seasons' } })
     <SeasonsHeroSection />
     <SeasonsServicesSection />
     <SeasonsSkillsSection />
+    <SeasonsThemesSection />
     <SeasonsAboutSection />
     <SeasonsProjectsSection />
     <SeasonsContactSection />
