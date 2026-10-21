@@ -82,7 +82,7 @@ const scrollToTop = () => {
   gap: 0.5rem;
   min-height: 44px;
   padding: 0 0.875rem;
-  border: 1.5px solid rgb(246 245 240 / 0.45);
+  border: 1.5px solid rgb(243 237 230 / 0.45);
   border-radius: 999px;
 }
 
@@ -136,7 +136,7 @@ const scrollToTop = () => {
 }
 
 .foot__top:hover {
-  background: rgb(246 245 240 / 0.12);
+  background: rgb(243 237 230 / 0.12);
 }
 
 @media (min-width: 768px) {
