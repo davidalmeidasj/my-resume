@@ -3,22 +3,12 @@ import { projects } from '@/data/projects'
 
 const { t } = useI18n()
 
-const open = ref(0)
+const open = ref<number[]>([0])
 
-const ANCHOR_MS = 600
+const isOpen = (index: number) => open.value.includes(index)
 
-const toggle = (index: number, event: MouseEvent) => {
-  const button = event.currentTarget as HTMLElement
-  const startTop = button.getBoundingClientRect().top
-  const until = performance.now() + ANCHOR_MS
-  open.value = open.value === index ? -1 : index
-
-  const hold = () => {
-    const drift = button.getBoundingClientRect().top - startTop
-    if (Math.abs(drift) >= 1) window.scrollBy(0, drift)
-    if (performance.now() < until) requestAnimationFrame(hold)
-  }
-  requestAnimationFrame(hold)
+const toggle = (index: number) => {
+  open.value = isOpen(index) ? open.value.filter((item) => item !== index) : [...open.value, index]
 }
 </script>
 
@@ -34,21 +24,21 @@ const toggle = (index: number, event: MouseEvent) => {
           v-for="(project, index) in projects"
           :key="project.titleKey"
           class="track"
-          :class="{ 'track--open': open === index }"
+          :class="{ 'track--open': isOpen(index) }"
         >
           <h3 class="track__heading">
             <button
               :id="`project-${index}`"
               type="button"
               class="track__toggle"
-              :aria-expanded="open === index"
+              :aria-expanded="isOpen(index)"
               :aria-controls="`project-${index}-panel`"
-              @click="toggle(index, $event)"
+              @click="toggle(index)"
             >
               <span class="track__title">{{ t(project.titleKey) }}</span>
               <span class="track__summary">{{ t(project.descriptionKey) }}</span>
               <span class="track__icon px-frame">
-                <PixelIcon :name="open === index ? 'minus' : 'plus'" />
+                <PixelIcon :name="isOpen(index) ? 'minus' : 'plus'" />
               </span>
             </button>
           </h3>
@@ -58,7 +48,7 @@ const toggle = (index: number, event: MouseEvent) => {
             class="track__panel"
             role="region"
             :aria-labelledby="`project-${index}`"
-            :inert="open !== index || undefined"
+            :inert="!isOpen(index) || undefined"
           >
             <div class="track__inner">
               <div class="track__detail">
