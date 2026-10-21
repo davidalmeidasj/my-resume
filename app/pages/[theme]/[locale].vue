@@ -22,5 +22,5 @@ const theme = String(route.params.theme) as ThemeSlug
 </script>
 
 <template>
-  <SeasonsPage v-if="theme === 'career-seasons'" />
+  <LazyBitmapPage v-if="theme === 'bitmap-specimen'" />
 </template>

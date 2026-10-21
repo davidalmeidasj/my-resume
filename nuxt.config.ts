@@ -16,11 +16,15 @@ export default defineNuxtConfig({
   components: [
     { path: '~/components', pathPrefix: false },
     { path: '~/themes/seasons/components', prefix: 'Seasons', pathPrefix: false },
+    { path: '~/themes/bitmap/components', prefix: 'Bitmap', pathPrefix: false },
   ],
   fonts: {
     families: [
       { name: 'Bricolage Grotesque', provider: 'google', weights: [400, 500, 600, 700, 800] },
       { name: 'Figtree', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Pixelify Sans', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Atkinson Hyperlegible Next', provider: 'google', weights: [400, 700] },
+      { name: 'Silkscreen', provider: 'google', weights: [400] },
     ],
   },
   icon: {
