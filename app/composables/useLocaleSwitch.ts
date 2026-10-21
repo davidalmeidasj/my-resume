@@ -1,8 +1,7 @@
 import type { Locale } from '@/config/site'
 
 export function useLocaleSwitch() {
-  const route = useRoute()
-  const switchLocalePath = useSwitchLocalePath()
+  const { switchLocale } = useThemeLocation()
 
-  return (lang: Locale) => navigateTo({ path: switchLocalePath(lang), hash: route.hash })
+  return (lang: Locale) => switchLocale(lang)
 }

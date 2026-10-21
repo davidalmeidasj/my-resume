@@ -4,6 +4,9 @@ import type { Locale } from '@/config/site'
 export function useSeo() {
   const { t, locale } = useI18n()
   const localeHead = useLocaleHead()
+  const route = useRoute()
+  const isMain = computed(() => !route.params.theme)
+  const lang = computed(() => LOCALE_TAGS[locale.value as Locale])
 
   const url = computed(() => `${SITE_URL}/${locale.value}`)
   const jobTitle = computed(() => t('seo.jobTitle'))
@@ -11,9 +14,12 @@ export function useSeo() {
   const description = computed(() => t('seo.description'))
 
   useHead({
-    htmlAttrs: { lang: () => localeHead.value.htmlAttrs.lang },
-    link: () => localeHead.value.link,
-    meta: () => localeHead.value.meta,
+    htmlAttrs: { lang: () => (isMain.value ? localeHead.value.htmlAttrs.lang : lang.value) },
+    link: () => (isMain.value ? localeHead.value.link : [{ rel: 'canonical', href: url.value }]),
+    meta: () =>
+      isMain.value
+        ? localeHead.value.meta
+        : [{ property: 'og:locale', content: lang.value.replace('-', '_') }],
     script: [
       {
         type: 'application/ld+json',

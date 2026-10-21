@@ -35,3 +35,10 @@ export const OG_IMAGE = `${SITE_URL}/og-image.png`
 
 export const isLocale = (value: string): value is Locale =>
   (LOCALES as readonly string[]).includes(value)
+
+export const CONTACT_FORM_ACTION = 'https://formspree.io/f/xdkdnboy'
+
+export const SOCIALS = [
+  { name: 'GitHub', url: AUTHOR.github, icon: 'simple-icons:github' },
+  { name: 'LinkedIn', url: AUTHOR.linkedin, icon: 'simple-icons:linkedin' },
+] as const
