@@ -18,13 +18,13 @@ import { AUTHOR } from '@/config/site'
   align-items: center;
   gap: 0.5rem;
   min-height: 44px;
-  color: var(--color-brand-burgundy);
+  color: var(--color-tree-trunk);
 }
 
 .brand__leaf {
   width: 1.5rem;
   height: 1.5rem;
-  fill: var(--color-brand-forest);
+  fill: var(--color-spring-deep);
   stroke: var(--color-paper);
   transition: transform 500ms var(--ease-out);
 }

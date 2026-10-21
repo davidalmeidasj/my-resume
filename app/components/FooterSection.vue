@@ -51,9 +51,9 @@ const scrollToTop = () => {
 <style scoped>
 .foot {
   padding: 2.5rem var(--gutter);
-  background: var(--color-brand-burgundy);
-  color: var(--color-paper);
-  --color-focus: var(--color-paper);
+  background: var(--color-tree-trunk);
+  color: #f3ede6;
+  --color-focus: #f3ede6;
 }
 
 .foot__inner {
@@ -107,7 +107,7 @@ const scrollToTop = () => {
 }
 
 .foot__select option {
-  background: var(--color-brand-burgundy);
+  background: var(--color-tree-trunk);
   color: var(--color-paper);
 }
 
@@ -119,7 +119,7 @@ const scrollToTop = () => {
 
 .foot__credits {
   font-size: 0.875rem;
-  color: #d9cbc4;
+  color: #cfc3bb;
   text-align: center;
 }
 

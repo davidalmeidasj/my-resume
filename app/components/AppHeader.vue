@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
   inset: 0 0 auto;
   z-index: 50;
   background: var(--color-paper);
-  border-bottom: 1.5px solid var(--color-brand-burgundy);
+  border-bottom: 1.5px solid var(--color-tree-trunk);
 }
 
 .bar__inner {
@@ -144,7 +144,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.25rem 0.75rem 0.25rem 0.375rem;
-  border: 1.5px solid var(--color-brand-burgundy);
+  border: 1.5px solid var(--color-tree-trunk);
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
   bottom: 8px;
   height: 2px;
   border-radius: 2px;
-  background: var(--color-brand-forest);
+  background: var(--color-spring-deep);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 360ms var(--ease-out);
@@ -183,7 +183,7 @@ onBeforeUnmount(() => {
 
 .bar__link:hover,
 .bar__link[aria-current='location'] {
-  color: var(--color-brand-burgundy);
+  color: var(--color-tree-trunk);
 }
 
 .bar__link:hover::after,
@@ -206,11 +206,11 @@ onBeforeUnmount(() => {
 }
 
 .bar__locale:hover {
-  color: var(--color-brand-burgundy);
+  color: var(--color-tree-trunk);
 }
 
 .bar__locale[aria-current='true'] {
-  background: var(--color-brand-burgundy);
+  background: var(--color-tree-trunk);
   color: var(--color-paper);
 }
 
@@ -234,7 +234,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 2px;
   border-radius: 2px;
-  background: var(--color-brand-burgundy);
+  background: var(--color-tree-trunk);
   transition:
     transform 320ms var(--ease-out),
     top 320ms var(--ease-out);
@@ -284,7 +284,7 @@ onBeforeUnmount(() => {
 }
 
 .drawer__link[aria-current='location'] {
-  color: var(--color-brand-forest);
+  color: var(--color-spring-deep);
 }
 
 .drawer__locales {

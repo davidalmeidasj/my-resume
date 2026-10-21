@@ -54,8 +54,8 @@ const skills = [
   min-height: 8.5rem;
   padding: 1.25rem 0.75rem;
   border-radius: 1.5rem;
-  background: var(--color-brand-burgundy);
-  color: var(--color-paper);
+  background: var(--color-summer-deep);
+  color: #ffffff;
   transition: transform 400ms var(--ease-out);
 }
 
@@ -66,7 +66,7 @@ const skills = [
 .tile__icon {
   width: 2.25rem;
   height: 2.25rem;
-  color: var(--color-brand-sun);
+  color: var(--color-spring-leaf);
 }
 
 .tile__label {

@@ -41,7 +41,7 @@ const progress = useSeasonProgress()
   padding: 0.875rem 0.375rem;
   transform: translateY(-50%);
   background: var(--color-paper);
-  border: 1.5px solid var(--color-brand-burgundy);
+  border: 1.5px solid var(--color-tree-trunk);
   border-radius: 999px;
 }
 
@@ -79,7 +79,7 @@ const progress = useSeasonProgress()
   height: 12px;
   border-radius: 50%;
   background: var(--color-paper);
-  border: 2px solid var(--color-brand-burgundy);
+  border: 2px solid var(--color-tree-trunk);
   transition:
     transform 300ms var(--ease-out),
     background-color 300ms var(--ease-out),
@@ -109,7 +109,7 @@ const progress = useSeasonProgress()
 
 .rail__node--on .rail__label,
 .rail__node:hover .rail__label {
-  color: var(--color-brand-burgundy);
+  color: var(--color-tree-trunk);
 }
 
 @media (min-width: 1024px) and (min-height: 640px) {

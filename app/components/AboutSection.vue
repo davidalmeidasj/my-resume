@@ -100,7 +100,7 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
   top: 0.5rem;
   bottom: 0.5rem;
   width: 2px;
-  background: var(--color-brand-autumn);
+  background: var(--season-ink);
 }
 
 .timeline__item {
@@ -115,8 +115,8 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--color-brand-autumn);
-  border: 3px solid var(--season-ground);
+  background: var(--season-mark);
+  border: 3px solid var(--season-ink);
 }
 
 .timeline__label {
@@ -135,7 +135,7 @@ const paragraphs = computed(() => (tm('about.paragraphs') as unknown[]).map((p) 
 .timeline__tech {
   padding: 0.3125rem 0.75rem;
   border-radius: 999px;
-  border: 1.5px solid rgb(246 240 234 / 0.32);
+  border: 1.5px solid rgb(59 42 42 / 0.4);
   font-size: 0.875rem;
   color: var(--season-ink);
 }

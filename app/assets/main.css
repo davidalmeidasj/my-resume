@@ -4,19 +4,31 @@
 
 @layer base {
   :root {
-    --color-brand-sky: #74b3ce;
-    --color-brand-sun: #ffb400;
-    --color-brand-autumn: #d84a05;
-    --color-brand-burgundy: #2c1a1d;
-    --color-brand-forest: #25642b;
-    --color-brand-growth: #1eae38;
-    --color-paper: #f6f5f0;
-    --color-snow: #eaf2f6;
-    --color-background: var(--color-paper);
-    --color-text-primary: var(--color-brand-burgundy);
-    --color-text-secondary: #4f3a3e;
-    --color-border: rgb(44 26 29 / 0.18);
-    --color-focus: var(--color-brand-burgundy);
+    --color-tree-trunk: #3b2a2a;
+    --color-spring-ground: #f3f8ea;
+    --color-spring-leaf: #a4dc5c;
+    --color-spring-green: #6bae45;
+    --color-spring-deep: #4e7a2e;
+    --color-spring-blossom: #f598ac;
+    --color-summer-emerald: #1e6e46;
+    --color-summer-green: #1e8246;
+    --color-summer-olive: #6e961e;
+    --color-summer-deep: #145236;
+    --color-autumn-orange: #f5832f;
+    --color-autumn-burnt: #d26e32;
+    --color-autumn-rust: #be4632;
+    --color-autumn-mustard: #d99f2e;
+    --color-winter-ice: #e8eff5;
+    --color-winter-frost: #aabed2;
+    --color-winter-steel: #6e8296;
+    --color-winter-slate: #3e4756;
+    --color-winter-accent: #4f6a86;
+    --color-paper: #fbfbf8;
+    --color-background: var(--color-spring-ground);
+    --color-text-primary: var(--color-tree-trunk);
+    --color-text-secondary: #5a4a44;
+    --color-border: rgb(59 42 42 / 0.18);
+    --color-focus: var(--color-tree-trunk);
     --gutter: 1.25rem;
     --edge: 48px;
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -47,7 +59,7 @@
     @apply font-sans;
     background: var(--color-background);
     color: var(--color-text-primary);
-    caret-color: var(--color-brand-forest);
+    caret-color: var(--color-spring-deep);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -56,8 +68,8 @@
   }
 
   ::selection {
-    background: var(--color-brand-sun);
-    color: var(--color-brand-burgundy);
+    background: var(--color-spring-leaf);
+    color: var(--color-tree-trunk);
   }
 
   :focus-visible {
@@ -89,35 +101,43 @@
   }
 
   .season--spring {
-    --season-ground: var(--color-paper);
-    --season-ink: var(--color-brand-burgundy);
+    --season-ground: var(--color-spring-ground);
+    --season-ink: var(--color-tree-trunk);
     --season-soft: var(--color-text-secondary);
-    --season-accent: var(--color-brand-forest);
-    --season-mark: var(--color-brand-growth);
+    --season-accent: var(--color-spring-deep);
+    --season-mark: var(--color-spring-blossom);
+    --season-key: var(--color-spring-green);
+    --season-key-ink: var(--color-tree-trunk);
   }
 
   .season--summer {
-    --season-ground: var(--color-brand-sun);
-    --season-ink: var(--color-brand-burgundy);
-    --season-soft: #4a2a1f;
-    --season-accent: var(--color-brand-autumn);
-    --season-mark: var(--color-brand-autumn);
+    --season-ground: var(--color-summer-emerald);
+    --season-ink: #ffffff;
+    --season-soft: #e6f2d8;
+    --season-accent: var(--color-spring-leaf);
+    --season-mark: var(--color-spring-leaf);
+    --season-key: var(--color-spring-leaf);
+    --season-key-ink: var(--color-summer-deep);
   }
 
   .season--autumn {
-    --season-ground: var(--color-brand-burgundy);
-    --season-ink: #f6f0ea;
-    --season-soft: #d9cbc4;
-    --season-accent: var(--color-brand-sun);
-    --season-mark: var(--color-brand-autumn);
+    --season-ground: var(--color-autumn-orange);
+    --season-ink: var(--color-tree-trunk);
+    --season-soft: #4a2e22;
+    --season-accent: #6b2414;
+    --season-mark: var(--color-autumn-rust);
+    --season-key: var(--color-tree-trunk);
+    --season-key-ink: #ffffff;
   }
 
   .season--winter {
-    --season-ground: var(--color-snow);
-    --season-ink: var(--color-brand-burgundy);
-    --season-soft: #4a3e45;
-    --season-accent: #2f6f8c;
-    --season-mark: var(--color-brand-sky);
+    --season-ground: var(--color-winter-ice);
+    --season-ink: var(--color-winter-slate);
+    --season-soft: #56677a;
+    --season-accent: var(--color-winter-accent);
+    --season-mark: var(--color-winter-steel);
+    --season-key: var(--color-winter-slate);
+    --season-key-ink: #ffffff;
   }
 
   @media (min-width: 1024px) {
@@ -168,23 +188,24 @@
   }
 
   .season-key--solid {
-    background: var(--color-brand-forest);
-    border-color: var(--color-brand-forest);
-    color: #ffffff;
+    background: var(--season-key);
+    border-color: var(--season-key);
+    color: var(--season-key-ink);
   }
 
   .season-key--solid:hover {
-    background: var(--color-brand-burgundy);
-    border-color: var(--color-brand-burgundy);
+    background: var(--season-ink);
+    border-color: var(--season-ink);
+    color: var(--season-ground);
   }
 
   .season-key--ghost {
-    color: var(--color-brand-burgundy);
+    color: var(--season-ink);
   }
 
   .season-key--ghost:hover {
-    background: var(--color-brand-burgundy);
-    color: var(--color-paper);
+    background: var(--season-ink);
+    color: var(--season-ground);
   }
 
   .is-arriving {

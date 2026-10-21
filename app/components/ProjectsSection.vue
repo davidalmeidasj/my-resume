@@ -97,7 +97,7 @@ const toggle = (index: number) => {
 }
 
 .track {
-  border-bottom: 1px solid rgb(44 26 29 / 0.22);
+  border-bottom: 1px solid rgb(62 71 86 / 0.24);
 }
 
 .track__heading {
@@ -169,11 +169,11 @@ const toggle = (index: number) => {
 }
 
 .track__toggle:hover .track__icon {
-  background: var(--color-brand-sky);
+  background: var(--color-winter-frost);
 }
 
 .track--open .track__icon {
-  background: var(--color-brand-sky);
+  background: var(--color-winter-frost);
   transform: rotate(180deg);
 }
 
@@ -216,8 +216,8 @@ const toggle = (index: number) => {
 .track__tech {
   padding: 0.3125rem 0.75rem;
   border-radius: 999px;
-  background: var(--color-brand-burgundy);
-  color: var(--color-snow);
+  background: var(--color-winter-slate);
+  color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 500;
 }

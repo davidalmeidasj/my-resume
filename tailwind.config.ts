@@ -5,16 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          sky: '#74B3CE',
-          sun: '#FFB400',
-          autumn: '#D84A05',
-          burgundy: '#2C1A1D',
-          forest: '#25642B',
-          growth: '#1EAE38',
-        },
-        paper: '#F6F5F0',
-        snow: '#EAF2F6',
+        trunk: '#3B2A2A',
+        spring: { ground: '#F3F8EA', leaf: '#A4DC5C', green: '#6BAE45', deep: '#4E7A2E', blossom: '#F598AC' },
+        summer: { emerald: '#1E6E46', green: '#1E8246', olive: '#6E961E', deep: '#145236' },
+        autumn: { orange: '#F5832F', burnt: '#D26E32', rust: '#BE4632', mustard: '#D99F2E' },
+        winter: { ice: '#E8EFF5', frost: '#AABED2', steel: '#6E8296', slate: '#3E4756', accent: '#4F6A86' },
+        paper: '#FBFBF8',
       },
       fontFamily: {
         sans: ['Figtree', 'system-ui', 'sans-serif'],
