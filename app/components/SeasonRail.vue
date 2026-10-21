@@ -31,13 +31,14 @@ const progress = useSeasonProgress()
 <style scoped>
 .rail {
   position: fixed;
-  left: 1.5rem;
+  left: 1.25rem;
   top: 50%;
   z-index: 40;
   display: none;
   flex-direction: column;
-  gap: 1.75rem;
-  padding: 1rem 0.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 0.375rem;
   transform: translateY(-50%);
   background: var(--color-paper);
   border: 1.5px solid var(--color-brand-burgundy);
@@ -47,11 +48,11 @@ const progress = useSeasonProgress()
 .rail__track {
   position: absolute;
   left: 50%;
-  top: 1.5rem;
-  bottom: 1.5rem;
+  top: 1.25rem;
+  bottom: 1.25rem;
   width: 2px;
   margin-left: -1px;
-  background: rgb(44 26 29 / 0.16);
+  background: rgb(44 26 29 / 0.12);
   overflow: hidden;
 }
 
@@ -64,10 +65,13 @@ const progress = useSeasonProgress()
 
 .rail__node {
   position: relative;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-radius: 999px;
+  background: var(--color-paper);
 }
 
 .rail__dot {
@@ -78,40 +82,37 @@ const progress = useSeasonProgress()
   border: 2px solid var(--color-brand-burgundy);
   transition:
     transform 300ms var(--ease-out),
-    background-color 300ms var(--ease-out);
+    background-color 300ms var(--ease-out),
+    box-shadow 300ms var(--ease-out);
 }
 
-.rail__node--on .rail__dot,
 .rail__node:hover .rail__dot {
+  box-shadow:
+    0 0 0 3px var(--color-paper),
+    0 0 0 4.5px var(--dot);
+}
+
+.rail__node--on .rail__dot {
   background: var(--dot);
-  transform: scale(1.35);
+  transform: scale(1.3);
 }
 
 .rail__label {
-  position: absolute;
-  left: calc(100% + 0.875rem);
-  padding: 0.25rem 0.625rem;
-  border-radius: 999px;
-  background: var(--color-brand-burgundy);
-  color: var(--color-paper);
-  font-size: 0.8125rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.75rem;
   font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-4px);
-  pointer-events: none;
-  transition:
-    opacity 240ms var(--ease-out),
-    transform 240ms var(--ease-out);
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  transition: color 300ms var(--ease-out);
 }
 
-.rail__node:hover .rail__label,
-.rail__node:focus-visible .rail__label {
-  opacity: 1;
-  transform: none;
+.rail__node--on .rail__label,
+.rail__node:hover .rail__label {
+  color: var(--color-brand-burgundy);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (min-height: 640px) {
   .rail {
     display: flex;
   }
