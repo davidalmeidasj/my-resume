@@ -3,6 +3,7 @@ import { LOCALES, type Locale } from '@/config/site'
 
 const { t, locale } = useI18n()
 const switchLocale = useLocaleSwitch()
+const { links } = useThemeLocation()
 
 const switchLang = (event: Event) =>
   switchLocale((event.target as HTMLSelectElement).value as Locale)
@@ -15,6 +16,21 @@ const scrollToTop = () => {
 
 <template>
   <footer class="foot">
+    <nav class="foot__themes" :aria-label="t('themes.label')">
+      <p class="foot__themes-label">{{ t('themes.label') }}</p>
+      <ul class="foot__theme-list">
+        <li v-for="item in links" :key="item.slug">
+          <NuxtLink
+            :to="item.href"
+            class="foot__theme"
+            :aria-current="item.current ? 'page' : undefined"
+          >
+            {{ t(`themes.items.${item.slug}.name`) }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+
     <div class="foot__inner">
       <label class="foot__locale">
         <svg viewBox="0 0 20 20" class="foot__glyph" aria-hidden="true" focusable="false">
@@ -54,6 +70,51 @@ const scrollToTop = () => {
   background: var(--color-tree-trunk);
   color: #f3ede6;
   --color-focus: #f3ede6;
+}
+
+.foot__themes {
+  max-width: 76rem;
+  margin: 0 auto 1.75rem;
+  padding-bottom: 1.75rem;
+  display: grid;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgb(243 237 230 / 0.2);
+}
+
+.foot__themes-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #cfc3bb;
+}
+
+.foot__theme-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.foot__theme {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1.5px solid rgb(243 237 230 / 0.45);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition:
+    background-color 260ms var(--ease-out),
+    color 260ms var(--ease-out);
+}
+
+.foot__theme:hover {
+  background: rgb(243 237 230 / 0.12);
+}
+
+.foot__theme[aria-current='page'] {
+  background: #f3ede6;
+  border-color: #f3ede6;
+  color: var(--color-tree-trunk);
 }
 
 .foot__inner {
