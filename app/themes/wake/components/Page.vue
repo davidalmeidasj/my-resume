@@ -14,6 +14,7 @@ useHead({ htmlAttrs: { class: 'theme-bioluminescent-wake' } })
       <WakeServicesSection />
       <WakeProjectsSection />
       <WakeSkillsSection />
+      <WakeThemesSection />
       <WakeContactSection />
     </main>
     <WakeFooter />
