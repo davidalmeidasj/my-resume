@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SEASONS, SEASON_COLOR, type Season } from '@/data/seasons'
 
-defineProps<{ season: Season }>()
+const props = defineProps<{ season: Season; color?: string }>()
 
 const QUADRANTS: Record<Season, string> = {
   spring: 'M12 12 L12 2 A10 10 0 0 1 22 12 Z',
@@ -18,7 +18,7 @@ const QUADRANTS: Record<Season, string> = {
       v-for="item in SEASONS"
       :key="item"
       :d="QUADRANTS[item]"
-      :fill="item === season ? SEASON_COLOR[item] : 'transparent'"
+      :fill="item === season ? (props.color ?? SEASON_COLOR[item]) : 'transparent'"
       :stroke="item === season ? 'currentColor' : 'none'"
       stroke-width="1.5"
       class="wheel__quadrant"

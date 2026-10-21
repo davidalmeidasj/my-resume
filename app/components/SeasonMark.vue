@@ -8,7 +8,7 @@ const { t } = useI18n()
 
 <template>
   <p class="mark">
-    <SeasonWheel :season="season" />
+    <SeasonWheel :season="season" color="var(--season-mark)" />
     <span>{{ t(`seasons.${season}`) }}</span>
   </p>
 </template>
