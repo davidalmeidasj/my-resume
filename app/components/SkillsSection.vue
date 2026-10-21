@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
-
 const { t } = useI18n()
 
 const skills = [
@@ -21,32 +18,78 @@ const skills = [
 </script>
 
 <template>
-  <section id="skills" class="bg-white px-6 py-20">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
+  <section id="skills" class="season season--summer skills">
+    <div class="season__wrap">
+      <h2 v-arrive class="season-heading">
         {{ t('skills.title') }}
       </h2>
 
-      <Carousel
-        :items-to-show="2"
-        :wrap-around="true"
-        :autoplay="2500"
-        :pause-autoplay-on-hover="true"
-        :mouse-drag="true"
-        :breakpoints="{
-          640: { itemsToShow: 3 },
-          768: { itemsToShow: 5 },
-          1024: { itemsToShow: 6 },
-        }"
-        class="w-full"
-      >
-        <Slide v-for="(skill, index) in skills" :key="index">
-          <div class="flex flex-col items-center justify-center gap-2 px-4 py-6">
-            <Icon :name="skill.icon" class="w-10 h-10 text-black" />
-            <span class="text-sm text-muted">{{ skill.label }}</span>
-          </div>
-        </Slide>
-      </Carousel>
+      <ul class="tiles">
+        <li v-for="skill in skills" :key="skill.label" class="tile">
+          <Icon :name="skill.icon" class="tile__icon" aria-hidden="true" />
+          <span class="tile__label">{{ skill.label }}</span>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
+
+<style scoped>
+.skills {
+  padding-top: 2rem;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.tile {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.875rem;
+  min-height: 8.5rem;
+  padding: 1.25rem 0.75rem;
+  border-radius: 1.5rem;
+  background: var(--color-brand-burgundy);
+  color: var(--color-paper);
+  transition: transform 400ms var(--ease-out);
+}
+
+.tile:hover {
+  transform: translateY(-4px) rotate(-1.5deg);
+}
+
+.tile__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-brand-sun);
+}
+
+.tile__label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .tiles {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+</style>

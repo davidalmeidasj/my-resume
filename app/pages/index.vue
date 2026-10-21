@@ -1,10 +1,10 @@
 <template>
   <main>
     <HeroSection />
-    <AboutSection />
     <ServicesSection />
-    <ProjectsSection />
     <SkillsSection />
+    <AboutSection />
+    <ProjectsSection />
     <ContactSection />
   </main>
 </template>

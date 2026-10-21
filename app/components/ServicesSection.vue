@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// Driven by a key list so adding an area means touching the locale files only.
 const AREAS = ['frontend', 'backend', 'mobile', 'queues', 'devops', 'quality'] as const
 
 const services = computed(() =>
@@ -14,26 +13,91 @@ const services = computed(() =>
 </script>
 
 <template>
-  <section id="services" class="bg-background px-6 py-20">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
+  <section id="services" class="season season--summer">
+    <SeasonEdge season="summer" />
+    <div class="season__wrap">
+      <SeasonMark season="summer" />
+      <h2 v-arrive class="season-heading services__heading">
         {{ t('services.title') }}
       </h2>
 
-      <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-left">
-        <div
-          v-for="service in services"
-          :key="service.key"
-          class="bg-white rounded-xl shadow-md p-6 transition hover:shadow-xl hover:-translate-y-1 duration-300"
-        >
-          <h3 class="text-lg font-semibold text-dark mb-2">
+      <ul class="services">
+        <li v-for="service in services" :key="service.key" class="service">
+          <span class="service__sun" aria-hidden="true" />
+          <h3 class="service__title">
             {{ service.title }}
           </h3>
-          <p class="text-sm text-muted leading-relaxed">
+          <p class="service__text">
             {{ service.description }}
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
+
+<style scoped>
+.services__heading {
+  margin-top: 1rem;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.services {
+  display: grid;
+  gap: 2.5rem 3rem;
+  margin-top: 3.5rem;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--season-ink);
+}
+
+.service__sun {
+  grid-row: 1 / span 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--season-accent);
+  transform: scale(0.55);
+  transform-origin: center;
+  transition: transform 500ms var(--ease-out);
+}
+
+.service:hover .service__sun {
+  transform: scale(1);
+}
+
+.service__title {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.service__text {
+  max-width: 44ch;
+  line-height: 1.6;
+  color: var(--season-soft);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .services {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
