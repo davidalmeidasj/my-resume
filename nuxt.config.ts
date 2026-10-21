@@ -21,8 +21,11 @@ export default defineNuxtConfig({
     { path: '~/themes/wake/components', prefix: 'Wake', pathPrefix: false },
   ],
   fonts: {
+    defaults: {
+      subsets: ['latin', 'latin-ext'],
+    },
     families: [
-      { name: 'Bricolage Grotesque', provider: 'google', weights: [400, 500, 600, 700, 800] },
+      { name: 'Bricolage Grotesque', provider: 'google', weights: [500, 600, 700, 800] },
       { name: 'Figtree', provider: 'google', weights: [400, 500, 600, 700] },
       { name: 'Pixelify Sans', provider: 'google', weights: [400, 500, 600, 700] },
       { name: 'Atkinson Hyperlegible Next', provider: 'google', weights: [400, 700] },
