@@ -116,8 +116,9 @@ const downloadResume = () => {
 
 .hero__leaves {
   justify-self: end;
-  width: min(42vw, 11rem);
+  width: min(36vw, 9rem);
   margin-top: -1rem;
+  margin-bottom: 2rem;
   pointer-events: none;
 }
 
@@ -135,6 +136,7 @@ const downloadResume = () => {
 @media (min-width: 640px) {
   .hero__leaves {
     width: 15rem;
+    margin-bottom: 0;
   }
 
   .hero__keys {
