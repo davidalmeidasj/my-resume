@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     { path: '~/themes/seasons/components', prefix: 'Seasons', pathPrefix: false },
     { path: '~/themes/bitmap/components', prefix: 'Bitmap', pathPrefix: false },
     { path: '~/themes/daylight/components', prefix: 'Daylight', pathPrefix: false },
+    { path: '~/themes/wake/components', prefix: 'Wake', pathPrefix: false },
   ],
   fonts: {
     families: [
@@ -29,6 +30,7 @@ export default defineNuxtConfig({
       { name: 'Chakra Petch', provider: 'google', weights: [300, 400, 500] },
       { name: 'B612', provider: 'google', weights: [400, 700] },
       { name: 'B612 Mono', provider: 'google', weights: [400] },
+      { name: 'Sora', provider: 'google', weights: [200, 300, 400, 600] },
     ],
   },
   icon: {

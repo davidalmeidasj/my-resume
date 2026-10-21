@@ -1,0 +1,88 @@
+<script setup lang="ts">
+import { projects } from '@/data/projects'
+
+const { t } = useI18n()
+</script>
+
+<template>
+  <section id="projects" class="px-4 py-28 sm:px-6 md:py-36">
+    <div class="mx-auto max-w-6xl">
+      <h2
+        class="text-[clamp(2.25rem,4.5vw,3.75rem)] font-extralight leading-none tracking-[-0.03em]"
+      >
+        {{ t('projects.title') }}
+      </h2>
+
+      <div class="mt-16">
+        <article
+          v-for="(project, index) in projects"
+          :key="project.titleKey"
+          class="project group grid gap-8 border-t border-wake-line py-12 lg:grid-cols-12 lg:gap-12"
+          :class="{ 'lg:py-16': index === 0 }"
+        >
+          <div class="lg:col-span-5">
+            <h3
+              class="font-light tracking-[-0.02em] transition-colors duration-500 group-hover:text-wake-crest"
+              :class="
+                index === 0
+                  ? 'text-[clamp(2rem,3.5vw,2.75rem)] leading-tight'
+                  : 'text-[clamp(1.5rem,2.4vw,1.875rem)] leading-snug'
+              "
+            >
+              {{ t(project.titleKey) }}
+            </h3>
+            <p class="mt-4 max-w-[52ch] leading-relaxed text-wake-haze">
+              {{ t(project.descriptionKey) }}
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-wake-mist/85">
+              <li v-for="tech in project.techs" :key="tech" class="flex items-center gap-2">
+                <span class="h-1 w-1 rounded-full bg-wake-crest" aria-hidden="true" />
+                {{ tech }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-7">
+            <a
+              v-if="project.github"
+              :href="project.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[44px] items-center gap-2 font-wake-display text-sm text-wake-signal hover:text-wake-mist"
+            >
+              {{ t('projects.viewOnGitHub') }}
+              <Icon name="lucide:arrow-up-right" class="h-4 w-4" />
+            </a>
+            <div v-else-if="project.goalKey">
+              <p class="font-wake-display text-xs uppercase tracking-[0.25em] text-wake-crest">
+                {{ t('projects.goalLabel') }}
+              </p>
+              <p
+                class="mt-4 max-w-[36rem] leading-relaxed text-wake-haze"
+                :class="{ 'text-wake-mist/90 md:text-lg': index === 0 }"
+              >
+                {{ t(project.goalKey) }}
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.project {
+  position: relative;
+}
+
+.project::before {
+  content: '';
+  @apply absolute left-0 top-[-1px] h-px w-full origin-left scale-x-0 bg-wake-crest transition-transform duration-[600ms] ease-out-expo;
+}
+
+.project:hover::before,
+.project:focus-within::before {
+  @apply scale-x-100;
+}
+</style>

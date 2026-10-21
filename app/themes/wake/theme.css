@@ -1,0 +1,42 @@
+html.theme-bioluminescent-wake {
+  color-scheme: dark;
+  scrollbar-color: #2a4a54 #031216;
+}
+
+html.theme-bioluminescent-wake body {
+  background-color: #031216;
+  font-family: Figtree, system-ui, sans-serif;
+  color: #e8e8e8;
+  -webkit-font-smoothing: antialiased;
+  caret-color: #4cc3df;
+}
+
+html.theme-bioluminescent-wake ::selection {
+  background: #00799b;
+  color: #e8e8e8;
+}
+
+html.theme-bioluminescent-wake :focus-visible {
+  outline: 2px solid #4cc3df;
+  outline-offset: 3px;
+}
+
+html.theme-bioluminescent-wake h1,
+html.theme-bioluminescent-wake h2,
+html.theme-bioluminescent-wake h3 {
+  font-family: Sora, system-ui, sans-serif;
+  color: #e8e8e8;
+  text-wrap: balance;
+}
+
+html.theme-bioluminescent-wake a {
+  text-underline-offset: 0.25em;
+}
+
+html.theme-bioluminescent-wake p {
+  text-wrap: pretty;
+}
+
+html.theme-bioluminescent-wake section[id] {
+  scroll-margin-top: 5rem;
+}
