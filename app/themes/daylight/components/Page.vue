@@ -12,6 +12,7 @@ useHead({ htmlAttrs: { class: 'theme-daylight-hud' } })
     <DaylightServicesSection />
     <DaylightProjectsSection />
     <DaylightSkillsSection />
+    <DaylightThemesSection />
     <DaylightContactSection />
   </main>
   <DaylightFooter />
