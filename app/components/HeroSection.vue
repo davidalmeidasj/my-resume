@@ -46,7 +46,17 @@ const downloadResume = () => {
         </div>
       </div>
 
-      <HeroLeaves class="hero__leaves" />
+      <img
+        class="hero__tree"
+        src="/images/seasons-tree-900.webp"
+        srcset="/images/seasons-tree-520.webp 520w, /images/seasons-tree-900.webp 900w"
+        sizes="(min-width: 1024px) 40vw, (min-width: 640px) 18rem, 14rem"
+        width="900"
+        height="992"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
 
     <ScrollDown />
@@ -114,12 +124,24 @@ const downloadResume = () => {
   stroke-linejoin: round;
 }
 
-.hero__leaves {
-  justify-self: end;
-  width: min(36vw, 9rem);
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  pointer-events: none;
+.hero__tree {
+  justify-self: center;
+  width: min(64vw, 14rem);
+  height: auto;
+  margin-bottom: 2.5rem;
+  animation: tree-grow 1400ms var(--ease-out) 200ms both;
+  transform-origin: 50% 100%;
+}
+
+@keyframes tree-grow {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-rise {
@@ -134,9 +156,9 @@ const downloadResume = () => {
 }
 
 @media (min-width: 640px) {
-  .hero__leaves {
-    width: 15rem;
-    margin-bottom: 0;
+  .hero__tree {
+    width: 18rem;
+    margin-top: 1.5rem;
   }
 
   .hero__keys {
@@ -151,10 +173,11 @@ const downloadResume = () => {
     gap: 3rem;
   }
 
-  .hero__leaves {
+  .hero__tree {
     width: 100%;
-    max-width: 30rem;
-    margin-top: 0;
+    max-width: 32rem;
+    justify-self: end;
+    margin: 0;
   }
 }
 </style>
