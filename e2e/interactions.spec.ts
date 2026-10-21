@@ -73,18 +73,16 @@ test('content stays visible with reduced motion', async ({ page }) => {
   }
 })
 
-test('the season follows the section the visitor is reading', async ({ page }) => {
+test('each season opens with its own mark', async ({ page }) => {
   await open(page, `/${DEFAULT_LOCALE}`)
-  const chip = page.locator('header .bar__season')
 
-  await expect(chip).toHaveText('Spring')
+  await expect(page.locator('header .mark')).toHaveCount(0)
+  await expect(page.locator('#home .mark')).toHaveCount(0)
   for (const [id, season] of [
     ['services', 'Summer'],
     ['about', 'Autumn'],
     ['projects', 'Winter'],
   ]) {
-    await page.locator(`#${id}`).scrollIntoViewIfNeeded()
-    await page.evaluate((target) => document.getElementById(target)!.scrollIntoView(), id)
-    await expect(chip).toHaveText(season!)
+    await expect(page.locator(`#${id} .mark`)).toHaveText(season!)
   }
 })

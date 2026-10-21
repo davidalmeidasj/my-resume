@@ -4,7 +4,6 @@ import { LOCALES, type Locale } from '@/config/site'
 const { locale, t } = useI18n()
 const switchLocale = useLocaleSwitch()
 const section = useSeasonSection()
-const season = useSeason()
 const mobileMenuOpen = useSeasonMenu()
 
 const SECTIONS = ['home', 'about', 'projects', 'contact'] as const
@@ -36,11 +35,6 @@ onBeforeUnmount(() => {
   <header class="bar">
     <div class="bar__inner">
       <BrandLogo @click="closeMenu" />
-
-      <p class="bar__season">
-        <SeasonWheel :season="season" />
-        <span>{{ t(`seasons.${season}`) }}</span>
-      </p>
 
       <nav class="bar__nav" :aria-label="t('a11y.menu')">
         <a
@@ -139,18 +133,6 @@ onBeforeUnmount(() => {
   gap: 1.5rem;
 }
 
-.bar__season {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.75rem 0.25rem 0.375rem;
-  border: 1.5px solid var(--color-tree-trunk);
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-left: auto;
-}
-
 .bar__nav {
   display: none;
   gap: 2rem;
@@ -219,6 +201,7 @@ onBeforeUnmount(() => {
   place-items: center;
   width: 48px;
   height: 48px;
+  margin-left: auto;
   margin-right: -12px;
 }
 
@@ -311,10 +294,6 @@ onBeforeUnmount(() => {
     display: flex;
   }
 
-  .bar__season {
-    margin-left: 0;
-  }
-
   .bar__nav {
     margin-left: auto;
   }
@@ -322,16 +301,6 @@ onBeforeUnmount(() => {
   .bar__toggle,
   .drawer {
     display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .bar__season span {
-    display: none;
-  }
-
-  .bar__season {
-    padding-right: 0.375rem;
   }
 }
 </style>

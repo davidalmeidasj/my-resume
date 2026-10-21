@@ -14,10 +14,3 @@ export const SECTION_SEASON = {
 export type SeasonSection = keyof typeof SECTION_SEASON
 
 export const SECTION_ORDER = Object.keys(SECTION_SEASON) as SeasonSection[]
-
-export const SEASON_COLOR: Record<Season, string> = {
-  spring: '#F598AC',
-  summer: '#1E8246',
-  autumn: '#F5832F',
-  winter: '#AABED2',
-}

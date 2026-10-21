@@ -20,8 +20,6 @@ const downloadResume = () => {
   <section id="home" class="hero season season--spring">
     <div class="hero__grid season__wrap">
       <div class="hero__copy">
-        <SeasonMark season="spring" class="hero__mark" />
-
         <h1 class="hero__title">
           {{ t('hero.title') }}
         </h1>
@@ -87,7 +85,6 @@ const downloadResume = () => {
 }
 
 .hero__title {
-  margin-top: 1.5rem;
   max-width: 12ch;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   font-weight: 800;
