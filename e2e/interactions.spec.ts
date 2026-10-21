@@ -8,20 +8,43 @@ const open = async (page: Page, path: string) => {
   )
 }
 
-test('only one project is expanded at a time', async ({ page }) => {
-  await open(page, `/${DEFAULT_LOCALE}`)
-  const first = page.locator('#project-0')
-  const second = page.locator('#project-1')
+for (const viewport of [
+  { width: 1440, height: 900 },
+  { width: 390, height: 844 },
+]) {
+  test(`opening a project at ${viewport.width}px keeps the others open and the page still`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport)
+    await open(page, `/${DEFAULT_LOCALE}`)
+    const first = page.locator('#project-0')
+    const target = page.locator('#project-4')
 
-  await expect(first).toHaveAttribute('aria-expanded', 'true')
-  await expect(second).toHaveAttribute('aria-expanded', 'false')
+    await target.scrollIntoViewIfNeeded()
+    const before = await page.evaluate(() => ({
+      scroll: window.scrollY,
+      top: document.getElementById('project-4')!.getBoundingClientRect().top,
+    }))
 
-  await second.click()
+    await target.click()
+    await page.waitForTimeout(800)
 
-  await expect(second).toHaveAttribute('aria-expanded', 'true')
-  await expect(first).toHaveAttribute('aria-expanded', 'false')
-  await expect(page.locator('#project-1-panel')).toBeVisible()
-})
+    const after = await page.evaluate(() => ({
+      scroll: window.scrollY,
+      top: document.getElementById('project-4')!.getBoundingClientRect().top,
+    }))
+    expect(Math.abs(after.scroll - before.scroll)).toBeLessThanOrEqual(1)
+    expect(Math.abs(after.top - before.top)).toBeLessThanOrEqual(1)
+    await expect(target).toHaveAttribute('aria-expanded', 'true')
+    await expect(first).toHaveAttribute('aria-expanded', 'true')
+    await expect(page.locator('#project-0-panel')).toBeVisible()
+    await expect(page.locator('#project-4-panel')).toBeVisible()
+
+    await target.click()
+    await expect(target).toHaveAttribute('aria-expanded', 'false')
+    await expect(first).toHaveAttribute('aria-expanded', 'true')
+  })
+}
 
 test('mobile menu opens, navigates and closes with Escape', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
