@@ -1,26 +1,43 @@
+<script setup lang="ts">
+import { AUTHOR } from '@/config/site'
+</script>
+
 <template>
-  <svg
-    width="220"
-    height="40"
-    viewBox="0 0 220 40"
-    xmlns="http://www.w3.org/2000/svg"
-    class="cursor-pointer transition-transform duration-300 hover:scale-105 hover:brightness-110"
-  >
-    <defs>
-      <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#d4af37" />
-        <stop offset="100%" stop-color="#b8860b" />
-      </linearGradient>
-    </defs>
-    <g
-      fill="url(#gold-gradient)"
-      font-family="Arial, sans-serif"
-      font-size="20"
-      dominant-baseline="middle"
-      alignment-baseline="middle"
-    >
-      <text x="0" y="24" font-weight="bold">&lt;/&gt;</text>
-      <text x="40" y="24">David Almeida</text>
-    </g>
-  </svg>
+  <a href="#home" class="brand">
+    <svg class="brand__leaf" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z" />
+      <path d="M4 20 L13 11" fill="none" stroke-width="1.5" />
+    </svg>
+    <span class="brand__name">{{ AUTHOR.name }}</span>
+  </a>
 </template>
+
+<style scoped>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: var(--color-brand-burgundy);
+}
+
+.brand__leaf {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color-brand-forest);
+  stroke: var(--color-paper);
+  transition: transform 500ms var(--ease-out);
+}
+
+.brand:hover .brand__leaf {
+  transform: rotate(-18deg);
+}
+
+.brand__name {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.1875rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+</style>

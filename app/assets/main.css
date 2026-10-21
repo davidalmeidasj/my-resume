@@ -82,7 +82,7 @@
 @layer components {
   .season {
     position: relative;
-    padding: calc(var(--edge) + 4rem) var(--gutter) 6rem;
+    padding: calc(var(--edge) + 2.5rem) var(--gutter) 5rem;
     background: var(--season-ground);
     color: var(--season-ink);
     --color-focus: var(--season-ink);
@@ -118,6 +118,12 @@
     --season-soft: #4a3e45;
     --season-accent: #2f6f8c;
     --season-mark: var(--color-brand-sky);
+  }
+
+  @media (min-width: 1024px) {
+    .season {
+      padding: calc(var(--edge) + 4rem) var(--gutter) 6rem;
+    }
   }
 
   .season__wrap {

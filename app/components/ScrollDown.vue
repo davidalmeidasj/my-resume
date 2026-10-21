@@ -3,36 +3,48 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div
-    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted animate-bounce"
-    role="presentation"
-    aria-hidden="true"
-  >
-    <svg
-      class="w-6 h-6 text-accent2 mb-1"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-    <span class="text-xs tracking-wide uppercase">{{ t('hero.scrollDown') }}</span>
+  <div class="cue" role="presentation" aria-hidden="true">
+    <span>{{ t('hero.scrollDown') }}</span>
+    <span class="cue__line" />
   </div>
 </template>
 
 <style scoped>
-.animate-bounce {
-  animation: bounce 2s infinite;
+.cue {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--edge) + 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  transform: translateX(-50%);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--season-soft);
+  white-space: nowrap;
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0) translateX(-50%);
+.cue__line {
+  width: 1.5px;
+  height: 2.5rem;
+  background: currentColor;
+  transform-origin: top;
+  animation: cue 2400ms var(--ease-out) 1200ms both;
+}
+
+@keyframes cue {
+  from {
+    transform: scaleY(0);
   }
-  50% {
-    transform: translateY(6px) translateX(-50%);
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-height: 640px) {
+  .cue {
+    display: none;
   }
 }
 </style>
