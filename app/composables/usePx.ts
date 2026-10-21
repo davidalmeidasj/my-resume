@@ -1,7 +1,7 @@
 export const PX_SECTIONS = ['home', 'about', 'services', 'projects', 'skills', 'contact'] as const
 export type PxSection = (typeof PX_SECTIONS)[number]
 
-export const NAV_FOR_SECTION: Record<PxSection, string> = {
+export const PX_NAV_FOR_SECTION: Record<PxSection, string> = {
   home: 'home',
   about: 'about',
   services: 'about',

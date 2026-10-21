@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { LOCALES, type Locale } from '@/config/site'
-import { NAV_FOR_SECTION } from '@/composables/usePx'
+import { PX_NAV_FOR_SECTION } from '@/composables/usePx'
 
 const { locale, t } = useI18n()
 const switchLocale = useLocaleSwitch()
@@ -9,7 +9,7 @@ const mobileMenuOpen = usePxMenu()
 
 const SECTIONS = ['home', 'about', 'projects', 'contact'] as const
 
-const current = computed(() => NAV_FOR_SECTION[active.value])
+const current = computed(() => PX_NAV_FOR_SECTION[active.value])
 
 const links = ref<HTMLAnchorElement[]>([])
 const marker = reactive({ x: 0, width: 0, ready: false })
