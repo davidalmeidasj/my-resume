@@ -10,9 +10,9 @@ describe('seasons', () => {
     for (const season of SEASONS) expect(SECTION_SEASON[SEASON_ENTRY[season]]).toBe(season)
   })
 
-  it('walks the year in order before contact closes the cycle', () => {
+  it('walks the year in order and ends in winter', () => {
     const order = SECTION_ORDER.map((section) => SECTION_SEASON[section])
-    expect(order).toEqual(['spring', 'summer', 'summer', 'autumn', 'winter', 'spring'])
+    expect(order).toEqual(['spring', 'summer', 'summer', 'autumn', 'winter', 'winter'])
   })
 
   it('names every season in every locale', () => {

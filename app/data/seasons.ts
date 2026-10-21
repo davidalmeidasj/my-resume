@@ -8,7 +8,7 @@ export const SECTION_SEASON = {
   skills: 'summer',
   about: 'autumn',
   projects: 'winter',
-  contact: 'spring',
+  contact: 'winter',
 } as const satisfies Record<string, Season>
 
 export type SeasonSection = keyof typeof SECTION_SEASON
@@ -23,8 +23,8 @@ export const SEASON_ENTRY: Record<Season, SeasonSection> = {
 }
 
 export const SEASON_COLOR: Record<Season, string> = {
-  spring: '#1EAE38',
-  summer: '#FFB400',
-  autumn: '#D84A05',
-  winter: '#74B3CE',
+  spring: '#F598AC',
+  summer: '#1E8246',
+  autumn: '#F5832F',
+  winter: '#AABED2',
 }

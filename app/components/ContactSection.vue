@@ -12,11 +12,9 @@ const socials = [
 </script>
 
 <template>
-  <section id="contact" class="season season--spring">
-    <SeasonEdge season="spring" />
+  <section id="contact" class="season season--winter contact-season">
     <div class="contact season__wrap">
       <div class="contact__intro">
-        <SeasonMark season="spring" />
         <h2 v-arrive class="season-heading contact__heading">
           {{ t('contact.title') }}
         </h2>
@@ -87,14 +85,17 @@ const socials = [
 </template>
 
 <style scoped>
+.contact-season {
+  padding-top: 2rem;
+}
+
 .contact {
   display: grid;
   gap: 3rem;
 }
 
 .contact__heading {
-  margin-top: 1rem;
-  color: var(--color-brand-forest);
+  color: var(--season-accent);
 }
 
 .contact__socials {
@@ -118,7 +119,7 @@ const socials = [
 .social__icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--color-brand-forest);
+  color: var(--season-accent);
 }
 
 .social__arrow {
@@ -156,23 +157,23 @@ const socials = [
   min-height: 3.25rem;
   padding: 0.75rem 1rem;
   border-radius: 0.875rem;
-  border: 1.5px solid rgb(44 26 29 / 0.4);
+  border: 1.5px solid rgb(62 71 86 / 0.45);
   background: #ffffff;
   font-size: 1rem;
-  color: var(--color-brand-burgundy);
+  color: var(--color-winter-slate);
   transition:
     border-color 240ms var(--ease-out),
     box-shadow 240ms var(--ease-out);
 }
 
 .field__input:hover {
-  border-color: var(--color-brand-burgundy);
+  border-color: var(--color-winter-slate);
 }
 
 .field__input:focus-visible {
   outline: none;
-  border-color: var(--color-brand-forest);
-  box-shadow: 0 0 0 3px rgb(37 100 43 / 0.3);
+  border-color: var(--season-accent);
+  box-shadow: 0 0 0 3px rgb(79 106 134 / 0.3);
 }
 
 .field__input--area {
