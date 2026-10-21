@@ -1,27 +1,28 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{vue,js,ts}'],
   theme: {
     extend: {
       colors: {
-        primary: '#606C38',         // Dark Olive Green
-        'primary-dark': '#C2185B',  // (Consider updating this — it doesn’t match the new palette)
-        background: '#F9FAFB',      // Consider replacing with `light`
-        surface: '#FFFFFF',
-        muted: '#6B7280',
-        dark: '#1F2937',
-        secondary: '#283618',       // Very Dark Green
-        light: '#FEFAE0',           // Light Cream
-        accent1: '#DDA15E',         // Warm Beige
-        accent2: '#BC6C25',         // Burnt Orange
+        brand: {
+          sky: '#74B3CE',
+          sun: '#FFB400',
+          autumn: '#D84A05',
+          burgundy: '#2C1A1D',
+          forest: '#25642B',
+          growth: '#1EAE38',
+        },
+        paper: '#F6F5F0',
+        snow: '#EAF2F6',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
-      }
-    }
+        sans: ['Figtree', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 }
 
 export default config
